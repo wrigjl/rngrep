@@ -1,0 +1,11 @@
+name,version,bucket,emit_kind,evidence
+bitcoin-random,0.1.21,ffi_sys_const,inline_asm,src/rd_rand.rs asm!(...rd...)
+cocoon-tpm-crypto,0.1.3,other_REVIEW,inline_asm,src/pure_rust/rng/x86_64_rdseed.rs asm!(...rd...)
+core_arch,0.1.5,MACRO_CANDIDATE,intrinsic,"src/x86/rdrand.rs:9 fn x86_rdrand16_step() -> (u16, i32);"
+coresimd,0.1.2,MACRO_CANDIDATE,intrinsic,"src/coresimd/x86/rdrand.rs:6 fn x86_rdrand16_step() -> (u16, i32);"
+hyper-thread-random,0.4.2,feature_detect,intrinsic,"src/generate_hyper_thread_safe_random_u16.rs:10 generate!(u16, ::std::arch::x86::_rdrand16_step)"
+lcpfs,2026.1.102,feature_detect,inline_asm,src/arch/x86_64.rs asm!(...rd...)
+mbedtls,0.13.5,feature_detect,intrinsic+use_alias,"src/rng/rdrand.rs:15 use core::arch::x86_64::{_rdrand32_step as _rdrand_step, _rdseed32_step as _rdse"
+mbedtls-smx,0.13.9,feature_detect,intrinsic+use_alias,"src/rng/rdrand.rs:15 use core::arch::x86_64::{_rdrand32_step as _rdrand_step, _rdseed32_step as _rdse"
+nanorand,0.8.0,doc_comment,intrinsic+use_alias,src/entropy.rs:72 use core::arch::x86::_rdseed64_step as rdseed;
+virtfw-libhw,0.5.0,disasm_table,inline_asm,src/x86cpuid.rs asm!(...rd...)

@@ -1,0 +1,15 @@
+# Pinned toolchain for the whole rust-study pipeline.
+#
+# Emitted machine code is compiler-version-sensitive, so the binary-
+# verification pass (binary-plan.md) requires an identical rustc on every
+# build host. Pinning here makes rustup auto-select 1.95.0 in this
+# directory on both the dev host (aarch64-apple-darwin) and the kiriko
+# native-amd64 build host, rather than relying on each host's default
+# (kiriko defaults to nightly for cargo-expand).
+#
+# 1.95.0 is stable and matches how crates are built in the wild. The
+# recall/macro pass that needs nightly (cargo expand) must override
+# explicitly: `cargo +nightly expand ...`.
+[toolchain]
+channel = "1.95.0"
+targets = ["x86_64-unknown-linux-gnu", "x86_64-fortanix-unknown-sgx"]

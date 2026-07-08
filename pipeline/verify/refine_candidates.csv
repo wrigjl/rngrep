@@ -1,0 +1,15 @@
+name,version,category,mode
+vektor,0.2.2,compile_time,nightly
+x64,0.16.2,unconditional,nightly
+x86_64,0.15.4,unconditional,nightly
+swiss-army-knife,0.0.37,unconditional,nightly
+ostd,0.17.2,out_of_scope,nightly
+sallyport,0.6.3,out_of_scope,nightly
+libhermit-rs,0.6.3,out_of_scope,nightly
+nanorand,0.8.0,unconditional,allfeat
+safe_arch,1.0.0,unconditional,allfeat
+mc-rand,1.1.0,unconditional,allfeat
+virtfw-libhw,0.5.0,unconditional,allfeat
+concrete-csprng,0.4.1,compile_time,allfeat
+hyper-thread-random,0.4.2,compile_time,allfeat
+winit-gfx-hal,0.0.0,unconditional,allfeat

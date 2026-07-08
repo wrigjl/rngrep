@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+title: >-
+  rngrep: hardware-entropy instruction prevalence pipeline and dataset for
+  the Rust crate ecosystem
+message: >-
+  If you use this software or dataset, please cite both the artifact and the
+  accompanying paper.
+type: software
+authors:
+  - given-names: Jason
+    name-particle: L.
+    family-names: Wright
+    affiliation: Idaho State University
+    email: jason@thought.net
+repository-code: https://github.com/wrigjl/rngrep
+abstract: >-
+  rngrep statically analyses every non-yanked crate on crates.io for use of
+  hardware-entropy instructions -- x86 RDRAND/RDSEED and AArch64 RNDR/RNDRRS --
+  classifies each call site by whether the CPUID/feature-detection gate is
+  present, runtime, compile-time, or build-config exposed, and computes the
+  reverse-dependency closure of the compile-time population. It ships the
+  pipeline, the derived dataset, and a corpus manifest pinned to a crates.io
+  db-dump snapshot for full reproducibility.
+keywords:
+  - mining software repositories
+  - Rust
+  - crates.io
+  - hardware entropy
+  - RDRAND
+  - RNDR
+  - static analysis
+  - record and replay
+license: MIT

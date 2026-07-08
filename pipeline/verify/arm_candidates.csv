@@ -1,0 +1,6 @@
+name,version,category
+getrandom,0.4.2,compile_time
+aarch64-cpu,11.2.0,unconditional
+cortex-a,8.1.1,unconditional
+armv8,0.0.1,unconditional
+lcpfs,2026.1.102,unconditional

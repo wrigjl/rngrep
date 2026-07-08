@@ -1,0 +1,12 @@
+name,version,category,config,build,rndr,rndrrs,notes
+getrandom,0.4.2,compile_time,default,ok,0,0,
+getrandom,0.4.2,compile_time,rand,ok,0,0,
+getrandom,0.4.2,compile_time,backend,ok,15,0,
+aarch64-cpu,11.2.0,unconditional,default,ok,0,0,
+aarch64-cpu,11.2.0,unconditional,rand,ok,0,0,
+cortex-a,8.1.1,unconditional,default,fail-lib,0,0,error[E0554]: `#![feature]` may not be used on the stable release chan
+cortex-a,8.1.1,unconditional,rand,fail-lib,0,0,error[E0554]: `#![feature]` may not be used on the stable release chan
+armv8,0.0.1,unconditional,default,ok,1,1,
+armv8,0.0.1,unconditional,rand,ok,2,2,
+lcpfs,2026.1.102,unconditional,default,ok,93,1,
+lcpfs,2026.1.102,unconditional,rand,ok,186,2,

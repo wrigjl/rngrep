@@ -1,0 +1,21 @@
+Dataset license: Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+The derived dataset in this repository -- the classification and closure
+outputs under results/ (crates.csv, callsites.csv, arm_crates.csv,
+arm_callsites.csv, closure*.csv, verify*.csv, audit*, and manifest.csv.gz) --
+is licensed under CC BY 4.0.
+
+You are free to share and adapt the dataset for any purpose, provided you give
+appropriate credit (cite the accompanying paper / this artifact's DOI).
+
+Full legal text: https://creativecommons.org/licenses/by/4.0/legalcode
+Summary:         https://creativecommons.org/licenses/by/4.0/
+
+The pipeline source code (pipeline/, reproduce.sh) is licensed separately under
+the MIT License; see LICENSE.
+
+The dataset is derived from public crates.io package sources and the crates.io
+database dump (https://crates.io/data-access), which are themselves published
+by their respective authors under their own licenses. This dataset records
+metadata and static-analysis results about those packages; it does not
+redistribute their source.

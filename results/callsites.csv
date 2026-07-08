@@ -1,0 +1,120 @@
+name,version,file,line,kind,detail,cfg_gates,in_test_or_bench,runtime_gated,compile_gate_present,target_feature_attr,is_out_of_scope,out_of_scope_reason,category
+safe_arch,1.0.0,src/x86_x64/rdrand.rs,13,intrinsic,_rdrand16_step,,false,false,false,false,false,,unconditional
+safe_arch,1.0.0,src/x86_x64/rdrand.rs,24,intrinsic,_rdrand32_step,,false,false,false,false,false,,unconditional
+safe_arch,1.0.0,src/x86_x64/rdrand.rs,36,intrinsic,_rdrand64_step,"# [cfg (target_arch = ""x86_64"")]",false,false,false,false,false,,unconditional
+safe_arch,1.0.0,src/x86_x64/rdseed.rs,13,intrinsic,_rdseed16_step,,false,false,false,false,false,,unconditional
+safe_arch,1.0.0,src/x86_x64/rdseed.rs,24,intrinsic,_rdseed32_step,,false,false,false,false,false,,unconditional
+safe_arch,1.0.0,src/x86_x64/rdseed.rs,36,intrinsic,_rdseed64_step,"# [cfg (target_arch = ""x86_64"")]",false,false,false,false,false,,unconditional
+virtfw-libhw,0.5.0,src/x86cpuid.rs,69,inline_asm,rdrand,,false,false,false,false,false,,unconditional
+Nuclide,0.3.0,src/rng.rs,26,intrinsic,_rdrand64_step,,false,true,false,false,false,,runtime
+sallyport,0.6.3,src/guest/call/syscall/stub.rs,137,intrinsic,_rdrand64_step,,false,false,false,false,true,sgx,out_of_scope
+number-theory,0.0.26,src/primitive/eightbytes.rs,21,intrinsic,_rdrand64_step,,false,true,false,false,false,,runtime
+enarx-shim-sgx,0.6.3,src/entry.rs,27,intrinsic,_rdrand64_step,,false,false,false,false,true,sgx,out_of_scope
+enarx-shim-kvm,0.6.3,src/random.rs,10,intrinsic,_rdrand64_step,,false,false,false,false,true,sgx,out_of_scope
+enclave,0.1.4,src/rand.rs,15,inline_asm,rdrand,,false,false,false,false,true,sgx,out_of_scope
+ciphern,0.2.1,src/random/hardware.rs,124,intrinsic,_rdrand64_step,"# [cfg (any (target_arch = ""x86"" , target_arch = ""x86_64""))]",false,false,false,false,false,,unconditional
+ciphern,0.2.1,src/random/hardware.rs,163,intrinsic,_rdseed64_step,"# [cfg (any (target_arch = ""x86"" , target_arch = ""x86_64""))]",false,false,false,false,false,,unconditional
+winit-gfx-hal,0.0.0,src/arch/rdrand.rs,14,intrinsic,_rdrand16_step,,false,false,false,false,false,,unconditional
+winit-gfx-hal,0.0.0,src/arch/rdrand.rs,30,intrinsic,_rdrand32_step,,false,false,false,false,false,,unconditional
+winit-gfx-hal,0.0.0,src/arch/rdrand.rs,46,intrinsic,_rdrand64_step,"# [cfg (target_arch = ""x86_64"")]",false,false,false,false,false,,unconditional
+ort-openrouter-cli,0.4.7,src/syscall.rs,166,inline_asm,rdrand,,false,false,false,false,false,,unconditional
+ostd,0.17.2,src/arch/x86/mod.rs,162,intrinsic,_rdrand64_step,,false,false,false,false,true,kernel,out_of_scope
+x64,0.16.2,src/instructions/random.rs,28,intrinsic,_rdrand64_step,,false,false,false,false,false,,unconditional
+x64,0.16.2,src/instructions/random.rs,43,intrinsic,_rdrand32_step,,false,false,false,false,false,,unconditional
+x64,0.16.2,src/instructions/random.rs,58,intrinsic,_rdrand16_step,,false,false,false,false,false,,unconditional
+x86_64,0.15.4,src/instructions/random.rs,27,intrinsic,_rdrand64_step,,false,false,false,false,false,,unconditional
+x86_64,0.15.4,src/instructions/random.rs,42,intrinsic,_rdrand32_step,,false,false,false,false,false,,unconditional
+x86_64,0.15.4,src/instructions/random.rs,57,intrinsic,_rdrand16_step,,false,false,false,false,false,,unconditional
+x86,0.52.0,src/random.rs,25,intrinsic,_rdrand16_step,,false,false,false,false,false,,unconditional
+x86,0.52.0,src/random.rs,34,intrinsic,_rdrand32_step,,false,false,false,false,false,,unconditional
+x86,0.52.0,src/random.rs,44,intrinsic,_rdrand64_step,"# [cfg (target_arch = ""x86_64"")]",false,false,false,false,false,,unconditional
+x86,0.52.0,src/random.rs,120,intrinsic,_rdseed16_step,,false,false,false,false,false,,unconditional
+x86,0.52.0,src/random.rs,129,intrinsic,_rdseed32_step,,false,false,false,false,false,,unconditional
+x86,0.52.0,src/random.rs,139,intrinsic,_rdseed64_step,"# [cfg (target_arch = ""x86_64"")]",false,false,false,false,false,,unconditional
+typed_arch,0.1.1,src/x86/rdrand.rs,8,intrinsic,_rdrand16_step,,false,false,false,true,false,,compile_time
+typed_arch,0.1.1,src/x86/rdrand.rs,20,intrinsic,_rdrand32_step,,false,false,false,true,false,,compile_time
+typed_arch,0.1.1,src/x86/rdrand.rs,32,intrinsic,_rdseed16_step,,false,false,false,true,false,,compile_time
+typed_arch,0.1.1,src/x86/rdrand.rs,44,intrinsic,_rdrand32_step,,false,false,false,true,false,,compile_time
+typed_arch,0.1.1,src/x86_64/rdrand.rs,8,intrinsic,_rdrand64_step,,false,false,false,true,false,,compile_time
+typed_arch,0.1.1,src/x86_64/rdrand.rs,20,intrinsic,_rdseed64_step,,false,false,false,true,false,,compile_time
+simple_random_numbers,0.1.1,src/lib.rs,22,intrinsic,_rdrand64_step,,false,false,false,false,false,,unconditional
+simple_random_numbers,0.1.1,src/lib.rs,34,intrinsic,_rdrand64_step,,false,false,false,false,false,,unconditional
+simple_random_numbers,0.1.1,src/lib.rs,46,intrinsic,_rdseed64_step,,false,false,false,false,false,,unconditional
+simple_random_numbers,0.1.1,src/lib.rs,58,intrinsic,_rdseed64_step,,false,false,false,false,false,,unconditional
+cocoon-tpm-crypto,0.1.3,src/pure_rust/rng/x86_64_rdseed.rs,40,inline_asm,rdseed,,false,false,false,false,false,,unconditional
+nanorand,0.8.0,src/entropy.rs,77,intrinsic,alias:rdseed,"# [cfg (feature = ""rdseed"")];# [cfg (any (target_arch = ""x86"" , target_arch = ""x86_64""))]",false,false,false,false,false,,unconditional
+nanorand,0.8.0,src/entropy.rs,130,intrinsic,alias:rdseed,"# [cfg (feature = ""std"")]",false,false,false,false,false,,unconditional
+freertos-std,0.0.1,src/sys/sgx/mod.rs,152,intrinsic,_rdrand64_step,,false,false,false,false,true,sgx,out_of_scope
+rdrand,0.8.3,src/lib.rs,115,intrinsic,_rdrand32_step,"# [cfg (target_arch = ""x86"")]",false,false,false,false,false,,unconditional
+rdrand,0.8.3,src/lib.rs,124,intrinsic,_rdseed32_step,"# [cfg (target_arch = ""x86"")]",false,false,false,false,false,,unconditional
+rdrand,0.8.3,src/lib.rs,464,intrinsic,_rdrand16_step,,false,false,false,false,false,,unconditional
+rdrand,0.8.3,src/lib.rs,465,intrinsic,_rdrand32_step,,false,false,false,false,false,,unconditional
+rdrand,0.8.3,src/lib.rs,466,intrinsic,_rdrand64_step,,false,false,false,false,false,,unconditional
+rdrand,0.8.3,src/lib.rs,467,intrinsic,_rdrand64_step,,false,false,false,false,false,,unconditional
+rdrand,0.8.3,src/lib.rs,474,intrinsic,_rdseed16_step,,false,false,false,false,false,,unconditional
+rdrand,0.8.3,src/lib.rs,475,intrinsic,_rdseed32_step,,false,false,false,false,false,,unconditional
+rdrand,0.8.3,src/lib.rs,476,intrinsic,_rdseed64_step,,false,false,false,false,false,,unconditional
+rdrand,0.8.3,src/lib.rs,477,intrinsic,_rdseed64_step,,false,false,false,false,false,,unconditional
+rdrand,0.8.3,src/lib.rs,484,intrinsic,_rdrand16_step,,false,false,false,false,false,,unconditional
+rdrand,0.8.3,src/lib.rs,485,intrinsic,_rdrand32_step,,false,false,false,false,false,,unconditional
+rdrand,0.8.3,src/lib.rs,486,intrinsic,_rdrand64_step,,false,false,false,false,false,,unconditional
+rdrand,0.8.3,src/lib.rs,487,intrinsic,_rdrand32_step,,false,false,false,false,false,,unconditional
+rdrand,0.8.3,src/lib.rs,494,intrinsic,_rdseed16_step,,false,false,false,false,false,,unconditional
+rdrand,0.8.3,src/lib.rs,495,intrinsic,_rdseed32_step,,false,false,false,false,false,,unconditional
+rdrand,0.8.3,src/lib.rs,496,intrinsic,_rdseed64_step,,false,false,false,false,false,,unconditional
+rdrand,0.8.3,src/lib.rs,497,intrinsic,_rdseed32_step,,false,false,false,false,false,,unconditional
+bitcoin-random,0.1.21,src/rd_rand.rs,32,inline_asm,rdrand,# [cfg (have_getcpuid)],false,false,false,false,false,,unconditional
+bitcoin-random,0.1.21,src/rd_rand.rs,41,inline_asm,rdrand,# [cfg (have_getcpuid)],false,false,false,false,false,,unconditional
+bitcoin-random,0.1.21,src/rd_rand.rs,63,inline_asm,rdrand,# [cfg (have_getcpuid)],false,false,false,false,false,,unconditional
+bitcoin-random,0.1.21,src/rd_seed.rs,26,inline_asm,rdseed,# [cfg (have_getcpuid)],false,false,false,false,false,,unconditional
+bitcoin-random,0.1.21,src/rd_seed.rs,36,inline_asm,rdseed,# [cfg (have_getcpuid)],false,false,false,false,false,,unconditional
+bitcoin-random,0.1.21,src/rd_seed.rs,53,inline_asm,rdseed,# [cfg (have_getcpuid)],false,false,false,false,false,,unconditional
+getrandom,0.4.2,src/backends/rdrand.rs,39,intrinsic,alias:rdrand_step,,false,false,false,true,false,,compile_time
+urng,0.4.6,src/seedgen.rs,238,intrinsic,_rdseed32_step,"# [cfg (any (target_arch = ""x86"" , target_arch = ""x86_64""))]",false,false,false,false,false,,unconditional
+urng,0.4.6,src/seedgen.rs,249,intrinsic,_rdrand32_step,"# [cfg (any (target_arch = ""x86"" , target_arch = ""x86_64""))]",false,false,false,false,false,,unconditional
+urng,0.4.6,src/seedgen.rs,260,intrinsic,_rdseed64_step,"# [cfg (target_arch = ""x86_64"")]",false,false,false,false,false,,unconditional
+urng,0.4.6,src/seedgen.rs,271,intrinsic,_rdrand64_step,"# [cfg (target_arch = ""x86_64"")]",false,false,false,false,false,,unconditional
+rialo-tee-secret-sharing,0.4.1,src/hw_rng.rs,49,intrinsic,_rdseed64_step,"# [cfg (target_arch = ""x86_64"")]",false,false,false,false,true,tee,out_of_scope
+rialo-tee-secret-sharing,0.4.1,src/hw_rng.rs,60,intrinsic,_rdrand64_step,"# [cfg (target_arch = ""x86_64"")]",false,false,false,false,true,tee,out_of_scope
+vektor,0.2.2,src/x86/rdrand.rs,15,intrinsic,_rdrand16_step,,false,false,false,true,false,,compile_time
+vektor,0.2.2,src/x86/rdrand.rs,25,intrinsic,_rdrand32_step,,false,false,false,true,false,,compile_time
+vektor,0.2.2,src/x86/rdrand.rs,34,intrinsic,_rdseed16_step,,false,false,false,true,false,,compile_time
+vektor,0.2.2,src/x86/rdrand.rs,43,intrinsic,_rdseed32_step,,false,false,false,true,false,,compile_time
+vektor,0.2.2,src/x86_64/rdrand.rs,15,intrinsic,_rdrand64_step,,false,false,false,true,false,,compile_time
+vektor,0.2.2,src/x86_64/rdrand.rs,24,intrinsic,_rdseed64_step,,false,false,false,true,false,,compile_time
+rmath,0.1.5,src/rand/default_rand_amd64.rs,23,intrinsic,_rdrand32_step,,false,false,false,true,false,,compile_time
+rmath,0.1.5,src/rand/default_rand_amd64.rs,45,intrinsic,_rdrand64_step,"# [cfg (target_arch = ""x86_64"")]",false,false,false,true,false,,compile_time
+rmath,0.1.5,src/rand/default_seed_amd64.rs,25,intrinsic,_rdseed32_step,,false,false,false,true,false,,compile_time
+rmath,0.1.5,src/rand/default_seed_amd64.rs,49,intrinsic,_rdseed64_step,"# [cfg (target_arch = ""x86_64"")]",false,false,false,true,false,,compile_time
+concrete-csprng,0.4.1,src/seeders/implem/rdseed.rs,27,intrinsic,_rdseed64_step,,false,false,false,true,false,,compile_time
+concrete-csprng,0.4.1,src/seeders/implem/rdseed.rs,32,intrinsic,_rdseed64_step,,false,false,false,true,false,,compile_time
+rusty-hermit,0.3.54,src/arch/x86_64/kernel/processor.rs,883,intrinsic,_rdrand32_step,,false,false,false,false,true,kernel,out_of_scope
+rusty-hermit,0.3.54,src/arch/x86_64/kernel/processor.rs,898,intrinsic,_rdrand64_step,,false,false,false,false,true,kernel,out_of_scope
+swiss-army-knife,0.0.37,src/random/fast_slightly_insecure_random_u16.rs,14,intrinsic,_rdrand16_step,,false,false,false,false,false,,unconditional
+swiss-army-knife,0.0.37,src/random/fast_slightly_insecure_random_u32.rs,14,intrinsic,_rdrand32_step,,false,false,false,false,false,,unconditional
+swiss-army-knife,0.0.37,src/random/fast_slightly_insecure_random_u64.rs,14,intrinsic,_rdrand64_step,,false,false,false,false,false,,unconditional
+tfhe-csprng,0.9.0,src/seeders/implem/rdseed.rs,43,intrinsic,_rdseed64_step,,false,false,false,true,false,,compile_time
+tfhe-csprng,0.9.0,src/seeders/implem/rdseed.rs,48,intrinsic,_rdseed64_step,,false,false,false,true,false,,compile_time
+hyper-thread-random,0.4.2,src/generate_hyper_thread_safe_random_u16.rs,10,intrinsic,_rdrand16_step,"# [cfg (all (target_arch = ""x86"" , target_feature = ""rdrand""))]",false,false,true,false,false,,compile_time
+hyper-thread-random,0.4.2,src/generate_hyper_thread_safe_random_u16.rs,18,intrinsic,_rdrand16_step,"# [cfg (all (target_arch = ""x86_64"" , target_feature = ""rdrand""))]",false,false,true,false,false,,compile_time
+hyper-thread-random,0.4.2,src/generate_hyper_thread_safe_random_u32.rs,10,intrinsic,_rdrand32_step,"# [cfg (all (target_arch = ""x86"" , target_feature = ""rdrand""))]",false,false,true,false,false,,compile_time
+hyper-thread-random,0.4.2,src/generate_hyper_thread_safe_random_u32.rs,18,intrinsic,_rdrand32_step,"# [cfg (all (target_arch = ""x86_64"" , target_feature = ""rdrand""))]",false,false,true,false,false,,compile_time
+hyper-thread-random,0.4.2,src/generate_hyper_thread_safe_random_u64.rs,10,intrinsic,_rdrand64_step,"# [cfg (all (target_arch = ""x86"" , target_feature = ""rdrand""))]",false,false,true,false,false,,compile_time
+hyper-thread-random,0.4.2,src/generate_hyper_thread_safe_random_u64.rs,18,intrinsic,_rdrand64_step,"# [cfg (all (target_arch = ""x86_64"" , target_feature = ""rdrand""))]",false,false,true,false,false,,compile_time
+lcpfs,2026.1.102,src/arch/x86_64.rs,38,inline_asm,rdrand,,false,false,false,false,false,,unconditional
+lcpfs,2026.1.102,src/arch/x86_64.rs,91,inline_asm,rdseed,,false,false,false,false,false,,unconditional
+hoba,0.5.1,src/lib.rs,260,intrinsic,_rdrand64_step,"# [cfg (all (feature = ""whiten"" , target_arch = ""x86_64""))]",false,true,false,false,false,,runtime
+irox-arch-x86-64,0.1.2,src/rand.rs,12,intrinsic,_rdrand64_step,,false,false,false,false,false,,unconditional
+irox-arch-x86-64,0.1.2,src/rand.rs,19,intrinsic,_rdrand32_step,,false,false,false,false,false,,unconditional
+irox-arch-x86-64,0.1.2,src/rand.rs,25,intrinsic,_rdseed32_step,,false,false,false,false,false,,unconditional
+irox-arch-x86-64,0.1.2,src/rand.rs,31,intrinsic,_rdseed64_step,,false,false,false,false,false,,unconditional
+libhermit-rs,0.6.3,src/arch/x86_64/kernel/processor.rs,911,intrinsic,_rdseed64_step,,false,false,false,false,true,kernel,out_of_scope
+lokacore,0.3.0,src/arch/rdrand.rs,18,intrinsic,_rdrand16_step,,false,false,false,false,false,,unconditional
+lokacore,0.3.0,src/arch/rdrand.rs,37,intrinsic,_rdrand32_step,,false,false,false,false,false,,unconditional
+lokacore,0.3.0,src/arch/rdrand.rs,56,intrinsic,_rdrand64_step,"# [cfg (target_arch = ""x86_64"")]",false,false,false,false,false,,unconditional
+mbedtls,0.13.5,src/rng/rdrand.rs,47,intrinsic,alias:_rdrand_step,,false,false,false,false,false,,unconditional
+mbedtls,0.13.5,src/rng/rdrand.rs,51,intrinsic,alias:_rdseed_step,,false,false,false,false,false,,unconditional
+mbedtls-smx,0.13.9,src/rng/rdrand.rs,47,intrinsic,alias:_rdrand_step,,false,false,false,false,false,,unconditional
+mbedtls-smx,0.13.9,src/rng/rdrand.rs,51,intrinsic,alias:_rdseed_step,,false,false,false,false,false,,unconditional
+mc-rand,1.1.0,src/rdrandrng/retry.rs,21,intrinsic,_rdrand32_step,,false,false,false,false,false,,unconditional
+mc-rand,1.1.0,src/rdrandrng/retry.rs,38,intrinsic,_rdrand64_step,"# [cfg (target_arch = ""x86_64"")]",false,false,false,false,false,,unconditional

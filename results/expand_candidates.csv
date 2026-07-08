@@ -1,0 +1,187 @@
+name,version,n_rs_strict,bucket,first_snippet
+core_arch,0.1.5,4,MACRO_CANDIDATE,mod rdrand;
+core_detect,1.0.0,4,MACRO_CANDIDATE,"/// * `""rdrand""`"
+coresimd,0.1.2,4,MACRO_CANDIDATE,mod rdrand;
+leptos-pretty,1.0.1,4,MACRO_CANDIDATE,"/// * `""rdrand""`"
+notstd_detect,0.6.0,3,MACRO_CANDIDATE,"/// * `""rdrand""`"
+pulp,0.22.2,3,MACRO_CANDIDATE,"(""rdrand"") => { $crate::core_arch::x86::rdrand };"
+rustfmt-nightly,1.4.20,4,MACRO_CANDIDATE,"/// * `""rdrand""`"
+rustfmt_lib,1.0.0,4,MACRO_CANDIDATE,"/// * `""rdrand""`"
+std_detect,0.1.5,3,MACRO_CANDIDATE,"/// * `""rdrand""`"
+stdsimd,0.1.2,3,MACRO_CANDIDATE,"/// * `""rdrand""`"
+cocoon-tpm-crypto,0.1.3,2,other_REVIEW,"#[cfg(all(feature = ""enable_x86_64_rdseed"", target_arch = ""x86_64""))]"
+concrete-core,1.0.2,1,other_REVIEW,"#[cfg(feature = ""seeder_x86_64_rdseed"")]"
+core_collections,0.3.20170409,1,other_REVIEW,"#[cfg_attr(feature=""rdrand"",derive(clone))]"
+cpuid_dump_rs,0.1.2,1,other_REVIEW,"ftr[30] = ""rdrand"";"
+em-app,0.5.2,3,other_REVIEW,pub use mbedtls::rng::rdrand as ftxrng;
+fast-rustc-ap-rustc_target,1.0.0,2,other_REVIEW,"features: ""+rdrnd,+rdseed"".into(),"
+libwhp,0.1.3,1,other_REVIEW,"rdrandsupport set_rdrandsupport[21..22],"
+linux-info,0.1.16,1,other_REVIEW,flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm const
+llvm_build_utils,0.3.0,1,other_REVIEW,"build_archive_kind(archivekind::gnu, ""librand.a"", &[(""tests/rdrand.ll"", buildoptions {"
+lmssh,0.1.0,1,other_REVIEW,"content: ""processor\t: 0\nvendor_id\t: authenticamd\ncpu family\t: 25\nmodel\t\t: 17\nmodel name\t: amd epyc 9754 128-core processor\nstepping\t: 1\nmicrocode\t"
+lpfs,0.2.0,1,other_REVIEW,flags           : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdt
+minidump-writer,0.12.0,1,other_REVIEW,"features, 62, /*rdrand*/"
+msiz_rustc-ap-rustc_target,3.0.0,1,other_REVIEW,"features: ""+rdrnd,+rdseed"".into(),"
+proc-cpuinfo,0.2.0,1,other_REVIEW,flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm co
+range-set-blaze,0.5.0,1,other_REVIEW,"""rdrand"","
+rsys,0.5.5,1,other_REVIEW,flags       : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm 
+rust-target-feature-data,0.1.1,1,other_REVIEW,"""rdrand"","
+rustc-ap-rustc_target,727.0.0,2,other_REVIEW,"features: ""+rdrnd,+rdseed,+lvi-cfi,+lvi-load-hardening"".into(),"
+sgx_trts,1.1.1,2,other_REVIEW,"(""rdrand"") => {"
+target,2.1.0,1,other_REVIEW,"""rdrand"","
+target-spec,3.6.0,1,other_REVIEW,"""aes"", ""avx"", ""avx2"", ""bmi1"", ""bmi2"", ""fma"", ""rdrand"", ""sha"", ""sse"", ""sse2"", ""sse3"","
+typed_cfg,0.0.1,1,other_REVIEW,"target_feature = { ""avx"", ""avx2"", ""crt-static"", ""rdrand"", ""sse"", ""sse2"", ""sse4.1"" },"
+xlang_targets,0.1.0,1,other_REVIEW,"const_sv!(""rdrand""),"
+zigcli,0.1.0,1,other_REVIEW,"""rdrand"" => ""rdrnd"".to_string(),"
+archmage,0.9.23,1,feature_detect,"feat!(""rdrand"", ""hardware random number generator"");"
+astd,0.0.1,1,feature_detect,"println!(""rdrand: {:?}"", is_x86_feature_detected!(""rdrand""));"
+cargo-sonic,0.2.0,4,feature_detect,out.insert(feature::rdrand);
+cpufeatures,0.3.0,1,feature_detect,"(""rdrand"", """", 0, ecx, 30),"
+cpuinfo-rs,0.7.0,3,feature_detect,"pub rdrand: bool,"
+cypheron-core,0.1.2,2,feature_detect,"pub has_rdrand: bool,"
+dpdk-unix,0.3.0,1,feature_detect,"#[cfg(target_feature = ""rdrand"")]"
+hyper-thread-random,0.4.2,5,feature_detect,"#[cfg(all(any(target_arch = ""x86"", target_arch = ""x86_64""), target_feature = ""rdrand""))]"
+lcpfs,2026.1.102,7,feature_detect,pub fn has_rdrand() -> bool {
+libcrux-platform,0.0.3,2,feature_detect,"eprintln!(""rdrand\t\t{:?}"", supported(feature::rdrand));"
+linux-support,0.0.25,3,feature_detect,"// properly `target_feature = ""rdrand""`, but not correctly encoded by rust."
+linux-support-common,0.0.0,1,feature_detect,"#[cfg(target_feature = ""rdrand"")]"
+mbedtls,0.13.5,6,feature_detect,"#[cfg(any(feature = ""rdrand"", target_env = ""sgx"", target_env = ""fortanixvme""))]"
+mbedtls-smx,0.13.9,6,feature_detect,"#[cfg(any(feature = ""rdrand"", target_env = ""sgx""))]"
+raw-cpuid,11.6.0,7,feature_detect,if finfo.has_rdrand() {
+rustls-mbedcrypto-provider,0.1.1,1,feature_detect,"#[cfg(not(any(target_env = ""sgx"", feature = ""rdrand"")))]"
+simd-runtime-check-x64,0.1.0,1,feature_detect,pub fn has_rdseed() -> bool {
+sosistab2-obfsws,0.3.1,1,feature_detect,"if cfg!(target_feature=""rdrand"") {"
+sosistab3-obfsws,0.4.0,1,feature_detect,"if cfg!(target_feature=""rdrand"") {"
+whpx,0.1.0,1,feature_detect,"pub rdrand:bool,"
+arkhe-subset-rust-check,0.13.0,1,downstream_use,"""rdrand::rdrand"","
+crt0stack,0.1.0,1,downstream_use,x86_64::instructions::random::rdrand::new()
+crypto-wallet-gen,2.3.0,1,downstream_use,"use rdrand::{rdrand, rdseed};"
+libertyos_kernel,0.17.5,1,downstream_use,use x86_64::instructions::random::rdrand;
+moros,0.12.0,1,downstream_use,use x86_64::instructions::random::rdrand;
+radiate-core,1.2.22,3,downstream_use,"use crate::{rdrand, random_provider};"
+radiate-gp,1.2.22,1,downstream_use,"use radiate_core::{rdrand, valid, random_provider};"
+sev,7.1.0,3,downstream_use,use rdrand::errorcode;
+sgx-keyreq,0.2.1,1,downstream_use,//! # use rdrand::rdrand;
+sgx_crypto_helper,1.1.0,2,downstream_use,extern crate rdrand;
+sgx_ucrypto,1.1.1,2,downstream_use,extern crate rdrand;
+tor-llcrypto,0.42.0,1,downstream_use,if let ok(mut rdrand) = rdrand::rdrand::new() {
+arch-ops,0.1.1,2,disasm_table,"(ivybridge, ""ivybridge"", [x87, mmx, fxsr, sse, sse2, sse3, ssse3, sse4, sse4_1, sse4_2, popcnt, cx8, cx16,sahf, avx, xsave, pclmul, fsgsbase, rdrand, f16c]),"
+asm-lsp,0.10.1,1,disasm_table,"rdrand,"
+asm-rs,0.1.1,3,disasm_table,"""rdrand"","
+asmdb,0.0.1,1,disasm_table,"""rdrand"","
+asmkit-rs,0.3.1,4,disasm_table,/// `rdrand`.
+bddisasm,0.4.2,3,disasm_table,"rdrand,"
+bin-cpuflags-x86,1.0.8,1,disasm_table,"""rdrand"","
+bootloader-x86_64-common,0.11.15,1,disasm_table,"use x86_64::instructions::{port::port, random::rdrand};"
+bracket-random,0.8.7,1,disasm_table,/// rdrand instruction failed due to a hardware issue.
+cpuid,0.1.1,1,disasm_table,"rdrand,"
+cpuidrs,0.1.0,2,disasm_table,"rdrand,"
+cupid,0.6.1,1,disasm_table,30 => rdrand
+dynasm,5.0.0,1,disasm_table,"""rdrand"" = ["
+ep-capstone,0.2.0,1,disasm_table,"rdrand,"
+hardware-query,0.2.1,1,disasm_table,"rdrand,"
+hddwiper,2.0.0,3,disasm_table,"/// disable rdrand generator. by default, if the cpu has rdrand, then hddwiper uses"
+hv,0.1.2,1,disasm_table,"rdrand = sys::vmx_reason_rdrand,"
+iced-x86,1.21.0,16,disasm_table,/// `rdrand r16`
+libvex,0.1.1,1,disasm_table,"amd64 => { avx, avx2, bmi, cx16, f16c, lzcnt, rdrand, rdseed, rdtscp, sse3, ssse3 }"
+mmrbi,0.0.20,1,disasm_table,"/// (avx, avx2, crt-static, rdrand, sse, sse2, sse4.1, ...)"
+moon-struct,0.1.0,2,disasm_table,/** vm-exit when executing rdrand instructions. */
+proptest,1.11.0,1,disasm_table,/// rdrand instruction on x86 machines.
+rsleigh-gen-x86,0.4.1,1,disasm_table,"# [doc = ""constructor at location(filespan(slaspec/x86/mpx.sinc, start:114:1, end:114:2))""] # [derive (clone , debug)] pub struct bndmov_instructionvar4400 { pu"
+rsleigh-gen-x86-32,0.4.1,1,disasm_table,"# [doc = ""constructor at location(filespan(slaspec/x86/pclmulqdq.sinc, start:33:1, end:33:2))""] # [derive (clone , debug)] pub struct pclmullqhqdq_instructionva"
+rustid,1.0.0,2,disasm_table,/// returns true if the cpu supports rdrand instruction.
+rusty-xed,0.1.1,2,disasm_table,"xed_iclass_rdrand => rdrand,"
+sgx_tseal,1.1.1,2,disasm_table,/// indicates a crypto library failure or the rdrand instruction fails to generate a
+sgx_types,1.1.2,1,disasm_table,// the processor supports rdseed instruction.
+silicon-monitor,1.3.1,2,disasm_table,"(""rdrand"", isacategory::crypto, ""rdrand"", ""hardware random number generator""),"
+siomon,0.2.3,3,disasm_table,f.rdrand = fi.has_rdrand();
+virtfw-libhw,0.5.0,1,disasm_table,/// returns true if the cpu supports rdrand instruction
+x86_vcpu,0.5.6,1,disasm_table,/// rdrand instruction was executed.
+x86asm,0.1.0,7,disasm_table,"mnemonic: mnemonic::rdrand,"
+yaxpeax-x86,2.0.0,12,disasm_table,"if self.rdrand() { write!(f, ""rdrand "")? }"
+zipora,3.1.7,1,disasm_table,"rdrand,"
+zydis-rs,0.1.6,4,disasm_table,/// rdrand instruction
+anacrolix-libc,0.2.151,1,ffi_sys_const,pub const av_386_2_rdrand: u32 = 0x00000002;
+android-cpufeatures-sys,2.0.0,1,ffi_sys_const,"android_cpu_x86_feature_rdrand = 128,"
+aocl-securerng-sys,0.1.0,1,ffi_sys_const,pub fn is_rdrand_supported() -> ::std::os::raw::c_int;
+aocl-utils-sys,0.1.0,1,ffi_sys_const,pub const alc_e_flag_rdrand: u32 = 29;
+autd3-link-soem,38.0.1,1,ffi_sys_const,pub const pf_rdrand_instruction_available: u32 = 28;
+aws-lc-fips-sys,0.13.14,3,ffi_sys_const,"""generated-src/mac-x86_64/crypto/fipsmodule/rdrand-x86_64.s"","
+aws-lc-sys,0.40.0,3,ffi_sys_const,"""generated-src/mac-x86_64/crypto/fipsmodule/rdrand-x86_64.s"","
+bayes,0.0.1,1,ffi_sys_const,pub const vsl_brng_rdrand: u32 = 0;
+beep-proto,0.0.2,1,ffi_sys_const,pub const openssl_init_engine_rdrand: u32 = 512;
+bitcoin-random,0.1.21,6,ffi_sys_const,if (ecx & cpuid_f1_ecx_rdrand) != 0 {
+bupstash,0.12.0,1,ffi_sys_const,pub fn sodium_runtime_has_rdrand() -> ::std::os::raw::c_int;
+capstone-sys,0.18.0,2,ffi_sys_const,"x86_ins_rdrand = 625,"
+capsule-ffi,0.1.5,1,ffi_sys_const,pub const rte_cpuflag_rdrand: type = 28;
+celik-sys,0.1.1,1,ffi_sys_const,pub const pf_rdrand_instruction_available: u32 = 28;
+cryptobox,0.1.0,1,ffi_sys_const,pub fn sodium_runtime_has_rdrand() -> ::std::os::raw::c_int;
+cu-sys,0.1.0,1,ffi_sys_const,pub const _glibcxx_x86_rdrand: ::std::os::raw::c_uint = 1;
+deepeedeekay-sys,0.1.0,1,ffi_sys_const,"#[doc = ""< rdrand""]"
+dpdk-sys,0.1.5,1,ffi_sys_const,"rte_cpuflag_rdrand = 28,"
+evercrypt-sys,0.0.9,1,ffi_sys_const,pub fn evercrypt_autoconfig2_has_rdrand() -> bool;
+evercrypt_tiny-sys,0.1.1,1,ffi_sys_const,pub fn evercrypt_autoconfig2_has_rdrand() -> bool;
+fm_plugin,0.1.17,1,ffi_sys_const,pub const _glibcxx_x86_rdrand: u32 = 1;
+gnunet-sys,0.0.4,1,ffi_sys_const,pub fn sodium_runtime_has_rdrand() -> ::std::os::raw::c_int;
+hacl-sys,0.0.2,1,ffi_sys_const,pub fn evercrypt_autoconfig2_has_rdrand() -> bool;
+hypervisor,0.0.8,2,ffi_sys_const,pub const cpu_based2_rdrand                  : uint64_t = 1 << 11;
+intel-mkl-sys,0.8.1,1,ffi_sys_const,pub const vsl_brng_rdrand: u32 = 0;
+ipp-headers-sys,0.4.3,3,ffi_sys_const,pub const ippcpuid_rdrand: u32 = 8192;
+klib-rs,0.1.1,3,ffi_sys_const,pub const pf_rdrand_instruction_available: u32 = 28;
+lc3tools-sys,1.0.6,1,ffi_sys_const,pub const _glibcxx_x86_rdrand: u32 = 1;
+libc,0.2.186,1,ffi_sys_const,pub const av_386_2_rdrand: u32 = 0x00000002;
+libc-wasix,0.2.147,1,ffi_sys_const,pub const av_386_2_rdrand: u32 = 0x00000002;
+libcpuid_dump,0.1.2,1,ffi_sys_const,pub const cpuid_rdrand: u32 = 1 << 30;
+libczirw-sys,0.3.0,1,ffi_sys_const,pub const _glibcxx_x86_rdrand: u32 = 1;
+libsodium-sys,0.2.7,1,ffi_sys_const,pub fn sodium_runtime_has_rdrand() -> libc::c_int;
+libsodium-sys-stable,1.24.0,1,ffi_sys_const,pub fn sodium_runtime_has_rdrand() -> libc::c_int;
+libvmm,0.1.0,1,ffi_sys_const,"rdrand                  = 57,"
+mogi_cpu,0.1.0,1,ffi_sys_const,const rdrand                = 1 << 30;
+mysqlclient-sys-ext,0.2.5,1,ffi_sys_const,pub const pf_rdrand_instruction_available: u32 = 28;
+pan_bindings,1.0.11,1,ffi_sys_const,pub const _glibcxx_x86_rdrand: u32 = 1;
+panda-re-sys,0.8.0,2,ffi_sys_const,pub const cpuid_ext_rdrand: u32 = 1073741824;
+qrusthy,0.1.0,1,ffi_sys_const,pub const _glibcxx_x86_rdrand: u32 = 1;
+ripple,0.2.1,5,ffi_sys_const,pub const ippcpuid_rdrand: u32 = 8192;
+rscrypto,0.1.1,3,ffi_sys_const,pub const rdrand: caps = caps::bit(46);
+rsinfo,0.1.3,1,ffi_sys_const,"pub const rdrand:     bool = cfg!(target_feature=""rdrand"");"
+rust-dpdk,0.0.1,1,ffi_sys_const,pub const rte_cpuflag_rdrand: ::libc::c_int = 28;
+rust-halcon,24.11.1,2,ffi_sys_const,pub const pf_rdrand_instruction_available: u32 = 28;
+rust_sodium-sys,0.10.4,1,ffi_sys_const,pub fn sodium_runtime_has_rdrand() -> libc::c_int;
+rust_sodium_holochain_fork-sys,0.10.4,1,ffi_sys_const,pub fn sodium_runtime_has_rdrand() -> libc::c_int;
+rydis,0.1.5,1,ffi_sys_const,"rdrand = 685,"
+shuriken-bindings,1.0.3,1,ffi_sys_const,pub const _glibcxx_x86_rdrand: u32 = 1;
+shutter,0.0.1,3,ffi_sys_const,pub const ippcpuid_rdrand: u32 = 8192;
+spout_texture_share,0.1.0,1,ffi_sys_const,pub const pf_rdrand_instruction_available: u32 = 28;
+torsh-backend,0.1.2,4,ffi_sys_const,self.features.rdrand = (cpuid_result.ecx & (1 << 30)) != 0;
+vmx_lab,0.1.1,2,ffi_sys_const,"rdrand = 57,"
+win32api-rs-sys,0.1.0,1,ffi_sys_const,pub const pf_rdrand_instruction_available: u32 = 28;
+winapi,0.3.9,1,ffi_sys_const,pub const pf_rdrand_instruction_available: dword = 28;
+winapi-ui-automation,0.3.10,1,ffi_sys_const,pub const pf_rdrand_instruction_available: dword = 28;
+winapi_forked_icmpapi,0.3.7,1,ffi_sys_const,pub const pf_rdrand_instruction_available: dword = 28;
+winaudit,0.1.3,2,ffi_sys_const,const pf_rdrand_instruction_available: u32 = 53;
+windows,0.62.2,1,ffi_sys_const,pub const pf_rdrand_instruction_available: processor_feature_id = processor_feature_id(28u32);
+windows-sys,0.61.2,1,ffi_sys_const,pub const pf_rdrand_instruction_available: processor_feature_id = 28u32;
+winpty-rs-windows-sys,0.60.2,1,ffi_sys_const,pub const pf_rdrand_instruction_available: processor_feature_id = 28u32;
+xege-ffi,0.1.6,1,ffi_sys_const,pub const pf_rdrand_instruction_available: u32 = 28;
+xhypervisor,0.3.0,2,ffi_sys_const,pub const cpu_based2_rdrand: u64 = 1 << 11;
+zydis,4.1.1,1,ffi_sys_const,"rdrand = 76,"
+anomstream-hotpath,2026.4.1,1,doc_comment,"/// session key, or boot-time rdrand. anything is acceptable as"
+aocl-crypto,0.1.0,1,doc_comment,//! [`aocl-rng`](https://docs.rs/aocl-rng); for raw rdrand / rdseed bytes
+aocl-securerng,0.1.0,1,doc_comment,//! wraps the amd secure-rng entry points around the x86 `rdrand`
+chains-sdk,1.0.0,1,doc_comment,"/// function, typically backed by a hardware trng (e.g., rdrand/rdseed"
+clock-rand,1.0.3,1,doc_comment,"/// add external entropy source (e.g., os rng, intel rdrand)"
+devela,0.27.0,2,doc_comment,"#[doc = ""# functions requiring the `rdrand` target feature.\n\n---""]"
+hanzo-pqc,1.1.12,1,doc_comment,/// hardware rng (rdrand/rdseed)
+liana,5.0.0,1,doc_comment,// get some entrop from rdrand when available.
+mac-sys-info,0.1.13,1,doc_comment,/// key for 'hw.optional.rdrand'
+mc-oblivious-traits,2.3.0,1,doc_comment,/// this should usually be rdrand but in tests it might have a seed.
+myd,0.1.1,1,doc_comment,"/// * `""rdrand""`"
+nanorand,0.8.0,2,doc_comment,/// uses backup entropy (rdseed and system time) if it fails.
+onemkl,0.1.0,1,doc_comment,/// (`rdrand`-style). re-tries up to
+oxify-authz,0.1.0,1,doc_comment,/// - hardware rng if available (rdrand on modern cpus)
+qrc-opensource-rs,0.3.7,3,doc_comment,* \def qrc_rdrand_compatible
+rand,0.8.6,1,doc_comment,//! **trngs**: the [`rdrand`] crate provides an interface to the rdrand and
+ring,0.17.14,2,doc_comment,//! <tr><td><code>less-safe-getrandom-custom-or-rdrand</code>
+ringpcx,0.17.14,2,doc_comment,//! <tr><td><code>less-safe-getrandom-custom-or-rdrand</code>
+tfhe,1.6.1,1,doc_comment,/// when the `rdseed` cpu feature is detected on `x86_64` cpus the rdseed seeder is
+yadacha,0.0.5,1,doc_comment,// or rdrand

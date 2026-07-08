@@ -1,0 +1,14 @@
+# Cargo build artifacts (per pipeline crate).
+pipeline/*/target/
+
+# Local experiment scratch.
+.scratch/
+
+# Raw cargo-expand outputs from the recall validation (~120 MB,
+# re-generatable via pipeline/verify/... and pipeline/audit/expand_run.sh).
+results/expand_hits/
+
+# Corpus working set is not stored here (re-fetchable from static.crates.io;
+# see snapshot.toml and results/manifest.csv.gz).
+tarballs/
+db-dump/

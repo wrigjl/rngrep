@@ -1,0 +1,43 @@
+name,version,category,mode,config,target,build,rdrand,rdseed,cpuid,notes
+vektor,0.2.2,compile_time,nightly,default,host,fail-lib,0,0,0,error[E0557]: feature has been removed
+vektor,0.2.2,compile_time,nightly,rdrand,host,fail-lib,0,0,0,error[E0557]: feature has been removed
+vektor,0.2.2,compile_time,nightly,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error[E0557]: feature has been removed
+x64,0.16.2,unconditional,nightly,default,host,ok,0,0,2,
+x64,0.16.2,unconditional,nightly,rdrand,host,ok,0,0,4,
+x64,0.16.2,unconditional,nightly,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error[E0463]: can't find crate for `core`
+x86_64,0.15.4,unconditional,nightly,default,host,ok,0,0,2,
+x86_64,0.15.4,unconditional,nightly,rdrand,host,ok,0,0,4,
+x86_64,0.15.4,unconditional,nightly,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error[E0463]: can't find crate for `core`
+swiss-army-knife,0.0.37,unconditional,nightly,default,host,fail-lib,0,0,0,error: cannot specialize on trait `Copy`
+swiss-army-knife,0.0.37,unconditional,nightly,rdrand,host,fail-lib,0,0,0,error: cannot specialize on trait `Copy`
+swiss-army-knife,0.0.37,unconditional,nightly,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error: cannot specialize on trait `Copy`
+ostd,0.17.2,out_of_scope,nightly,default,host,fail-lib,0,0,0,error[E0433]: cannot find module or crate `acpi` in this scope
+ostd,0.17.2,out_of_scope,nightly,rdrand,host,fail-lib,0,0,0,error[E0433]: cannot find module or crate `acpi` in this scope
+ostd,0.17.2,out_of_scope,nightly,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error[E0433]: cannot find module or crate `acpi` in this scope
+sallyport,0.6.3,out_of_scope,nightly,default,host,ok,0,0,1,
+sallyport,0.6.3,out_of_scope,nightly,rdrand,host,ok,0,0,2,
+sallyport,0.6.3,out_of_scope,nightly,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error[E0463]: can't find crate for `core`
+libhermit-rs,0.6.3,out_of_scope,nightly,default,host,fail-lib,0,0,0,error[E0658]: use of unstable library feature `pointer_is_aligned_to`
+libhermit-rs,0.6.3,out_of_scope,nightly,rdrand,host,fail-lib,0,0,0,error[E0658]: use of unstable library feature `pointer_is_aligned_to`
+libhermit-rs,0.6.3,out_of_scope,nightly,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error[E0658]: use of unstable library feature `pointer_is_aligned_to`
+nanorand,0.8.0,unconditional,allfeat,default,host,ok,0,1,0,
+nanorand,0.8.0,unconditional,allfeat,rdrand,host,ok,0,11,0,
+nanorand,0.8.0,unconditional,allfeat,sgx,x86_64-fortanix-unknown-sgx,ok,0,10,0,
+safe_arch,1.0.0,unconditional,allfeat,default,host,ok,0,0,0,
+safe_arch,1.0.0,unconditional,allfeat,rdrand,host,ok,0,0,0,
+safe_arch,1.0.0,unconditional,allfeat,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,
+mc-rand,1.1.0,unconditional,allfeat,default,host,ok,0,0,0,
+mc-rand,1.1.0,unconditional,allfeat,rdrand,host,ok,0,0,0,
+mc-rand,1.1.0,unconditional,allfeat,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,
+virtfw-libhw,0.5.0,unconditional,allfeat,default,host,ok,0,0,0,
+virtfw-libhw,0.5.0,unconditional,allfeat,rdrand,host,ok,0,0,0,
+virtfw-libhw,0.5.0,unconditional,allfeat,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,
+concrete-csprng,0.4.1,compile_time,allfeat,default,host,fail-lib,0,0,0,error: failed to run custom build command for `concrete-csprng v0.4.1 (/home/jas
+concrete-csprng,0.4.1,compile_time,allfeat,rdrand,host,fail-lib,0,0,0,error: failed to run custom build command for `concrete-csprng v0.4.1 (/home/jas
+concrete-csprng,0.4.1,compile_time,allfeat,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error: failed to run custom build command for `concrete-csprng v0.4.1 (/home/jas
+hyper-thread-random,0.4.2,compile_time,allfeat,default,host,ok,0,0,0,
+hyper-thread-random,0.4.2,compile_time,allfeat,rdrand,host,ok,0,0,0,
+hyper-thread-random,0.4.2,compile_time,allfeat,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,
+winit-gfx-hal,0.0.0,unconditional,allfeat,default,host,ok,0,0,0,
+winit-gfx-hal,0.0.0,unconditional,allfeat,rdrand,host,ok,0,0,0,
+winit-gfx-hal,0.0.0,unconditional,allfeat,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,

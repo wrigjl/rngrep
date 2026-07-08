@@ -1,0 +1,11 @@
+name,version,file,line,kind,detail,cfg_gates,in_test_or_bench,runtime_gated,compile_gate_present,target_feature_attr,is_out_of_scope,out_of_scope_reason,category
+aarch64-cpu,11.2.0,src/asm/random.rs,58,inline_asm,rndr,"# [cfg (target_arch = ""aarch64"")]",false,false,false,false,false,,unconditional
+aarch64-cpu,11.2.0,src/asm/random.rs,89,inline_asm,rndrrs,"# [cfg (target_arch = ""aarch64"")]",false,false,false,false,false,,unconditional
+getrandom,0.4.2,src/backends/rndr.rs,31,inline_asm,rndr,,false,false,false,true,false,,compile_time
+armv8,0.0.1,src/aarch64/registers/rndr.rs,90,inline_asm,rndr,,false,false,false,false,false,,unconditional
+armv8,0.0.1,src/aarch64/registers/rndrrs.rs,90,inline_asm,rndrrs,,false,false,false,false,false,,unconditional
+cortex-a,8.1.1,src/asm/random.rs,58,inline_asm,rndr,"# [cfg (target_arch = ""aarch64"")]",false,false,false,false,false,,unconditional
+cortex-a,8.1.1,src/asm/random.rs,89,inline_asm,rndrrs,"# [cfg (target_arch = ""aarch64"")]",false,false,false,false,false,,unconditional
+lcpfs,2026.1.102,src/arch/aarch64.rs,39,inline_asm,rndr,,false,false,false,false,false,,unconditional
+lcpfs,2026.1.102,src/arch/aarch64.rs,83,inline_asm,rndrrs,,false,false,false,false,false,,unconditional
+lcpfs,2026.1.102,src/arch/aarch64.rs,187,inline_asm,rndr,,false,false,false,false,false,,unconditional
