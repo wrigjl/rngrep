@@ -6,9 +6,12 @@ Crate Ecosystem"* from the pinned crates.io snapshot, and — for each number �
 which file and command produces it.
 
 Read it top to bottom once before starting: the corpus fetch is large (~34 GB
-of tarballs, ~150 GB decompressed working set) and the db-dump pin has a
-prerequisite (§2) that you must satisfy *before* the closure numbers can be
-reproduced.
+of `.crate` tarballs plus a ~5 GB db-dump — roughly **40 GB total**) and the
+db-dump pin has a prerequisite (§2) that you must satisfy *before* the closure
+numbers can be reproduced. The classifier **streams** each tarball through a
+gzip decoder in memory and never extracts the corpus to disk, so there is no
+large decompressed working set; binary verification (Stage 4) uses a few GB of
+ephemeral `cargo` build scratch for the ~45 in-source crates only.
 
 ---
 
@@ -97,7 +100,7 @@ re-pin: the numbers will then describe today's ecosystem, not the paper's.
 | Need | For | Install |
 |---|---|---|
 | `rustup` + rustc **1.95.0** | everything | `rust-toolchain.toml` auto-selects 1.95.0 in this directory; rustup installs it (and the `x86_64-unknown-linux-gnu` + `x86_64-fortanix-unknown-sgx` targets listed there) on first `cargo` invocation. |
-| ~150 GB scratch + network | corpus | disk for tarballs + decompressed working set; access to `static.crates.io`. |
+| ~40 GB scratch + network | corpus | ~34 GB `.crate` tarballs + ~5 GB db-dump (tarballs are streamed, not extracted to disk); access to `static.crates.io`. A few GB more of ephemeral `cargo` scratch for Stage 4. |
 | GNU `objdump` (binutils) | binary verification | `apt install binutils` / present on most Linux hosts. `llvm-objdump` works too. |
 | A native **x86_64** Linux host | x86 binary verification | disassembly only — no RDRAND-capable or privileged hardware required. |
 | A native **aarch64** host | ARM binary verification | same; disassembly only. |

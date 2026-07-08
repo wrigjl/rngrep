@@ -21,7 +21,7 @@ set -u
 source "$HOME/.cargo/env" 2>/dev/null || true
 TC="${TC:-1.95.0}"
 OBJDUMP="${OBJDUMP:-/opt/homebrew/opt/llvm@16/bin/llvm-objdump}"
-BASE="${BASE:-/private/tmp/claude-501/-Users-jason-Documents-phd-proposal-rust-study/e7e93e4b-2f5e-439e-905a-a39d2621a445/scratchpad/armverify}"
+BASE="${BASE:-$HOME/rrv}"
 CAND="${CAND:-$BASE/arm_candidates.csv}"
 OUT="${OUT:-$BASE/arm_verify_results.csv}"
 mkdir -p "$BASE/logs"

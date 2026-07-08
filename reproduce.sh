@@ -3,10 +3,12 @@
 # End-to-end reproduction driver for rngrep.
 #
 # Stages are ordered and mostly independent. The corpus fetch (stage 1) is
-# heavy (~34 GB of .crate tarballs, ~150 GB decompressed working set) and is
-# pinned by snapshot.toml + results/manifest.csv.gz. Binary verification
-# (stage 4) must run on a native host per ISA and is left as an explicit,
-# manual step.
+# heavy (~34 GB of .crate tarballs + ~5 GB db-dump, ~40 GB total) and is
+# pinned by snapshot.toml + results/manifest.csv.gz. Tarballs are streamed
+# through a gzip decoder in memory by the classifier and never extracted to
+# disk, so there is no large decompressed working set (see REPRODUCE.md).
+# Binary verification (stage 4) must run on a native host per ISA and is
+# left as an explicit, manual step.
 #
 # The pinned toolchain (rust-toolchain.toml -> rustc 1.95.0) is selected
 # automatically inside this directory. Re-running the recall/macro-expansion
