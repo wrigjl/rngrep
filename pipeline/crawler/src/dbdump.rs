@@ -9,7 +9,7 @@ use std::io::Write;
 use std::time::Duration;
 use tokio::io::AsyncWriteExt;
 
-pub async fn run(cfg: &Config, force: bool) -> Result<()> {
+pub async fn run(cfg: &Config, force: bool, expect_sha: Option<String>) -> Result<()> {
     let archive = cfg.dbdump_archive();
     let extract_dir = cfg.dbdump_dir();
 
@@ -21,6 +21,24 @@ pub async fn run(cfg: &Config, force: bool) -> Result<()> {
 
     let sha = sha256_file(&archive)?;
     tracing::info!(sha256 = %sha, "archive sha256");
+
+    // Enforce the snapshot pin when reproducing. crates.io serves only the
+    // *latest* dump at DB_DUMP_URL, so a fresh fetch will NOT match a historical
+    // pin; to reproduce, drop the archived db-dump.tar.gz into the scratch dir
+    // first (see REPRODUCE.md) and this check verifies it byte-for-byte.
+    if let Some(expected) = expect_sha {
+        let expected = expected.trim().to_ascii_lowercase();
+        if sha.to_ascii_lowercase() != expected {
+            bail!(
+                "db-dump sha256 mismatch: got {sha}, expected {expected}.\n\
+                 crates.io only serves the latest dump at {DB_DUMP_URL}; it does not\n\
+                 retain historical dumps. To reproduce the pinned snapshot, place the\n\
+                 archived db-dump.tar.gz (from the Zenodo deposit) in the scratch dir\n\
+                 and re-run. See REPRODUCE.md."
+            );
+        }
+        tracing::info!("db-dump sha256 matches the pinned snapshot");
+    }
 
     std::fs::create_dir_all(&extract_dir).ok();
     extract(&archive, &extract_dir)?;

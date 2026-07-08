@@ -28,6 +28,13 @@ enum Cmd {
         /// Force re-download even if a dump is already present.
         #[arg(long)]
         force: bool,
+        /// Abort unless the fetched/loaded archive's SHA-256 equals this value
+        /// (the `sha256` pinned in the committed `snapshot.toml`). crates.io
+        /// only serves the *latest* dump, so faithful reproduction requires
+        /// pointing at an archived copy of the pinned dump; this flag makes the
+        /// pin enforceable. See REPRODUCE.md.
+        #[arg(long)]
+        expect_sha: Option<String>,
     },
     /// Fetch .crate tarballs for the latest non-yanked version of each crate.
     Fetch {
@@ -54,7 +61,7 @@ async fn main() -> Result<()> {
     tracing::info!(scratch = %cfg.scratch.display(), "crawler starting");
 
     match cli.cmd {
-        Cmd::DbDump { force } => dbdump::run(&cfg, force).await,
+        Cmd::DbDump { force, expect_sha } => dbdump::run(&cfg, force, expect_sha).await,
         Cmd::Fetch { limit, concurrency } => fetch::run(&cfg, limit, concurrency).await,
     }
 }

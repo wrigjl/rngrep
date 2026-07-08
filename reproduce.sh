@@ -29,7 +29,11 @@ done
 # (defaults to ~/scratch/crates-io). Skips if the manifest already exists.
 if [ "${SKIP_CORPUS:-0}" != "1" ]; then
   echo "== fetch corpus (this is large) =="
-  pipeline/crawler/target/release/crawler db-dump
+  # Enforce the committed db-dump pin. crates.io serves only the latest dump,
+  # so reproducing the snapshot means staging the archived db-dump.tar.gz in
+  # the scratch dir first (see REPRODUCE.md); --expect-sha then verifies it.
+  PINNED_SHA=$(grep -E '^sha256' snapshot.toml | head -1 | cut -d'"' -f2)
+  pipeline/crawler/target/release/crawler db-dump --expect-sha "$PINNED_SHA"
   pipeline/crawler/target/release/crawler fetch
 else
   echo "== SKIP_CORPUS=1: reusing existing corpus scratch =="

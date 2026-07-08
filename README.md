@@ -65,6 +65,13 @@ reproduce.sh     end-to-end driver
 
 ## Reproduce
 
+**Full instructions — prerequisites, the db-dump pin, and a number-by-number
+provenance map — are in [`REPRODUCE.md`](REPRODUCE.md).** Note the db-dump
+caveat: crates.io serves only the *latest* dump, so the closure numbers
+reproduce only from the archived pinned dump (see `REPRODUCE.md` §2), while the
+source-classification corpus is byte-for-byte re-fetchable from
+`manifest.csv.gz`.
+
 Requires the pinned toolchain (`rust-toolchain.toml` selects rustc 1.95.0) and
 ~150 GB of scratch for the corpus working set. See `reproduce.sh` for the full
 sequence; in brief:
