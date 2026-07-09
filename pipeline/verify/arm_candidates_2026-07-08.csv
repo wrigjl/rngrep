@@ -1,0 +1,9 @@
+name,version,category
+aarch64-cpu,11.2.0,unconditional
+armv8,0.0.1,unconditional
+cortex-a,8.1.1,unconditional
+foundation_compact,0.2.0,compile_time
+getrandom,0.4.3,compile_time
+hardware-rust-crypto,1.0.1,compile_time
+lcpfs,2026.1.102,unconditional
+rdrand,0.9.0,unconditional
