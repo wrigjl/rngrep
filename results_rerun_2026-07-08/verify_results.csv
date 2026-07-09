@@ -1,7 +1,4 @@
 name,version,category,config,target,build,rdrand,rdseed,cpuid,notes
-Nuclide,0.3.0,runtime,default,host,ok,1,0,0,
-Nuclide,0.3.0,runtime,rdrand,host,ok,5,0,0,
-Nuclide,0.3.0,runtime,sgx,x86_64-fortanix-unknown-sgx,ok,4,0,0,
 bitcoin-random,0.1.21,unconditional,default,host,fail-lib,0,0,0,error: failed to run custom build command for `openssl-sys v0.9.109`
 bitcoin-random,0.1.21,unconditional,rdrand,host,fail-lib,0,0,0,error: failed to run custom build command for `openssl-sys v0.9.109`
 bitcoin-random,0.1.21,unconditional,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error: failed to run custom build command for `openssl-sys v0.9.109`
@@ -59,12 +56,12 @@ libhermit-rs,0.6.3,out_of_scope,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,e
 lokacore,0.3.0,unconditional,default,host,fail-lib,0,0,0,error: failed to select a version for the requirement `bytemuck = ;^0.1;`
 lokacore,0.3.0,unconditional,rdrand,host,fail-lib,0,0,0,error: failed to select a version for the requirement `bytemuck = ;^0.1;`
 lokacore,0.3.0,unconditional,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error: failed to select a version for the requirement `bytemuck = ;^0.1;`
-mbedtls,0.13.5,unconditional,default,host,fail-lib,0,0,0,error: failed to run custom build command for `mbedtls-sys-auto v2.28.13`
-mbedtls,0.13.5,unconditional,rdrand,host,fail-lib,0,0,0,error: failed to run custom build command for `mbedtls-sys-auto v2.28.13`
-mbedtls,0.13.5,unconditional,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error: failed to run custom build command for `mbedtls-sys-auto v2.28.13`
 mbedtls-smx,0.13.11,unconditional,default,host,fail-lib,0,0,0,error: failed to run custom build command for `mbedtls-sys-auto-smx v2.28.23`
 mbedtls-smx,0.13.11,unconditional,rdrand,host,fail-lib,0,0,0,error: failed to run custom build command for `mbedtls-sys-auto-smx v2.28.23`
 mbedtls-smx,0.13.11,unconditional,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error: failed to run custom build command for `mbedtls-sys-auto-smx v2.28.23`
+mbedtls,0.13.5,unconditional,default,host,fail-lib,0,0,0,error: failed to run custom build command for `mbedtls-sys-auto v2.28.13`
+mbedtls,0.13.5,unconditional,rdrand,host,fail-lib,0,0,0,error: failed to run custom build command for `mbedtls-sys-auto v2.28.13`
+mbedtls,0.13.5,unconditional,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error: failed to run custom build command for `mbedtls-sys-auto v2.28.13`
 mc-rand,1.1.0,unconditional,default,host,ok,0,0,0,
 mc-rand,1.1.0,unconditional,rdrand,host,ok,0,0,0,
 mc-rand,1.1.0,unconditional,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,
@@ -74,12 +71,15 @@ nanorand,0.8.0,unconditional,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,
 nist-rand,0.1.0,runtime,default,host,ok,10,8,0,
 nist-rand,0.1.0,runtime,rdrand,host,ok,20,16,0,
 nist-rand,0.1.0,runtime,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,
+Nuclide,0.3.0,runtime,default,host,ok,1,0,0,
+Nuclide,0.3.0,runtime,rdrand,host,ok,5,0,0,
+Nuclide,0.3.0,runtime,sgx,x86_64-fortanix-unknown-sgx,ok,4,0,0,
 number-theory,0.0.26,runtime,default,host,ok,1,0,0,
 number-theory,0.0.26,runtime,rdrand,host,ok,61,0,0,
 number-theory,0.0.26,runtime,sgx,x86_64-fortanix-unknown-sgx,ok,60,0,0,
-ort-openrouter-cli,0.4.7,unconditional,default,host,fail-lib,0,0,0,error: failed to parse manifest at `/home/jason/rrv/w/ort-openrouter-cli-0.4.7/o
-ort-openrouter-cli,0.4.7,unconditional,rdrand,host,fail-lib,0,0,0,error: failed to parse manifest at `/home/jason/rrv/w/ort-openrouter-cli-0.4.7/o
-ort-openrouter-cli,0.4.7,unconditional,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error: failed to parse manifest at `/home/jason/rrv/w/ort-openrouter-cli-0.4.7/o
+ort-openrouter-cli,0.4.7,unconditional,default,host,fail-lib,0,0,0,error: failed to parse manifest at `<BASE>/w/ort-openrouter-cli-0.4.7/o
+ort-openrouter-cli,0.4.7,unconditional,rdrand,host,fail-lib,0,0,0,error: failed to parse manifest at `<BASE>/w/ort-openrouter-cli-0.4.7/o
+ort-openrouter-cli,0.4.7,unconditional,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error: failed to parse manifest at `<BASE>/w/ort-openrouter-cli-0.4.7/o
 ostd,0.18.0,out_of_scope,default,host,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
 ostd,0.18.0,out_of_scope,rdrand,host,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
 ostd,0.18.0,out_of_scope,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
@@ -131,9 +131,9 @@ winit-gfx-hal,0.0.0,unconditional,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,
 x64,0.16.2,unconditional,default,host,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
 x64,0.16.2,unconditional,rdrand,host,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
 x64,0.16.2,unconditional,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
-x86,0.52.0,unconditional,default,host,ok,3,3,0,
-x86,0.52.0,unconditional,rdrand,host,ok,7,7,0,
-x86,0.52.0,unconditional,sgx,x86_64-fortanix-unknown-sgx,ok,4,4,0,
 x86_64,0.15.4,unconditional,default,host,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
 x86_64,0.15.4,unconditional,rdrand,host,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
 x86_64,0.15.4,unconditional,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
+x86,0.52.0,unconditional,default,host,ok,3,3,0,
+x86,0.52.0,unconditional,rdrand,host,ok,7,7,0,
+x86,0.52.0,unconditional,sgx,x86_64-fortanix-unknown-sgx,ok,4,4,0,

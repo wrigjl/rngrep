@@ -146,38 +146,48 @@ Expected: exits 0, and the output contains the line
 `db-dump sha256 matches the pinned snapshot`. If the output instead
 contains the word `Error`, stop and report the exact error text.
 
-2.3. Stage the corpus. `$CORPUS_DIR` is wherever the provided corpus
-file(s) actually are — a fourth variable, distinct from `$CRATES_SCRATCH_DIR`.
+2.3. Stage and extract the corpus. `$CORPUS_DIR` is wherever the
+provided corpus file(s) actually are — a fourth variable, distinct from
+`$CRATES_SCRATCH_DIR`.
 
 If you were given the split form (ten `corpus.tar.part.*` files plus
 `corpus.tar.parts.sha256`):
 ```
-export CORPUS_DIR=<same path as just above>
+export CORPUS_DIR=<directory containing the corpus.tar.part.* files>
 cd "$CORPUS_DIR"
 shasum -a 256 -c corpus.tar.parts.sha256
 ```
 Expected: ten lines of output, each ending in `OK`. If any line ends in
 `FAILED`, stop and report which file(s) failed — do not proceed with a
 failed part.
+
+Then extract by streaming the parts straight into `tar` — **do not**
+concatenate them into a combined `corpus.tar` file first. That would
+briefly need roughly double the disk space (the parts plus a full
+second copy, then the extracted tree on top), which has actually run a
+staging disk out of space before. Streaming needs only the space the
+parts already take plus the extracted tree, not an extra full copy in
+between:
 ```
-export CORPUS_DIR=<same path>
+export CORPUS_DIR=<same path as just above>
+export CRATES_SCRATCH_DIR=<same path as step 2.1>
 cd "$CORPUS_DIR"
-cat corpus.tar.part.* > corpus.tar
+cat corpus.tar.part.* | tar x -C "$CRATES_SCRATCH_DIR"
 ```
+Expected: exits 0. This creates `$CRATES_SCRATCH_DIR/tarballs/`. Skip
+ahead to step 2.5.
 
 If you were given a single `corpus.tar` with its own provided checksum
-instead, verify it directly:
+instead, verify then extract it directly:
 ```
-export CORPUS_DIR=<same path>
+export CORPUS_DIR=<directory containing corpus.tar>
 cd "$CORPUS_DIR"
 shasum -a 256 corpus.tar
 ```
 Expected: matches the provided checksum exactly. If it does not, stop
 and report both values.
-
-2.4. Extract the corpus:
 ```
-export CORPUS_DIR=<same path as step 2.3>
+export CORPUS_DIR=<same path as just above>
 export CRATES_SCRATCH_DIR=<same path as step 2.1>
 tar xf "$CORPUS_DIR/corpus.tar" -C "$CRATES_SCRATCH_DIR"
 ```
