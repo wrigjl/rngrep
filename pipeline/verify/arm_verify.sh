@@ -24,8 +24,27 @@ OBJDUMP="${OBJDUMP:-/opt/homebrew/opt/llvm@16/bin/llvm-objdump}"
 BASE="${BASE:-$HOME/rrv}"
 CAND="${CAND:-$BASE/arm_candidates.csv}"
 OUT="${OUT:-$BASE/arm_verify_results.csv}"
+# See pipeline/verify/verify.sh: read from the pinned local corpus, not
+# static.crates.io -- crates.io does not guarantee tarball availability or
+# content indefinitely, so a live re-fetch at verify time defeats the point
+# of pinning the corpus.
+CORPUS="${CRATES_SCRATCH_DIR:-$HOME/scratch/crates-io}"
+MANIFEST="$CORPUS/manifest.csv"
 mkdir -p "$BASE/logs"
 echo "name,version,category,config,build,rndr,rndrrs,notes" > "$OUT"
+
+shard_for() {
+  local lower len
+  lower=$(printf '%s' "$1" | tr '[:upper:]' '[:lower:]')
+  len=${#lower}
+  case "$len" in
+    0) echo "0" ;;
+    1) echo "1" ;;
+    2) echo "2" ;;
+    3) echo "3/${lower:0:1}" ;;
+    *) echo "${lower:0:2}/${lower:2:2}" ;;
+  esac
+}
 
 # Count mrs rndr / rndrrs across every rlib/bin/.o under a dir.
 counts_for() {
@@ -45,8 +64,19 @@ build_one() {
   local name="$1" version="$2" cat="$3"
   local d="$BASE/w/$name-$version" log="$BASE/logs/$name.log"; : > "$log"
   rm -rf "$d"; mkdir -p "$d"
-  curl -fsSL "https://static.crates.io/crates/$name/$name-$version.crate" -o "$d/c.crate" 2>>"$log" \
-    || { echo "$name,$version,$cat,default,fetch-fail,0,0," >> "$OUT"; return; }
+  local shard src_crate
+  shard=$(shard_for "$name")
+  src_crate="$CORPUS/tarballs/$shard/$name/$name-$version.crate"
+  [ -f "$src_crate" ] \
+    || { echo "$name,$version,$cat,default,corpus-missing,0,0,not in local corpus: $src_crate" >> "$OUT"; return; }
+  local expected_sha got_sha
+  expected_sha=$(awk -F, -v n="$name" -v v="$version" '$1==n && $2==v {print $3; exit}' "$MANIFEST")
+  got_sha=$(shasum -a 256 "$src_crate" | cut -d' ' -f1)
+  if [ -n "$expected_sha" ] && [ "$got_sha" != "$expected_sha" ]; then
+    echo "$name,$version,$cat,default,checksum-mismatch,0,0,expected $expected_sha got $got_sha" >> "$OUT"
+    return
+  fi
+  cp "$src_crate" "$d/c.crate"
   tar xzf "$d/c.crate" -C "$d" 2>>"$log"
   local src="$d/$name-$version"; export CARGO_TARGET_DIR="$d/target"
   local libflag="--lib"; [ -f "$src/src/lib.rs" ] || libflag=""
@@ -56,7 +86,7 @@ build_one() {
     ( cd "$src" && RUSTFLAGS="$rustflags" timeout 600 cargo "+$TC" build --release $libflag >>"$log" 2>&1 )
     if [ $? -eq 0 ]; then build=ok; read r s < <(scan_dir "$d/target/release" "$name")
     else [ -n "$libflag" ] && build=fail-lib || build=fail-bin
-         note=$(grep -m1 -iE '^error' "$log" | tr ',' ';' | cut -c1-70); fi
+         note=$(grep -m1 -iE '^error' "$log" | tr ',"' ';;' | cut -c1-70); fi
     echo "$name,$version,$cat,$cfg,$build,$r,$s,$note" >> "$OUT"
   }
   run_cfg default ""
@@ -69,6 +99,7 @@ build_one() {
 
 tail -n +2 "$CAND" | while IFS=, read -r name version cat; do
   [ -z "$name" ] && continue
+  cat="${cat%$'\r'}"  # see verify.sh: strip stray \r from non-LF-only candidates files
   echo ">> $name $version ($cat)"; build_one "$name" "$version" "$cat"
 done
 echo "ARM VERIFY DONE ($(date -u +%FT%TZ))"

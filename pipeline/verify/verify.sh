@@ -27,8 +27,29 @@ BASE="${BASE:-$HOME/rrv}"             # scratch (no rdrand/rdseed/cpuid in path)
 CAND="${CAND:-$BASE/verify_candidates.csv}"
 OUT="${OUT:-$BASE/verify_results.csv}"
 SGX_TARGET="x86_64-fortanix-unknown-sgx"
+# Read candidate tarballs from the pinned local corpus, not static.crates.io:
+# crates.io does not guarantee a given tarball's availability or content
+# indefinitely (see docs/corpus.md), so re-fetching live at verify time is
+# itself a reproducibility hole -- the whole point of pinning the corpus.
+CORPUS="${CRATES_SCRATCH_DIR:-$HOME/scratch/crates-io}"
+MANIFEST="$CORPUS/manifest.csv"
 mkdir -p "$BASE/logs"
 [ -f "$OUT" ] || echo "name,version,category,config,target,build,rdrand,rdseed,cpuid,notes" > "$OUT"
+
+# Mirrors pipeline/crawler/src/config.rs::shard_for -- the crates.io
+# sparse-index-style sharding the crawler uses for tarballs/ on disk.
+shard_for() {
+  local lower len
+  lower=$(printf '%s' "$1" | tr '[:upper:]' '[:lower:]')
+  len=${#lower}
+  case "$len" in
+    0) echo "0" ;;
+    1) echo "1" ;;
+    2) echo "2" ;;
+    3) echo "3/${lower:0:1}" ;;
+    *) echo "${lower:0:2}/${lower:2:2}" ;;
+  esac
+}
 
 # Disassemble one artifact; echo "rdrand rdseed cpuid" counts (instr lines only).
 counts_for() {
@@ -60,12 +81,23 @@ build_one() {
   local d="$BASE/w/$name-$version" log="$BASE/logs/$name.log"
   : > "$log"
   rm -rf "$d"; mkdir -p "$d"
-  if ! curl -fsSL "https://static.crates.io/crates/$name/$name-$version.crate" \
-        -o "$d/c.crate" 2>>"$log"; then
+  local shard src_crate
+  shard=$(shard_for "$name")
+  src_crate="$CORPUS/tarballs/$shard/$name/$name-$version.crate"
+  if [ ! -f "$src_crate" ]; then
     for cfg in default rdrand sgx; do
-      echo "$name,$version,$cat,$cfg,-,fetch-fail,0,0,0," >> "$OUT"; done
+      echo "$name,$version,$cat,$cfg,-,corpus-missing,0,0,0,not in local corpus: $src_crate" >> "$OUT"; done
     rm -rf "$d"; return
   fi
+  local expected_sha got_sha
+  expected_sha=$(awk -F, -v n="$name" -v v="$version" '$1==n && $2==v {print $3; exit}' "$MANIFEST")
+  got_sha=$(sha256sum "$src_crate" | cut -d' ' -f1)
+  if [ -n "$expected_sha" ] && [ "$got_sha" != "$expected_sha" ]; then
+    for cfg in default rdrand sgx; do
+      echo "$name,$version,$cat,$cfg,-,checksum-mismatch,0,0,0,expected $expected_sha got $got_sha" >> "$OUT"; done
+    rm -rf "$d"; return
+  fi
+  cp "$src_crate" "$d/c.crate"
   tar xzf "$d/c.crate" -C "$d" 2>>"$log"
   local src="$d/$name-$version"
   export CARGO_TARGET_DIR="$d/target"
@@ -82,7 +114,7 @@ build_one() {
       read r s c < <(scan_dir "$d/target/$subdir/release" "$name")
     else
       [ -n "$libflag" ] && build=fail-lib || build=fail-bin
-      note=$(grep -m1 -iE '^error' "$log" | tr ',' ';' | cut -c1-80)
+      note=$(grep -m1 -iE '^error' "$log" | tr ',"' ';;' | cut -c1-80)
     fi
     echo "$name,$version,$cat,$cfg,${target:-host},$build,$r,$s,$c,$note" >> "$OUT"
   }
@@ -96,6 +128,11 @@ build_one() {
 echo "verify: toolchain $TC, out $OUT"
 tail -n +2 "$CAND" | while IFS=, read -r name version cat; do
   [ -z "$name" ] && continue
+  # Strip a trailing \r: candidates files aren't guaranteed LF-only (e.g.
+  # Python's csv.writer default, or Excel-edited CSVs), and a stray \r
+  # silently propagates into every output row otherwise (breaks strict CSV
+  # parsers even though the raw file looks fine to shell tools like awk).
+  cat="${cat%$'\r'}"
   grep -q "^$name,$version," "$OUT" 2>/dev/null && { echo "skip $name"; continue; }
   echo ">> $name $version ($cat)"
   build_one "$name" "$version" "$cat"

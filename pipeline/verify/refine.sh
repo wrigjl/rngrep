@@ -14,8 +14,24 @@ BASE="${BASE:-$HOME/rrv}"
 CAND="${CAND:-$BASE/refine_candidates.csv}"
 OUT="${OUT:-$BASE/refine_results.csv}"
 SGX_TARGET="x86_64-fortanix-unknown-sgx"
+# See verify.sh: read from the pinned local corpus, not static.crates.io.
+CORPUS="${CRATES_SCRATCH_DIR:-$HOME/scratch/crates-io}"
+MANIFEST="$CORPUS/manifest.csv"
 mkdir -p "$BASE/logs2"
 [ -f "$OUT" ] || echo "name,version,category,mode,config,target,build,rdrand,rdseed,cpuid,notes" > "$OUT"
+
+shard_for() {
+  local lower len
+  lower=$(printf '%s' "$1" | tr '[:upper:]' '[:lower:]')
+  len=${#lower}
+  case "$len" in
+    0) echo "0" ;;
+    1) echo "1" ;;
+    2) echo "2" ;;
+    3) echo "3/${lower:0:1}" ;;
+    *) echo "${lower:0:2}/${lower:2:2}" ;;
+  esac
+}
 
 counts_for() {
   objdump -d "$1" 2>/dev/null | grep -E '^[[:space:]]*[0-9a-f]+:[[:space:]]' \
@@ -35,8 +51,19 @@ refine_one() {
   local name="$1" version="$2" cat="$3" mode="$4"
   local d="$BASE/w2/$name-$version" log="$BASE/logs2/$name.log"; : > "$log"
   rm -rf "$d"; mkdir -p "$d"
-  curl -fsSL "https://static.crates.io/crates/$name/$name-$version.crate" -o "$d/c.crate" 2>>"$log" \
-    || { echo "$name,$version,$cat,$mode,-,-,fetch-fail,0,0,0," >> "$OUT"; rm -rf "$d"; return; }
+  local shard src_crate
+  shard=$(shard_for "$name")
+  src_crate="$CORPUS/tarballs/$shard/$name/$name-$version.crate"
+  [ -f "$src_crate" ] \
+    || { echo "$name,$version,$cat,$mode,-,-,corpus-missing,0,0,0,not in local corpus: $src_crate" >> "$OUT"; rm -rf "$d"; return; }
+  local expected_sha got_sha
+  expected_sha=$(awk -F, -v n="$name" -v v="$version" '$1==n && $2==v {print $3; exit}' "$MANIFEST")
+  got_sha=$(sha256sum "$src_crate" | cut -d' ' -f1)
+  if [ -n "$expected_sha" ] && [ "$got_sha" != "$expected_sha" ]; then
+    echo "$name,$version,$cat,$mode,-,-,checksum-mismatch,0,0,0,expected $expected_sha got $got_sha" >> "$OUT"
+    rm -rf "$d"; return
+  fi
+  cp "$src_crate" "$d/c.crate"
   tar xzf "$d/c.crate" -C "$d" 2>>"$log"
   local src="$d/$name-$version"; export CARGO_TARGET_DIR="$d/target"
   local libflag="--lib"; [ -f "$src/src/lib.rs" ] || libflag=""
@@ -49,7 +76,7 @@ refine_one() {
         ${target:+--target "$target"} >>"$log" 2>&1 )
     if [ $? -eq 0 ]; then build=ok; read r s c < <(scan_dir "$d/target/$subdir/release" "$name")
     else [ -n "$libflag" ] && build=fail-lib || build=fail-bin
-         note=$(grep -m1 -iE '^error' "$log" | tr ',' ';' | cut -c1-80); fi
+         note=$(grep -m1 -iE '^error' "$log" | tr ',"' ';;' | cut -c1-80); fi
     echo "$name,$version,$cat,$mode,$cfg,${target:-host},$build,$r,$s,$c,$note" >> "$OUT"
   }
   run_cfg default ""            ""                                  "."
@@ -60,6 +87,7 @@ refine_one() {
 
 tail -n +2 "$CAND" | while IFS=, read -r name version cat mode; do
   [ -z "$name" ] && continue
+  mode="${mode%$'\r'}"  # see verify.sh: strip stray \r from non-LF-only candidates files
   echo ">> $name ($mode)"; refine_one "$name" "$version" "$cat" "$mode"
 done
 echo "REFINE DONE ($(date -u +%FT%TZ))"
