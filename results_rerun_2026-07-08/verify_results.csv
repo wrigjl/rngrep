@@ -1,0 +1,139 @@
+name,version,category,config,target,build,rdrand,rdseed,cpuid,notes
+Nuclide,0.3.0,runtime,default,host,ok,1,0,0,
+Nuclide,0.3.0,runtime,rdrand,host,ok,5,0,0,
+Nuclide,0.3.0,runtime,sgx,x86_64-fortanix-unknown-sgx,ok,4,0,0,
+bitcoin-random,0.1.21,unconditional,default,host,fail-lib,0,0,0,error: failed to run custom build command for `openssl-sys v0.9.109`
+bitcoin-random,0.1.21,unconditional,rdrand,host,fail-lib,0,0,0,error: failed to run custom build command for `openssl-sys v0.9.109`
+bitcoin-random,0.1.21,unconditional,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error: failed to run custom build command for `openssl-sys v0.9.109`
+ciphern,0.2.1,unconditional,default,host,fail-lib,0,0,0,error: failed to run custom build command for `openssl-sys v0.9.111`
+ciphern,0.2.1,unconditional,rdrand,host,fail-lib,0,0,0,error: failed to run custom build command for `openssl-sys v0.9.111`
+ciphern,0.2.1,unconditional,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error: failed to run custom build command for `openssl-sys v0.9.111`
+cocoon-tpm-crypto,0.1.4,unconditional,default,host,ok,0,5,0,
+cocoon-tpm-crypto,0.1.4,unconditional,rdrand,host,ok,0,10,0,
+cocoon-tpm-crypto,0.1.4,unconditional,sgx,x86_64-fortanix-unknown-sgx,ok,0,5,0,
+concrete-csprng,0.4.1,compile_time,default,host,ok,0,0,0,
+concrete-csprng,0.4.1,compile_time,rdrand,host,ok,0,0,0,
+concrete-csprng,0.4.1,compile_time,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,
+enarx-shim-kvm,0.6.3,out_of_scope,default,host,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
+enarx-shim-kvm,0.6.3,out_of_scope,rdrand,host,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
+enarx-shim-kvm,0.6.3,out_of_scope,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,
+enarx-shim-sgx,0.6.3,out_of_scope,default,host,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
+enarx-shim-sgx,0.6.3,out_of_scope,rdrand,host,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
+enarx-shim-sgx,0.6.3,out_of_scope,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,
+enclave,0.1.4,out_of_scope,default,host,fail-lib,0,0,0,error[E0557]: feature has been removed
+enclave,0.1.4,out_of_scope,rdrand,host,fail-lib,0,0,0,error[E0557]: feature has been removed
+enclave,0.1.4,out_of_scope,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error[E0557]: feature has been removed
+foundation_compact,0.2.0,compile_time,default,host,ok,0,0,0,
+foundation_compact,0.2.0,compile_time,rdrand,host,ok,0,0,0,
+foundation_compact,0.2.0,compile_time,sgx,x86_64-fortanix-unknown-sgx,ok,120,0,0,
+freertos-std,0.0.1,out_of_scope,default,host,fail-lib,0,0,0,error[E0463]: can't find crate for `core`
+freertos-std,0.0.1,out_of_scope,rdrand,host,fail-lib,0,0,0,error[E0463]: can't find crate for `core`
+freertos-std,0.0.1,out_of_scope,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error[E0463]: can't find crate for `core`
+getrandom,0.4.3,compile_time,default,host,ok,0,0,0,
+getrandom,0.4.3,compile_time,rdrand,host,ok,0,0,0,
+getrandom,0.4.3,compile_time,sgx,x86_64-fortanix-unknown-sgx,ok,120,0,0,
+hardware-rust-crypto,1.0.1,compile_time,default,host,ok,0,16,2,
+hardware-rust-crypto,1.0.1,compile_time,rdrand,host,ok,0,32,4,
+hardware-rust-crypto,1.0.1,compile_time,sgx,x86_64-fortanix-unknown-sgx,ok,0,16,0,
+hoba,0.5.1,runtime,default,host,fail-lib,0,0,0,error: failed to run custom build command for `alsa-sys v0.3.1`
+hoba,0.5.1,runtime,rdrand,host,fail-lib,0,0,0,error: failed to run custom build command for `alsa-sys v0.3.1`
+hoba,0.5.1,runtime,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,
+hyper-thread-random,0.4.2,compile_time,default,host,ok,0,0,0,
+hyper-thread-random,0.4.2,compile_time,rdrand,host,ok,0,0,0,
+hyper-thread-random,0.4.2,compile_time,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,
+irox-arch-x86-64,0.1.2,unconditional,default,host,ok,2,2,0,
+irox-arch-x86-64,0.1.2,unconditional,rdrand,host,ok,6,4,0,
+irox-arch-x86-64,0.1.2,unconditional,sgx,x86_64-fortanix-unknown-sgx,ok,4,2,0,
+lcpfs,2026.1.102,unconditional,default,host,fail-lib,0,0,0,error[E0133]: use of inline assembly is unsafe and requires unsafe block
+lcpfs,2026.1.102,unconditional,rdrand,host,fail-lib,0,0,0,error[E0133]: use of inline assembly is unsafe and requires unsafe block
+lcpfs,2026.1.102,unconditional,sgx,x86_64-fortanix-unknown-sgx,ok,90,1,3,
+lib-q-fn-dsa,0.0.8,unconditional,default,host,fail-lib,0,0,0,error: rustc 1.95.0 is not supported by the following packages:
+lib-q-fn-dsa,0.0.8,unconditional,rdrand,host,fail-lib,0,0,0,error: rustc 1.95.0 is not supported by the following packages:
+lib-q-fn-dsa,0.0.8,unconditional,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error: rustc 1.95.0 is not supported by the following packages:
+lib-q-random,0.0.8,compile_time,default,host,fail-lib,0,0,0,error: rustc 1.95.0 is not supported by the following packages:
+lib-q-random,0.0.8,compile_time,rdrand,host,fail-lib,0,0,0,error: rustc 1.95.0 is not supported by the following packages:
+lib-q-random,0.0.8,compile_time,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error: rustc 1.95.0 is not supported by the following packages:
+libhermit-rs,0.6.3,out_of_scope,default,host,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
+libhermit-rs,0.6.3,out_of_scope,rdrand,host,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
+libhermit-rs,0.6.3,out_of_scope,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
+lokacore,0.3.0,unconditional,default,host,fail-lib,0,0,0,error: failed to select a version for the requirement `bytemuck = ;^0.1;`
+lokacore,0.3.0,unconditional,rdrand,host,fail-lib,0,0,0,error: failed to select a version for the requirement `bytemuck = ;^0.1;`
+lokacore,0.3.0,unconditional,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error: failed to select a version for the requirement `bytemuck = ;^0.1;`
+mbedtls,0.13.5,unconditional,default,host,fail-lib,0,0,0,error: failed to run custom build command for `mbedtls-sys-auto v2.28.13`
+mbedtls,0.13.5,unconditional,rdrand,host,fail-lib,0,0,0,error: failed to run custom build command for `mbedtls-sys-auto v2.28.13`
+mbedtls,0.13.5,unconditional,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error: failed to run custom build command for `mbedtls-sys-auto v2.28.13`
+mbedtls-smx,0.13.11,unconditional,default,host,fail-lib,0,0,0,error: failed to run custom build command for `mbedtls-sys-auto-smx v2.28.23`
+mbedtls-smx,0.13.11,unconditional,rdrand,host,fail-lib,0,0,0,error: failed to run custom build command for `mbedtls-sys-auto-smx v2.28.23`
+mbedtls-smx,0.13.11,unconditional,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error: failed to run custom build command for `mbedtls-sys-auto-smx v2.28.23`
+mc-rand,1.1.0,unconditional,default,host,ok,0,0,0,
+mc-rand,1.1.0,unconditional,rdrand,host,ok,0,0,0,
+mc-rand,1.1.0,unconditional,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,
+nanorand,0.8.0,unconditional,default,host,ok,0,0,0,
+nanorand,0.8.0,unconditional,rdrand,host,ok,0,0,0,
+nanorand,0.8.0,unconditional,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,
+nist-rand,0.1.0,runtime,default,host,ok,10,8,0,
+nist-rand,0.1.0,runtime,rdrand,host,ok,20,16,0,
+nist-rand,0.1.0,runtime,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,
+number-theory,0.0.26,runtime,default,host,ok,1,0,0,
+number-theory,0.0.26,runtime,rdrand,host,ok,61,0,0,
+number-theory,0.0.26,runtime,sgx,x86_64-fortanix-unknown-sgx,ok,60,0,0,
+ort-openrouter-cli,0.4.7,unconditional,default,host,fail-lib,0,0,0,error: failed to parse manifest at `/home/jason/rrv/w/ort-openrouter-cli-0.4.7/o
+ort-openrouter-cli,0.4.7,unconditional,rdrand,host,fail-lib,0,0,0,error: failed to parse manifest at `/home/jason/rrv/w/ort-openrouter-cli-0.4.7/o
+ort-openrouter-cli,0.4.7,unconditional,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error: failed to parse manifest at `/home/jason/rrv/w/ort-openrouter-cli-0.4.7/o
+ostd,0.18.0,out_of_scope,default,host,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
+ostd,0.18.0,out_of_scope,rdrand,host,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
+ostd,0.18.0,out_of_scope,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
+rdrand,0.9.0,unconditional,default,host,ok,55,25,0,
+rdrand,0.9.0,unconditional,rdrand,host,ok,110,50,0,
+rdrand,0.9.0,unconditional,sgx,x86_64-fortanix-unknown-sgx,ok,55,25,0,
+rialo-tee-secret-sharing,0.12.2,out_of_scope,default,host,ok,1,1,0,
+rialo-tee-secret-sharing,0.12.2,out_of_scope,rdrand,host,ok,9,17,0,
+rialo-tee-secret-sharing,0.12.2,out_of_scope,sgx,x86_64-fortanix-unknown-sgx,ok,8,16,0,
+rmath,0.1.5,compile_time,default,host,ok,2,2,0,
+rmath,0.1.5,compile_time,rdrand,host,ok,8,5,0,
+rmath,0.1.5,compile_time,sgx,x86_64-fortanix-unknown-sgx,ok,6,3,0,
+rusty-hermit,0.3.54,out_of_scope,default,host,fail-lib,0,0,0,error: failed to run `rustc` to learn about target-specific information
+rusty-hermit,0.3.54,out_of_scope,rdrand,host,fail-lib,0,0,0,error: failed to run `rustc` to learn about target-specific information
+rusty-hermit,0.3.54,out_of_scope,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error: failed to run `rustc` to learn about target-specific information
+safe_arch,1.0.0,unconditional,default,host,ok,0,0,0,
+safe_arch,1.0.0,unconditional,rdrand,host,ok,0,0,0,
+safe_arch,1.0.0,unconditional,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,
+sallyport,0.6.3,out_of_scope,default,host,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
+sallyport,0.6.3,out_of_scope,rdrand,host,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
+sallyport,0.6.3,out_of_scope,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,
+sec-mem,0.1.1,unconditional,default,host,ok,0,0,0,
+sec-mem,0.1.1,unconditional,rdrand,host,ok,0,0,0,
+sec-mem,0.1.1,unconditional,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error[E0432]: unresolved import `sec_mem`
+simple_random_numbers,0.1.1,unconditional,default,host,ok,1,1,0,
+simple_random_numbers,0.1.1,unconditional,rdrand,host,ok,3,3,0,
+simple_random_numbers,0.1.1,unconditional,sgx,x86_64-fortanix-unknown-sgx,ok,2,2,0,
+swiss-army-knife,0.0.37,unconditional,default,host,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
+swiss-army-knife,0.0.37,unconditional,rdrand,host,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
+swiss-army-knife,0.0.37,unconditional,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
+tfhe-csprng,0.9.1,compile_time,default,host,ok,0,2,0,
+tfhe-csprng,0.9.1,compile_time,rdrand,host,ok,0,4,0,
+tfhe-csprng,0.9.1,compile_time,sgx,x86_64-fortanix-unknown-sgx,ok,0,2,0,
+typed_arch,0.1.1,compile_time,default,host,fail-lib,0,0,0,error[E0432]: unresolved import `arch::has_cpuid`
+typed_arch,0.1.1,compile_time,rdrand,host,fail-lib,0,0,0,error[E0432]: unresolved import `arch::has_cpuid`
+typed_arch,0.1.1,compile_time,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error[E0432]: unresolved import `arch::has_cpuid`
+urng,0.8.0,unconditional,default,host,ok,0,0,0,
+urng,0.8.0,unconditional,rdrand,host,ok,0,0,0,
+urng,0.8.0,unconditional,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,
+vektor,0.2.2,compile_time,default,host,fail-lib,0,0,0,error[E0557]: feature has been removed
+vektor,0.2.2,compile_time,rdrand,host,fail-lib,0,0,0,error[E0557]: feature has been removed
+vektor,0.2.2,compile_time,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error[E0557]: feature has been removed
+virtfw-libhw,0.5.0,unconditional,default,host,ok,0,0,0,
+virtfw-libhw,0.5.0,unconditional,rdrand,host,ok,0,0,0,
+virtfw-libhw,0.5.0,unconditional,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,
+winit-gfx-hal,0.0.0,unconditional,default,host,ok,0,0,0,
+winit-gfx-hal,0.0.0,unconditional,rdrand,host,ok,0,0,0,
+winit-gfx-hal,0.0.0,unconditional,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,
+x64,0.16.2,unconditional,default,host,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
+x64,0.16.2,unconditional,rdrand,host,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
+x64,0.16.2,unconditional,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
+x86,0.52.0,unconditional,default,host,ok,3,3,0,
+x86,0.52.0,unconditional,rdrand,host,ok,7,7,0,
+x86,0.52.0,unconditional,sgx,x86_64-fortanix-unknown-sgx,ok,4,4,0,
+x86_64,0.15.4,unconditional,default,host,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
+x86_64,0.15.4,unconditional,rdrand,host,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
+x86_64,0.15.4,unconditional,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
