@@ -224,8 +224,15 @@ Full column descriptions: `docs/SCHEMA.md`. Corpus construction and exclusions:
 
 ## 6. Determinism notes & known limits
 
-- **Classifier / revdep** are deterministic; thread count (`--threads`) affects
-  only speed, not output.
+- **Classifier / revdep are deterministic in content, not necessarily row
+  order.** Thread count (`--threads`) doesn't affect the *set* of rows or
+  their values, but `classifier`'s parallel (rayon) writer means
+  `crates.csv`/`callsites.csv` row order can vary run to run — sort before
+  diffing (see `docs/VERIFY_FROM_ARCHIVE.md`). `revdep`'s summary `.md`
+  files inherit crate names from that same row order for their "Seeds
+  (N): ..." lines, so `revdep` explicitly sorts those before printing —
+  the summary text itself is fully deterministic even though its input
+  wasn't.
 - **Binary verification** is pinned to `rustc 1.95.0`. A different compiler
   version can legitimately change emitted opcode counts; do not compare across
   toolchains.

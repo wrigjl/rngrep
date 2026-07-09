@@ -10,7 +10,7 @@ Corpus: 295947 crates, 356393391514 total downloads.
 
 ## Compile-time RDRAND closure (headline)
 
-Seeds (10): hyper-thread-random, rmath, foundation_compact, getrandom, lib-q-random, typed_arch, concrete-csprng, hardware-rust-crypto, vektor, tfhe-csprng
+Seeds (10): concrete-csprng, foundation_compact, getrandom, hardware-rust-crypto, hyper-thread-random, lib-q-random, rmath, tfhe-csprng, typed_arch, vektor
 
 | Metric | Value |
 |---|---:|

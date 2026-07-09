@@ -257,6 +257,12 @@ fn load_seed_names(path: &Path, seed_mode: &str) -> Result<(Vec<String>, Vec<Str
             seeds.push(rec[name_i].to_string());
         }
     }
+    // classifier writes crates.csv via a mutex-protected writer fed by a
+    // parallel (rayon) loop, so row order (and therefore the order seeds
+    // are encountered in here) varies run to run even though row content
+    // doesn't. Sort so the "Seeds (N): ..." line in the summary is
+    // actually deterministic, not just the underlying data.
+    seeds.sort();
     Ok((seeds, Vec::new()))
 }
 
