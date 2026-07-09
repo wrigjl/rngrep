@@ -21,7 +21,7 @@ The pipeline has two independent inputs, with different reproduction stories:
 
 | Input | Pins it | Reproducible? |
 |---|---|---|
-| The `.crate` source corpus (252,202 tarballs) | `results/manifest.csv.gz` (crate→version→sha256) + `snapshot.toml` | **Byte-for-byte.** Each tarball is re-fetchable from `static.crates.io` and verified against its recorded SHA-256. |
+| The `.crate` source corpus (252,202 tarballs) | `results/manifest.csv.gz` (crate→version→sha256) + `snapshot.toml` | **Byte-for-byte, for tarballs still served.** Each tarball is re-fetchable from `static.crates.io` and verified against its recorded SHA-256. The unrecoverable/altered fraction grows with elapsed time since the pin (crates.io continues removing/altering crates after a snapshot is taken) — see `docs/corpus.md` § Corpus reproduction drift for a measured example (0.39% 8 weeks post-pin, vs. 0.0036% at paper-shipping time). Every row you *do* recover should still match the shipped manifest exactly. |
 | The crates.io **db-dump** (metadata, downloads, reverse-dependency edges) | `snapshot.toml` (`sha256`) | **Only from an archived copy.** crates.io serves *only the latest* dump at a stable URL and does not retain historical dumps — see §2. |
 
 Everything downstream is deterministic given those two inputs:
@@ -136,9 +136,24 @@ crawler fetch                                  # ~34 GB of .crate tarballs
 ```
 `fetch` is idempotent/append-only: it verifies each tarball against the
 `checksum` column of the dump's `versions.csv` and records
-`name,version,sha256,size_bytes,fetched_at` in `manifest.csv`. Confirm your
-`manifest.csv` has **252,202** data rows and matches the shipped
-`results/manifest.csv.gz`.
+`name,version,sha256,size_bytes,fetched_at` in `manifest.csv`. Target
+selection also excludes crate-versions whose declared license doesn't
+permit unmodified redistribution (about 3.6% of targets on the
+2026-05-13 snapshot); excluded crate-versions and why are written to
+`license_exclusions.csv` alongside `manifest.csv`. See `docs/corpus.md`
+§ License-based target filtering — **this postdates the paper's shipped
+252,202-crate corpus**, which was fetched before the filter existed and
+so is not itself license-filtered. If a first pass
+logs `WARN`s, re-run `crawler fetch` once — HTTP 500s and body-decode errors
+are usually transient and resolve on retry; HTTP 403s and checksum mismatches
+will not. Don't expect exactly **252,202** rows: crates.io keeps removing/
+altering crates after the pin date, so a reproduction run further from
+2026-05-13 will recover fewer (see `docs/corpus.md` § Corpus reproduction
+drift for a measured example: 251,209 rows, 8 weeks post-pin). Confirm
+reproducibility instead by diffing your `manifest.csv` against the shipped
+`results/manifest.csv.gz` on `name,version,sha256` — every row you do have
+should match exactly; a shrinking row count is expected drift, not a broken
+pipeline.
 
 **Stage 2 — classify.** `classifier --out results/` writes `crates.csv`,
 `callsites.csv`, and the `arm_*` variants over the whole corpus.

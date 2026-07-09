@@ -1,5 +1,6 @@
 use crate::config::{Config, USER_AGENT, crate_url, ensure_parent};
 use crate::dbdump;
+use crate::license;
 use crate::manifest::{ManifestRow, Writer};
 use anyhow::{Context, Result, bail};
 use futures::stream::{FuturesUnordered, StreamExt};
@@ -18,14 +19,24 @@ struct CrateRow {
     name: String,
 }
 
-/// Subset of versions.csv columns we care about.
-#[derive(Debug, Deserialize)]
+/// Subset of versions.csv columns we care about (crate_id is the
+/// containing HashMap's key, not stored here).
+#[derive(Debug)]
 struct VersionRow {
-    crate_id: u64,
     num: String,
     created_at: String,
-    yanked: String,
     checksum: String,
+    license: String,
+}
+
+/// A crate-version whose declared license did not permit unmodified
+/// redistribution, recorded for `license_exclusions.csv`.
+#[derive(Debug)]
+struct LicenseExclusion {
+    name: String,
+    version: String,
+    license: String,
+    reason: &'static str,
 }
 
 #[derive(Debug, Clone)]
@@ -47,9 +58,14 @@ pub async fn run(cfg: &Config, limit: Option<usize>, concurrency: usize) -> Resu
     let crate_names = load_crate_names(&crates_csv)?;
     tracing::info!(crates = crate_names.len(), "loaded crate name map");
 
-    let mut targets = pick_latest(&crate_names, &versions_csv)?;
+    let (mut targets, license_excluded) = pick_latest(&crate_names, &versions_csv)?;
     targets.sort_by(|a, b| a.name.cmp(&b.name));
-    tracing::info!(targets = targets.len(), "selected latest non-yanked versions");
+    tracing::info!(
+        targets = targets.len(),
+        license_excluded = license_excluded.len(),
+        "selected latest non-yanked, redistributable-license versions"
+    );
+    write_license_exclusions(&cfg.scratch.join("license_exclusions.csv"), &license_excluded)?;
 
     if let Some(n) = limit {
         targets.truncate(n);
@@ -119,6 +135,20 @@ pub async fn run(cfg: &Config, limit: Option<usize>, concurrency: usize) -> Resu
     Ok(())
 }
 
+/// Records which crate-versions were excluded from the corpus for license
+/// reasons and why, so the exclusion is auditable rather than silent. See
+/// docs/corpus.md.
+fn write_license_exclusions(path: &std::path::Path, excluded: &[LicenseExclusion]) -> Result<()> {
+    let mut w = csv::Writer::from_path(path)
+        .with_context(|| format!("opening {}", path.display()))?;
+    w.write_record(["name", "version", "license", "reason"])?;
+    for e in excluded {
+        w.write_record([&e.name, &e.version, &e.license, e.reason])?;
+    }
+    w.flush()?;
+    Ok(())
+}
+
 fn load_crate_names(path: &std::path::Path) -> Result<HashMap<u64, String>> {
     let mut rdr = csv::Reader::from_path(path)
         .with_context(|| format!("opening {}", path.display()))?;
@@ -133,42 +163,92 @@ fn load_crate_names(path: &std::path::Path) -> Result<HashMap<u64, String>> {
 fn pick_latest(
     crate_names: &HashMap<u64, String>,
     versions_csv: &std::path::Path,
-) -> Result<Vec<Target>> {
+) -> Result<(Vec<Target>, Vec<LicenseExclusion>)> {
     // Walk versions.csv once, keeping the most-recently-created non-yanked
     // non-prerelease version per crate. Prerelease is identified by a `-` in
     // the semver string.
+    //
+    // Read by header name (not the derive-based positional struct) because
+    // crates.io changed this schema between the 2026-05-13 pin and later
+    // dumps: the checksum column was renamed `checksum` -> `tar_sha256`
+    // (alongside new zip_sha256/zip_json_sha256 columns, evidently added
+    // for a new .zip packaging option) and the value encoding changed from
+    // plain hex to Postgres bytea-escaped hex (a leading `\x`). Both the
+    // .crate tarball URL and its meaning are unchanged either way, so we
+    // just need to find whichever column is present and strip the prefix
+    // if it's there -- this keeps the pinned 2026-05-13 corpus (old schema)
+    // reproducible while also supporting fresh dumps (new schema).
     let mut rdr = csv::Reader::from_path(versions_csv)
         .with_context(|| format!("opening {}", versions_csv.display()))?;
+    let headers = rdr.headers()?.clone();
+    let idx = |name: &str| headers.iter().position(|h| h == name);
+    let crate_id_idx = idx("crate_id").context("versions.csv missing crate_id column")?;
+    let num_idx = idx("num").context("versions.csv missing num column")?;
+    let created_at_idx = idx("created_at").context("versions.csv missing created_at column")?;
+    let yanked_idx = idx("yanked").context("versions.csv missing yanked column")?;
+    let license_idx = idx("license").context("versions.csv missing license column")?;
+    let checksum_idx = idx("checksum")
+        .or_else(|| idx("tar_sha256"))
+        .context("versions.csv missing checksum/tar_sha256 column")?;
+
     let mut best: HashMap<u64, VersionRow> = HashMap::new();
-    for row in rdr.deserialize::<VersionRow>() {
-        let row = row?;
-        if is_yanked(&row.yanked) {
+    for rec in rdr.records() {
+        let rec = rec?;
+        if is_yanked(&rec[yanked_idx]) {
             continue;
         }
-        if row.num.contains('-') {
+        let num = rec[num_idx].to_string();
+        if num.contains('-') {
             continue;
         }
-        match best.get(&row.crate_id) {
+        let crate_id: u64 = rec[crate_id_idx]
+            .parse()
+            .with_context(|| format!("parsing crate_id {:?}", &rec[crate_id_idx]))?;
+        let checksum = rec[checksum_idx]
+            .strip_prefix("\\x")
+            .unwrap_or(&rec[checksum_idx])
+            .to_string();
+        let row = VersionRow {
+            num,
+            created_at: rec[created_at_idx].to_string(),
+            checksum,
+            license: rec[license_idx].to_string(),
+        };
+        match best.get(&crate_id) {
             None => {
-                best.insert(row.crate_id, row);
+                best.insert(crate_id, row);
             }
             Some(prev) if row.created_at > prev.created_at => {
-                best.insert(row.crate_id, row);
+                best.insert(crate_id, row);
             }
             _ => {}
         }
     }
     let mut out = Vec::with_capacity(best.len());
+    let mut excluded = Vec::new();
     for (id, v) in best {
         if let Some(name) = crate_names.get(&id) {
-            out.push(Target {
-                name: name.clone(),
-                version: v.num,
-                checksum: v.checksum,
-            });
+            // Only mirror crate-versions whose declared license permits
+            // unmodified redistribution (permissive, copyleft, or an OR
+            // mixing the two). This is a target-selection filter, not a
+            // post-hoc one: an excluded crate is never fetched at all. See
+            // docs/corpus.md.
+            match license::check(&v.license) {
+                Ok(()) => out.push(Target {
+                    name: name.clone(),
+                    version: v.num,
+                    checksum: v.checksum,
+                }),
+                Err(reason) => excluded.push(LicenseExclusion {
+                    name: name.clone(),
+                    version: v.num,
+                    license: v.license,
+                    reason,
+                }),
+            }
         }
     }
-    Ok(out)
+    Ok((out, excluded))
 }
 
 /// crates.io's `yanked` column is `t`/`f`.

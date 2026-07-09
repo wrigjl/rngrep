@@ -1,6 +1,7 @@
 mod config;
 mod dbdump;
 mod fetch;
+mod license;
 mod manifest;
 
 use anyhow::Result;

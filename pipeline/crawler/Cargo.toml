@@ -12,9 +12,11 @@ flate2 = "1"
 futures = "0.3"
 hex = "0.4"
 indicatif = "0.17"
+regex = "1"
 reqwest = { version = "0.12", features = ["stream", "rustls-tls"], default-features = false }
 serde = { version = "1", features = ["derive"] }
 sha2 = "0.10"
+spdx = "0.10"
 tar = "0.4"
 time = { version = "0.3", features = ["formatting", "macros"] }
 tokio = { version = "1", features = ["full"] }
