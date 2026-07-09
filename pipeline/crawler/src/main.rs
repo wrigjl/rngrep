@@ -3,6 +3,7 @@ mod dbdump;
 mod fetch;
 mod license;
 mod manifest;
+mod rebuild;
 
 use anyhow::Result;
 use clap::{Parser, Subcommand};
@@ -46,6 +47,10 @@ enum Cmd {
         #[arg(long, default_value_t = 6)]
         concurrency: usize,
     },
+    /// Regenerate manifest.csv from a corpus already on disk (e.g. one
+    /// extracted from an archival corpus.tar), without contacting
+    /// crates.io. Fails if manifest.csv already exists.
+    ManifestRebuild,
 }
 
 #[tokio::main]
@@ -64,5 +69,6 @@ async fn main() -> Result<()> {
     match cli.cmd {
         Cmd::DbDump { force, expect_sha } => dbdump::run(&cfg, force, expect_sha).await,
         Cmd::Fetch { limit, concurrency } => fetch::run(&cfg, limit, concurrency).await,
+        Cmd::ManifestRebuild => rebuild::run(&cfg),
     }
 }
