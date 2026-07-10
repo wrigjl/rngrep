@@ -32,9 +32,9 @@ mc-rand,1.1.0,unconditional,allfeat,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,
 virtfw-libhw,0.5.0,unconditional,allfeat,default,host,ok,0,0,0,
 virtfw-libhw,0.5.0,unconditional,allfeat,rdrand,host,ok,0,0,0,
 virtfw-libhw,0.5.0,unconditional,allfeat,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,
-concrete-csprng,0.4.1,compile_time,allfeat,default,host,fail-lib,0,0,0,error: failed to run custom build command for `concrete-csprng v0.4.1 (/home/jas
-concrete-csprng,0.4.1,compile_time,allfeat,rdrand,host,fail-lib,0,0,0,error: failed to run custom build command for `concrete-csprng v0.4.1 (/home/jas
-concrete-csprng,0.4.1,compile_time,allfeat,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error: failed to run custom build command for `concrete-csprng v0.4.1 (/home/jas
+concrete-csprng,0.4.1,compile_time,allfeat,default,host,fail-lib,0,0,0,error: failed to run custom build command for `concrete-csprng v0.4.1 (<BASE>/w2
+concrete-csprng,0.4.1,compile_time,allfeat,rdrand,host,fail-lib,0,0,0,error: failed to run custom build command for `concrete-csprng v0.4.1 (<BASE>/w2
+concrete-csprng,0.4.1,compile_time,allfeat,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error: failed to run custom build command for `concrete-csprng v0.4.1 (<BASE>/w2
 hyper-thread-random,0.4.2,compile_time,allfeat,default,host,ok,0,0,0,
 hyper-thread-random,0.4.2,compile_time,allfeat,rdrand,host,ok,0,0,0,
 hyper-thread-random,0.4.2,compile_time,allfeat,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,

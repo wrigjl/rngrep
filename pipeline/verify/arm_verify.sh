@@ -86,7 +86,7 @@ build_one() {
     ( cd "$src" && RUSTFLAGS="$rustflags" timeout 600 cargo "+$TC" build --release $libflag >>"$log" 2>&1 )
     if [ $? -eq 0 ]; then build=ok; read r s < <(scan_dir "$d/target/release" "$name")
     else [ -n "$libflag" ] && build=fail-lib || build=fail-bin
-         note=$(grep -m1 -iE '^error' "$log" | tr ',"' ';;' | cut -c1-70 | sed "s#$BASE#<BASE>#g"); fi
+         note=$(grep -m1 -iE '^error' "$log" | tr ',"' ';;' | sed "s#$BASE#<BASE>#g" | cut -c1-70); fi
     echo "$name,$version,$cat,$cfg,$build,$r,$s,$note" >> "$OUT"
   }
   run_cfg default ""

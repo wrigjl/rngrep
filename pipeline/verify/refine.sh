@@ -76,7 +76,7 @@ refine_one() {
         ${target:+--target "$target"} >>"$log" 2>&1 )
     if [ $? -eq 0 ]; then build=ok; read r s c < <(scan_dir "$d/target/$subdir/release" "$name")
     else [ -n "$libflag" ] && build=fail-lib || build=fail-bin
-         note=$(grep -m1 -iE '^error' "$log" | tr ',"' ';;' | cut -c1-80 | sed "s#$BASE#<BASE>#g"); fi
+         note=$(grep -m1 -iE '^error' "$log" | tr ',"' ';;' | sed "s#$BASE#<BASE>#g" | cut -c1-80); fi
     echo "$name,$version,$cat,$mode,$cfg,${target:-host},$build,$r,$s,$c,$note" >> "$OUT"
   }
   run_cfg default ""            ""                                  "."

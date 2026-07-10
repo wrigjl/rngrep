@@ -114,12 +114,14 @@ build_one() {
       read r s c < <(scan_dir "$d/target/$subdir/release" "$name")
     else
       [ -n "$libflag" ] && build=fail-lib || build=fail-bin
-      # Strip $BASE from captured cargo/rustc error text: some errors (e.g.
-      # manifest-parse failures) embed the absolute build path, which is
-      # host/run-specific (BASE is chosen per invocation) and would
-      # otherwise make an exact-match reproduction check fail for a purely
-      # cosmetic reason even when the actual build outcome is identical.
-      note=$(grep -m1 -iE '^error' "$log" | tr ',"' ';;' | cut -c1-80 | sed "s#$BASE#<BASE>#g")
+      # Strip $BASE from captured cargo/rustc error text (some errors, e.g.
+      # manifest-parse failures, embed the absolute build path, which is
+      # host/run-specific) *before* truncating to a fixed length -- doing
+      # it after truncation means how much real content survives depends
+      # on how long the real $BASE path happened to be, so two correct
+      # runs with different BASE choices produce different-length notes
+      # for the same underlying error.
+      note=$(grep -m1 -iE '^error' "$log" | tr ',"' ';;' | sed "s#$BASE#<BASE>#g" | cut -c1-80)
     fi
     echo "$name,$version,$cat,$cfg,${target:-host},$build,$r,$s,$c,$note" >> "$OUT"
   }

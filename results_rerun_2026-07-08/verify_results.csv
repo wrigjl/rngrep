@@ -77,9 +77,9 @@ Nuclide,0.3.0,runtime,sgx,x86_64-fortanix-unknown-sgx,ok,4,0,0,
 number-theory,0.0.26,runtime,default,host,ok,1,0,0,
 number-theory,0.0.26,runtime,rdrand,host,ok,61,0,0,
 number-theory,0.0.26,runtime,sgx,x86_64-fortanix-unknown-sgx,ok,60,0,0,
-ort-openrouter-cli,0.4.7,unconditional,default,host,fail-lib,0,0,0,error: failed to parse manifest at `<BASE>/w/ort-openrouter-cli-0.4.7/o
-ort-openrouter-cli,0.4.7,unconditional,rdrand,host,fail-lib,0,0,0,error: failed to parse manifest at `<BASE>/w/ort-openrouter-cli-0.4.7/o
-ort-openrouter-cli,0.4.7,unconditional,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error: failed to parse manifest at `<BASE>/w/ort-openrouter-cli-0.4.7/o
+ort-openrouter-cli,0.4.7,unconditional,default,host,fail-lib,0,0,0,error: failed to parse manifest at `<BASE>/w/ort-openrouter-cli-0.4.7/ort-openro
+ort-openrouter-cli,0.4.7,unconditional,rdrand,host,fail-lib,0,0,0,error: failed to parse manifest at `<BASE>/w/ort-openrouter-cli-0.4.7/ort-openro
+ort-openrouter-cli,0.4.7,unconditional,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error: failed to parse manifest at `<BASE>/w/ort-openrouter-cli-0.4.7/ort-openro
 ostd,0.18.0,out_of_scope,default,host,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
 ostd,0.18.0,out_of_scope,rdrand,host,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
 ostd,0.18.0,out_of_scope,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error[E0554]: `#![feature]` may not be used on the stable release channel
