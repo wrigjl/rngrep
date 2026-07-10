@@ -1,4 +1,4 @@
 # Auto-written by `crawler db-dump`.
 url = "https://static.crates.io/db-dump.tar.gz"
-sha256 = "db6bf2ac1b1217d627bcae1594d0f78e32ded593eb128a6fbf174efb2e71e974"
-fetched_at = "2026-05-13T17:40:08.592821Z"
+sha256 = "af2a04c11d6fbed99307167d44d28c3360090c8eae186f5bc818cf42f8b0bf36"
+fetched_at = "2026-07-09T00:08:55Z"

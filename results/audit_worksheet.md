@@ -41,7 +41,27 @@ Verdict legend: OK (category correct) | WRONG->X (should be X) | NOTE (correct b
 VERDICT: ____
 
 ======================================================================
-## getrandom 0.4.2  --  classifier category: **compile_time**
+## foundation_compact 0.2.0  --  classifier category: **compile_time**
+
+--- src/entropy/backends/rdrand.rs:39  kind=intrinsic detail=alias:rdrand_step site_cat=compile_time in_test=false rt_gated=false cg_present=false tf_attr=true
+         33         // in via https://github.com/rust-lang/rust/commit/f2eb88b which is
+         34         // expected to be included in 1.93.0. Since our MSRV is 1.85, we need to
+         35         // use unsafe here and suppress the lint.
+         36         //
+         37         // TODO(MSRV 1.93): remove allow(unused_unsafe) and the unsafe block.
+         38         #[allow(unused_unsafe)]
+    >>   39         if unsafe { rdrand_step(&mut val) } == 1 {
+         40             return Some(val);
+         41         }
+         42     }
+         43     None
+         44 }
+         45 
+
+VERDICT: ____
+
+======================================================================
+## getrandom 0.4.3  --  classifier category: **compile_time**
 
 --- src/backends/rdrand.rs:39  kind=intrinsic detail=alias:rdrand_step site_cat=compile_time in_test=false rt_gated=false cg_present=false tf_attr=true
          33         // in via https://github.com/rust-lang/rust/commit/f2eb88b which is
@@ -57,6 +77,229 @@ VERDICT: ____
          43     None
          44 }
          45 
+
+VERDICT: ____
+
+======================================================================
+## hardware-rust-crypto 1.0.1  --  classifier category: **compile_time**
+
+--- src/random/entropy.rs:169  kind=intrinsic detail=_rdseed64_step site_cat=compile_time in_test=false rt_gated=false cg_present=false tf_attr=true
+    cfg_gates: # [cfg (all (feature = "cpu-rng-reseed" , target_arch = "x86_64"))]
+        163         for chunk in out.chunks_mut(8) {
+        164             let mut value = 0_u64;
+        165             let mut ready = false;
+        166             for _ in 0..super::RETRIES {
+        167                 // The rdseed target feature is enabled on this fn, so calling
+        168                 // the intrinsic is in-context; `_rdseed64_step` takes `&mut`.
+    >>  169                 if _rdseed64_step(&mut value) == 1 {
+        170                     ready = true;
+        171                     break;
+        172                 }
+        173                 core::hint::spin_loop();
+        174             }
+        175             if !ready {
+
+VERDICT: ____
+
+======================================================================
+## hyper-thread-random 0.4.2  --  classifier category: **compile_time**
+
+--- src/generate_hyper_thread_safe_random_u16.rs:10  kind=intrinsic detail=_rdrand16_step site_cat=compile_time in_test=false rt_gated=false cg_present=true tf_attr=false
+    cfg_gates: # [cfg (all (target_arch = "x86" , target_feature = "rdrand"))]
+          4 
+          5 /// Generates a random u16 for the current hyper thread.
+          6 #[cfg(all(target_arch = "x86", target_feature = "rdrand"))]
+          7 #[inline(always)]
+          8 pub fn generate_hyper_thread_safe_random_u16() -> u16
+          9 {
+    >>   10 	generate!(u16, ::std::arch::x86::_rdrand16_step)
+         11 }
+         12 
+         13 /// Generates a random u16 for the current hyper thread.
+         14 #[cfg(all(target_arch = "x86_64", target_feature = "rdrand"))]
+         15 #[inline(always)]
+         16 pub fn generate_hyper_thread_safe_random_u16() -> u16
+
+--- src/generate_hyper_thread_safe_random_u16.rs:18  kind=intrinsic detail=_rdrand16_step site_cat=compile_time in_test=false rt_gated=false cg_present=true tf_attr=false
+    cfg_gates: # [cfg (all (target_arch = "x86_64" , target_feature = "rdrand"))]
+         12 
+         13 /// Generates a random u16 for the current hyper thread.
+         14 #[cfg(all(target_arch = "x86_64", target_feature = "rdrand"))]
+         15 #[inline(always)]
+         16 pub fn generate_hyper_thread_safe_random_u16() -> u16
+         17 {
+    >>   18 	generate!(u16, ::std::arch::x86_64::_rdrand16_step)
+         19 }
+         20 
+         21 /// Generates a random u16 for the current hyper thread.
+         22 #[cfg(not(all(any(target_arch = "x86", target_arch = "x86_64"), target_feature = "rdrand")))]
+         23 pub fn generate_hyper_thread_safe_random_u16() -> u16
+         24 {
+
+--- src/generate_hyper_thread_safe_random_u32.rs:10  kind=intrinsic detail=_rdrand32_step site_cat=compile_time in_test=false rt_gated=false cg_present=true tf_attr=false
+    cfg_gates: # [cfg (all (target_arch = "x86" , target_feature = "rdrand"))]
+          4 
+          5 /// Generates a random u32 for the current hyper thread.
+          6 #[cfg(all(target_arch = "x86", target_feature = "rdrand"))]
+          7 #[inline(always)]
+          8 pub fn generate_hyper_thread_safe_random_u32() -> u32
+          9 {
+    >>   10 	generate!(u32, ::std::arch::x86::_rdrand32_step)
+         11 }
+         12 
+         13 /// Generates a random u32 for the current hyper thread.
+         14 #[cfg(all(target_arch = "x86_64", target_feature = "rdrand"))]
+         15 #[inline(always)]
+         16 pub fn generate_hyper_thread_safe_random_u32() -> u32
+
+--- src/generate_hyper_thread_safe_random_u32.rs:18  kind=intrinsic detail=_rdrand32_step site_cat=compile_time in_test=false rt_gated=false cg_present=true tf_attr=false
+    cfg_gates: # [cfg (all (target_arch = "x86_64" , target_feature = "rdrand"))]
+         12 
+         13 /// Generates a random u32 for the current hyper thread.
+         14 #[cfg(all(target_arch = "x86_64", target_feature = "rdrand"))]
+         15 #[inline(always)]
+         16 pub fn generate_hyper_thread_safe_random_u32() -> u32
+         17 {
+    >>   18 	generate!(u32, ::std::arch::x86_64::_rdrand32_step)
+         19 }
+         20 
+         21 /// Generates a random u32 for the current hyper thread.
+         22 #[cfg(not(all(any(target_arch = "x86", target_arch = "x86_64"), target_feature = "rdrand")))]
+         23 pub fn generate_hyper_thread_safe_random_u32() -> u32
+         24 {
+
+--- src/generate_hyper_thread_safe_random_u64.rs:10  kind=intrinsic detail=_rdrand64_step site_cat=compile_time in_test=false rt_gated=false cg_present=true tf_attr=false
+    cfg_gates: # [cfg (all (target_arch = "x86" , target_feature = "rdrand"))]
+          4 
+          5 /// Generates a random u64 for the current hyper thread.
+          6 #[cfg(all(target_arch = "x86", target_feature = "rdrand"))]
+          7 #[inline(always)]
+          8 pub fn generate_hyper_thread_safe_random_u64() -> u64
+          9 {
+    >>   10 	generate!(u64, ::std::arch::x86::_rdrand64_step)
+         11 }
+         12 
+         13 /// Generates a random u64 for the current hyper thread.
+         14 #[cfg(all(target_arch = "x86_64", target_feature = "rdrand"))]
+         15 #[inline(always)]
+         16 pub fn generate_hyper_thread_safe_random_u64() -> u64
+
+--- src/generate_hyper_thread_safe_random_u64.rs:18  kind=intrinsic detail=_rdrand64_step site_cat=compile_time in_test=false rt_gated=false cg_present=true tf_attr=false
+    cfg_gates: # [cfg (all (target_arch = "x86_64" , target_feature = "rdrand"))]
+         12 
+         13 /// Generates a random u64 for the current hyper thread.
+         14 #[cfg(all(target_arch = "x86_64", target_feature = "rdrand"))]
+         15 #[inline(always)]
+         16 pub fn generate_hyper_thread_safe_random_u64() -> u64
+         17 {
+    >>   18 	generate!(u64, ::std::arch::x86_64::_rdrand64_step)
+         19 }
+         20 
+         21 /// Generates a random u64 for the current hyper thread.
+         22 #[cfg(not(all(any(target_arch = "x86", target_arch = "x86_64"), target_feature = "rdrand")))]
+         23 pub fn generate_hyper_thread_safe_random_u64() -> u64
+         24 {
+
+VERDICT: ____
+
+======================================================================
+## lib-q-random 0.0.8  --  classifier category: **compile_time**
+
+--- src/hardware_rng.rs:101  kind=intrinsic detail=_rdrand64_step site_cat=compile_time in_test=false rt_gated=false cg_present=false tf_attr=true
+    cfg_gates: # [cfg (all (feature = "std" , target_arch = "x86_64"))]
+         95         let remain = dest.len() - offset;
+         96         if remain >= 8 {
+         97             let mut v = 0u64;
+         98             let mut ok = false;
+         99             for _ in 0..RDRAND_RETRIES {
+        100                 // SAFETY: `_rdrand64_step` is only used inside this `rdrand` target feature.
+    >>  101                 if _rdrand64_step(&mut v) != 0 {
+        102                     ok = true;
+        103                     break;
+        104                 }
+        105             }
+        106             if !ok {
+        107                 return Err(());
+
+--- src/hardware_rng.rs:115  kind=intrinsic detail=_rdrand32_step site_cat=compile_time in_test=false rt_gated=false cg_present=false tf_attr=true
+    cfg_gates: # [cfg (all (feature = "std" , target_arch = "x86_64"))]
+        109             dest[offset..offset + 8].copy_from_slice(&v.to_le_bytes());
+        110             offset += 8;
+        111         } else if remain >= 4 {
+        112             let mut v = 0u32;
+        113             let mut ok = false;
+        114             for _ in 0..RDRAND_RETRIES {
+    >>  115                 if _rdrand32_step(&mut v) != 0 {
+        116                     ok = true;
+        117                     break;
+        118                 }
+        119             }
+        120             if !ok {
+        121                 return Err(());
+
+--- src/hardware_rng.rs:129  kind=intrinsic detail=_rdrand32_step site_cat=compile_time in_test=false rt_gated=false cg_present=false tf_attr=true
+    cfg_gates: # [cfg (all (feature = "std" , target_arch = "x86_64"))]
+        123             dest[offset..offset + 4].copy_from_slice(&v.to_le_bytes());
+        124             offset += 4;
+        125         } else {
+        126             let mut v = 0u32;
+        127             let mut ok = false;
+        128             for _ in 0..RDRAND_RETRIES {
+    >>  129                 if _rdrand32_step(&mut v) != 0 {
+        130                     ok = true;
+        131                     break;
+        132                 }
+        133             }
+        134             if !ok {
+        135                 return Err(());
+
+--- src/hardware_rng.rs:156  kind=intrinsic detail=_rdrand32_step site_cat=compile_time in_test=false rt_gated=false cg_present=false tf_attr=true
+    cfg_gates: # [cfg (all (feature = "std" , target_arch = "x86"))]
+        150     let mut offset = 0usize;
+        151     while offset < dest.len() {
+        152         let remain = dest.len() - offset;
+        153         let mut v = 0u32;
+        154         let mut ok = false;
+        155         for _ in 0..RDRAND_RETRIES {
+    >>  156             if _rdrand32_step(&mut v) != 0 {
+        157                 ok = true;
+        158                 break;
+        159             }
+        160         }
+        161         if !ok {
+        162             return Err(());
+
+--- src/hardware_rng.rs:178  kind=intrinsic detail=_rdrand64_step site_cat=compile_time in_test=false rt_gated=false cg_present=false tf_attr=true
+    cfg_gates: # [cfg (all (feature = "std" , target_arch = "x86_64"))]
+        172 #[target_feature(enable = "rdrand")]
+        173 unsafe fn rdrand_fill_any_word(scratch: &mut [u8; 8]) -> RdrandFillResult {
+        174     use core::arch::x86_64::_rdrand64_step;
+        175 
+        176     let mut v = 0u64;
+        177     for _ in 0..RDRAND_RETRIES {
+    >>  178         if _rdrand64_step(&mut v) != 0 {
+        179             scratch.copy_from_slice(&v.to_le_bytes());
+        180             return Ok(());
+        181         }
+        182     }
+        183     Err(())
+        184 }
+
+--- src/hardware_rng.rs:193  kind=intrinsic detail=_rdrand32_step site_cat=compile_time in_test=false rt_gated=false cg_present=false tf_attr=true
+    cfg_gates: # [cfg (all (feature = "std" , target_arch = "x86"))]
+        187 #[target_feature(enable = "rdrand")]
+        188 unsafe fn rdrand_fill_any_word(scratch: &mut [u8; 8]) -> RdrandFillResult {
+        189     use core::arch::x86::_rdrand32_step;
+        190 
+        191     let mut v = 0u32;
+        192     for _ in 0..RDRAND_RETRIES {
+    >>  193         if _rdrand32_step(&mut v) != 0 {
+        194             scratch[..4].copy_from_slice(&v.to_le_bytes());
+        195             return Ok(());
+        196         }
+        197     }
+        198     Err(())
+        199 }
 
 VERDICT: ____
 
@@ -128,100 +371,7 @@ VERDICT: ____
 VERDICT: ____
 
 ======================================================================
-## safe_arch 1.0.0  --  classifier category: **compile_time**
-
---- src/x86_x64/rdrand.rs:13  kind=intrinsic detail=_rdrand16_step site_cat=compile_time in_test=false rt_gated=false cg_present=true tf_attr=false
-    cfg_gates: # [cfg_attr (docsrs , doc (cfg (target_feature = "rdrand")))]
-          7 /// * **Intrinsic:** [`_rdrand16_step`]
-          8 /// * **Assembly:** `rdrand r16`
-          9 #[must_use]
-         10 #[inline(always)]
-         11 #[cfg_attr(docsrs, doc(cfg(target_feature = "rdrand")))]
-         12 pub fn rdrand_u16(out: &mut u16) -> i32 {
-    >>   13   unsafe { _rdrand16_step(out) }
-         14 }
-         15 
-         16 /// Try to obtain a random `u32` from the hardware RNG.
-         17 ///
-         18 /// * **Intrinsic:** [`_rdrand32_step`]
-         19 /// * **Assembly:** `rdrand r32`
-
---- src/x86_x64/rdrand.rs:24  kind=intrinsic detail=_rdrand32_step site_cat=compile_time in_test=false rt_gated=false cg_present=true tf_attr=false
-    cfg_gates: # [cfg_attr (docsrs , doc (cfg (target_feature = "rdrand")))]
-         18 /// * **Intrinsic:** [`_rdrand32_step`]
-         19 /// * **Assembly:** `rdrand r32`
-         20 #[must_use]
-         21 #[inline(always)]
-         22 #[cfg_attr(docsrs, doc(cfg(target_feature = "rdrand")))]
-         23 pub fn rdrand_u32(out: &mut u32) -> i32 {
-    >>   24   unsafe { _rdrand32_step(out) }
-         25 }
-         26 
-         27 /// Try to obtain a random `u64` from the hardware RNG.
-         28 ///
-         29 /// * **Intrinsic:** [`_rdrand64_step`]
-         30 /// * **Assembly:** `rdrand r64`
-
---- src/x86_x64/rdrand.rs:36  kind=intrinsic detail=_rdrand64_step site_cat=compile_time in_test=false rt_gated=false cg_present=true tf_attr=false
-    cfg_gates: # [cfg (target_arch = "x86_64")];# [cfg_attr (docsrs , doc (cfg (target_feature = "rdrand")))]
-         30 /// * **Assembly:** `rdrand r64`
-         31 #[must_use]
-         32 #[inline(always)]
-         33 #[cfg(target_arch = "x86_64")]
-         34 #[cfg_attr(docsrs, doc(cfg(target_feature = "rdrand")))]
-         35 pub fn rdrand_u64(out: &mut u64) -> i32 {
-    >>   36   unsafe { _rdrand64_step(out) }
-         37 }
-         38 
-
---- src/x86_x64/rdseed.rs:13  kind=intrinsic detail=_rdseed16_step site_cat=compile_time in_test=false rt_gated=false cg_present=true tf_attr=false
-    cfg_gates: # [cfg_attr (docsrs , doc (cfg (target_feature = "rdseed")))]
-          7 /// * **Intrinsic:** [`_rdseed16_step`]
-          8 /// * **Assembly:** `rdseed r16`
-          9 #[must_use]
-         10 #[inline(always)]
-         11 #[cfg_attr(docsrs, doc(cfg(target_feature = "rdseed")))]
-         12 pub fn rdseed_u16(out: &mut u16) -> i32 {
-    >>   13   unsafe { _rdseed16_step(out) }
-         14 }
-         15 
-         16 /// Try to obtain a random `u32` from the hardware RNG.
-         17 ///
-         18 /// * **Intrinsic:** [`_rdseed32_step`]
-         19 /// * **Assembly:** `rdseed r32`
-
---- src/x86_x64/rdseed.rs:24  kind=intrinsic detail=_rdseed32_step site_cat=compile_time in_test=false rt_gated=false cg_present=true tf_attr=false
-    cfg_gates: # [cfg_attr (docsrs , doc (cfg (target_feature = "rdseed")))]
-         18 /// * **Intrinsic:** [`_rdseed32_step`]
-         19 /// * **Assembly:** `rdseed r32`
-         20 #[must_use]
-         21 #[inline(always)]
-         22 #[cfg_attr(docsrs, doc(cfg(target_feature = "rdseed")))]
-         23 pub fn rdseed_u32(out: &mut u32) -> i32 {
-    >>   24   unsafe { _rdseed32_step(out) }
-         25 }
-         26 
-         27 /// Try to obtain a random `u64` from the hardware RNG.
-         28 ///
-         29 /// * **Intrinsic:** [`_rdseed64_step`]
-         30 /// * **Assembly:** `rdseed r64`
-
---- src/x86_x64/rdseed.rs:36  kind=intrinsic detail=_rdseed64_step site_cat=compile_time in_test=false rt_gated=false cg_present=true tf_attr=false
-    cfg_gates: # [cfg (target_arch = "x86_64")];# [cfg_attr (docsrs , doc (cfg (target_feature = "rdseed")))]
-         30 /// * **Assembly:** `rdseed r64`
-         31 #[must_use]
-         32 #[inline(always)]
-         33 #[cfg(target_arch = "x86_64")]
-         34 #[cfg_attr(docsrs, doc(cfg(target_feature = "rdseed")))]
-         35 pub fn rdseed_u64(out: &mut u64) -> i32 {
-    >>   36   unsafe { _rdseed64_step(out) }
-         37 }
-         38 
-
-VERDICT: ____
-
-======================================================================
-## tfhe-csprng 0.9.0  --  classifier category: **compile_time**
+## tfhe-csprng 0.9.1  --  classifier category: **compile_time**
 
 --- src/seeders/implem/rdseed.rs:43  kind=intrinsic detail=_rdseed64_step site_cat=compile_time in_test=false rt_gated=false cg_present=false tf_attr=true
          37 unsafe fn rdseed_random_m128() -> u128 {
@@ -349,10 +499,9 @@ VERDICT: ____
 VERDICT: ____
 
 ======================================================================
-## vektor 0.2.2  --  classifier category: **none**
+## vektor 0.2.2  --  classifier category: **compile_time**
 
---- src/x86/rdrand.rs:15  kind=intrinsic detail=_rdrand16_step site_cat=compile_time in_test=true rt_gated=false cg_present=false tf_attr=true
-    cfg_gates: # [cfg_attr (test , assert_instr (rdrand))];# [cfg_attr (feature = "cargo-clippy" , allow (stutter))]
+--- src/x86/rdrand.rs:15  kind=intrinsic detail=_rdrand16_step site_cat=compile_time in_test=false rt_gated=false cg_present=false tf_attr=true
           9 /// Return 1 if a random value was generated, and 0 otherwise.
          10 #[inline]
          11 #[target_feature(enable = "rdrand")]
@@ -367,8 +516,7 @@ VERDICT: ____
          20 #[inline]
          21 #[target_feature(enable = "rdrand")]
 
---- src/x86/rdrand.rs:25  kind=intrinsic detail=_rdrand32_step site_cat=compile_time in_test=true rt_gated=false cg_present=false tf_attr=true
-    cfg_gates: # [cfg_attr (test , assert_instr (rdrand))];# [cfg_attr (feature = "cargo-clippy" , allow (stutter))]
+--- src/x86/rdrand.rs:25  kind=intrinsic detail=_rdrand32_step site_cat=compile_time in_test=false rt_gated=false cg_present=false tf_attr=true
          19 /// Return 1 if a random value was generated, and 0 otherwise.
          20 #[inline]
          21 #[target_feature(enable = "rdrand")]
@@ -383,8 +531,7 @@ VERDICT: ____
          30 #[inline]
          31 #[target_feature(enable = "rdseed")]
 
---- src/x86/rdrand.rs:34  kind=intrinsic detail=_rdseed16_step site_cat=compile_time in_test=true rt_gated=false cg_present=false tf_attr=true
-    cfg_gates: # [cfg_attr (test , assert_instr (rdseed))]
+--- src/x86/rdrand.rs:34  kind=intrinsic detail=_rdseed16_step site_cat=compile_time in_test=false rt_gated=false cg_present=false tf_attr=true
          28 /// Read a 16-bit NIST SP800-90B and SP800-90C compliant random value and store
          29 /// in val. Return 1 if a random value was generated, and 0 otherwise.
          30 #[inline]
@@ -399,8 +546,7 @@ VERDICT: ____
          39 #[inline]
          40 #[target_feature(enable = "rdseed")]
 
---- src/x86/rdrand.rs:43  kind=intrinsic detail=_rdseed32_step site_cat=compile_time in_test=true rt_gated=false cg_present=false tf_attr=true
-    cfg_gates: # [cfg_attr (test , assert_instr (rdseed))]
+--- src/x86/rdrand.rs:43  kind=intrinsic detail=_rdseed32_step site_cat=compile_time in_test=false rt_gated=false cg_present=false tf_attr=true
          37 /// Read a 32-bit NIST SP800-90B and SP800-90C compliant random value and store
          38 /// in val. Return 1 if a random value was generated, and 0 otherwise.
          39 #[inline]
@@ -411,8 +557,7 @@ VERDICT: ____
          44 }
          45 
 
---- src/x86_64/rdrand.rs:15  kind=intrinsic detail=_rdrand64_step site_cat=compile_time in_test=true rt_gated=false cg_present=false tf_attr=true
-    cfg_gates: # [cfg_attr (test , assert_instr (rdrand))];# [cfg_attr (feature = "cargo-clippy" , allow (stutter))]
+--- src/x86_64/rdrand.rs:15  kind=intrinsic detail=_rdrand64_step site_cat=compile_time in_test=false rt_gated=false cg_present=false tf_attr=true
           9 /// Return 1 if a random value was generated, and 0 otherwise.
          10 #[inline]
          11 #[target_feature(enable = "rdrand")]
@@ -427,8 +572,7 @@ VERDICT: ____
          20 #[inline]
          21 #[target_feature(enable = "rdseed")]
 
---- src/x86_64/rdrand.rs:24  kind=intrinsic detail=_rdseed64_step site_cat=compile_time in_test=true rt_gated=false cg_present=false tf_attr=true
-    cfg_gates: # [cfg_attr (test , assert_instr (rdseed))]
+--- src/x86_64/rdrand.rs:24  kind=intrinsic detail=_rdseed64_step site_cat=compile_time in_test=false rt_gated=false cg_present=false tf_attr=true
          18 /// Read a 64-bit NIST SP800-90B and SP800-90C compliant random value and store
          19 /// in val. Return 1 if a random value was generated, and 0 otherwise.
          20 #[inline]
@@ -547,7 +691,7 @@ oos_signals: name:libhermit;description:library-os;keyword:unikernel;keyword:lib
 VERDICT: ____
 
 ======================================================================
-## ostd 0.17.2  --  classifier category: **out_of_scope**  (oos_reason=kernel)
+## ostd 0.18.0  --  classifier category: **out_of_scope**  (oos_reason=kernel)
 oos_signals: name;dependencies:ostd-macros:dep:ostd;dependencies:ostd-pod:dep:ostd;dependencies:ostd-test:dep:ostd;target.dependencies:tdx-guest:dep
 
 --- src/arch/x86/mod.rs:162  kind=intrinsic detail=_rdrand64_step site_cat=out_of_scope in_test=false rt_gated=false cg_present=false tf_attr=false
@@ -568,7 +712,7 @@ oos_signals: name;dependencies:ostd-macros:dep:ostd;dependencies:ostd-pod:dep:os
 VERDICT: ____
 
 ======================================================================
-## rialo-tee-secret-sharing 0.4.1  --  classifier category: **out_of_scope**  (oos_reason=tee)
+## rialo-tee-secret-sharing 0.12.2  --  classifier category: **out_of_scope**  (oos_reason=tee)
 oos_signals: name:tee-segment;description:tee;keyword:tee
 
 --- src/hw_rng.rs:49  kind=intrinsic detail=_rdseed64_step site_cat=out_of_scope in_test=false rt_gated=false cg_present=false tf_attr=false
@@ -684,6 +828,43 @@ VERDICT: ____
 VERDICT: ____
 
 ======================================================================
+## nist-rand 0.1.0  --  classifier category: **runtime**
+
+--- src/entropy.rs:795  kind=inline_asm detail=rdseed site_cat=runtime in_test=false rt_gated=true cg_present=false tf_attr=false
+    cfg_gates: # [cfg (all (feature = "advance" , any (target_arch = "x86" , target_arch = "x86_64")))]
+        789         for _ in 0..ITERS {
+        790             let mut val: usize = 0;
+        791             let mut ok: u8;
+        792             // Retry loop: RDSEED can fail if the entropy source is exhausted
+        793             for _ in 0..100 {
+        794                 unsafe {
+    >>  795                     core::arch::asm!(
+        796                         "rdseed {val}",
+        797                         "setc {ok}",
+        798                         val = out(reg) val,
+        799                         ok = out(reg_byte) ok,
+        800                     );
+        801                 }
+
+--- src/entropy.rs:819  kind=inline_asm detail=rdrand site_cat=runtime in_test=false rt_gated=true cg_present=false tf_attr=false
+    cfg_gates: # [cfg (all (feature = "advance" , any (target_arch = "x86" , target_arch = "x86_64")))]
+        813         for _ in 0..ITERS {
+        814             let mut val: usize = 0;
+        815             let mut ok: u8;
+        816             // RDRAND is faster but can also theoretically fail
+        817             for _ in 0..10 {
+        818                 unsafe {
+    >>  819                     core::arch::asm!(
+        820                         "rdrand {val}",
+        821                         "setc {ok}",
+        822                         val = out(reg) val,
+        823                         ok = out(reg_byte) ok,
+        824                     );
+        825                 }
+
+VERDICT: ____
+
+======================================================================
 ## Nuclide 0.3.0  --  classifier category: **runtime**
 
 --- src/rng.rs:26  kind=intrinsic detail=_rdrand64_step site_cat=runtime in_test=false rt_gated=true cg_present=false tf_attr=false
@@ -724,6 +905,107 @@ VERDICT: ____
 VERDICT: ____
 
 ======================================================================
+## bitcoin-random 0.1.21  --  classifier category: **unconditional**
+
+--- src/rd_rand.rs:32  kind=inline_asm detail=rdrand site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+    cfg_gates: # [cfg (have_getcpuid)]
+         26         let mut r1: u32 = 0;
+         27         let mut r2: u32 = 0;
+         28 
+         29         for _ in 0..10 {
+         30             unsafe {
+         31                 // rdrand %eax
+    >>   32                 core::arch::asm!(".byte 0x0f, 0xc7, 0xf0; setc {ok}",
+         33                                   out("eax") r1, ok = out(reg_byte) ok,
+         34                                   options(nostack, preserves_flags));
+         35             }
+         36             if ok != 0 { break; }
+         37         }
+         38         for _ in 0..10 {
+
+--- src/rd_rand.rs:41  kind=inline_asm detail=rdrand site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+    cfg_gates: # [cfg (have_getcpuid)]
+         35             }
+         36             if ok != 0 { break; }
+         37         }
+         38         for _ in 0..10 {
+         39             unsafe {
+         40                 // rdrand %eax
+    >>   41                 core::arch::asm!(".byte 0x0f, 0xc7, 0xf0; setc {ok}",
+         42                                   out("eax") r2, ok = out(reg_byte) ok,
+         43                                   options(nostack, preserves_flags));
+         44             }
+         45             if ok != 0 { break; }
+         46         }
+         47         return ((r2 as u64) << 32) | (r1 as u64);
+
+--- src/rd_rand.rs:63  kind=inline_asm detail=rdrand site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+    cfg_gates: # [cfg (have_getcpuid)]
+         57 
+         58         for _ in 0..10 {
+         59 
+         60             unsafe {
+         61 
+         62                 // rdrand %rax
+    >>   63                 core::arch::asm!(".byte 0x48, 0x0f, 0xc7, 0xf0; setc {ok}",
+         64                                   out("rax") r, ok = out(reg_byte) ok,
+         65                                   options(nostack, preserves_flags));
+         66             }
+         67 
+         68             if ok != 0 { break; }
+         69         }
+
+--- src/rd_seed.rs:26  kind=inline_asm detail=rdseed site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+    cfg_gates: # [cfg (have_getcpuid)]
+         20         let mut r1: u32 = 0;
+         21         let mut r2: u32 = 0;
+         22 
+         23         loop {
+         24             unsafe {
+         25                 // rdseed %eax
+    >>   26                 core::arch::asm!(".byte 0x0f, 0xc7, 0xf8; setc {ok}",
+         27                                   out("eax") r1, ok = out(reg_byte) ok,
+         28                                   options(nostack, preserves_flags));
+         29             }
+         30             if ok != 0 { break; }
+         31             unsafe { core::arch::asm!("pause", options(nomem, nostack, preserves_flags)); }
+         32         }
+
+--- src/rd_seed.rs:36  kind=inline_asm detail=rdseed site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+    cfg_gates: # [cfg (have_getcpuid)]
+         30             if ok != 0 { break; }
+         31             unsafe { core::arch::asm!("pause", options(nomem, nostack, preserves_flags)); }
+         32         }
+         33         loop {
+         34             unsafe {
+         35                 // rdseed %eax
+    >>   36                 core::arch::asm!(".byte 0x0f, 0xc7, 0xf8; setc {ok}",
+         37                                   out("eax") r2, ok = out(reg_byte) ok,
+         38                                   options(nostack, preserves_flags));
+         39             }
+         40             if ok != 0 { break; }
+         41             unsafe { core::arch::asm!("pause", options(nomem, nostack, preserves_flags)); }
+         42         }
+
+--- src/rd_seed.rs:53  kind=inline_asm detail=rdseed site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+    cfg_gates: # [cfg (have_getcpuid)]
+         47     {
+         48         let mut ok: u8 = 0;
+         49         let mut r: u64 = 0;
+         50         loop {
+         51             unsafe {
+         52                 // rdseed %rax
+    >>   53                 core::arch::asm!(".byte 0x48, 0x0f, 0xc7, 0xf8; setc {ok}",
+         54                                   out("rax") r, ok = out(reg_byte) ok,
+         55                                   options(nostack, preserves_flags));
+         56             }
+         57             if ok != 0 { break; }
+         58             unsafe { core::arch::asm!("pause", options(nomem, nostack, preserves_flags)); }
+         59         }
+
+VERDICT: ____
+
+======================================================================
 ## ciphern 0.2.1  --  classifier category: **unconditional**
 
 --- src/random/hardware.rs:124  kind=intrinsic detail=_rdrand64_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
@@ -757,6 +1039,26 @@ VERDICT: ____
         167                 continue;
         168             }
         169         };
+
+VERDICT: ____
+
+======================================================================
+## cocoon-tpm-crypto 0.1.4  --  classifier category: **unconditional**
+
+--- src/pure_rust/rng/x86_64_rdseed.rs:40  kind=inline_asm detail=rdseed site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+         34 fn rdseed() -> Result<u64, RdSeedError> {
+         35     let mut retries = 0;
+         36     let result = loop {
+         37         let result: u64;
+         38         let success: u8;
+         39         unsafe {
+    >>   40             asm!(
+         41                 "rdseed {result:r};\n\
+         42                  setc {success};\n\
+         43                  ",
+         44                 result = out(reg) result,
+         45                 success = out(reg_byte) success,
+         46             );
 
 VERDICT: ____
 
@@ -826,6 +1128,62 @@ VERDICT: ____
 VERDICT: ____
 
 ======================================================================
+## lcpfs 2026.1.102  --  classifier category: **unconditional**
+
+--- src/arch/x86_64.rs:38  kind=inline_asm detail=rdrand site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+         32             //
+         33             // VERIFICATION: RDRAND available on Intel Ivy Bridge+ (2012), AMD Excavator+ (2015)
+         34             //
+         35             // JUSTIFICATION:
+         36             // Hardware RNG provides high-quality entropy for ChaCha20 seeding.
+         37             unsafe {
+    >>   38                 core::arch::asm!(
+         39                     "rdrand {0}",
+         40                     "setc {1}",
+         41                     out(reg) value,
+         42                     out(reg_byte) success,
+         43                     options(nomem, nostack),
+         44                 );
+
+--- src/arch/x86_64.rs:91  kind=inline_asm detail=rdseed site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+         85             //
+         86             // VERIFICATION: RDSEED available on Intel Broadwell+ (2014), AMD Zen+ (2018)
+         87             //
+         88             // JUSTIFICATION:
+         89             // RDSEED provides true entropy (not DRBG output) for seeding PRNGs.
+         90             unsafe {
+    >>   91                 core::arch::asm!(
+         92                     "rdseed {0}",
+         93                     "setc {1}",
+         94                     out(reg) value,
+         95                     out(reg_byte) success,
+         96                     options(nomem, nostack),
+         97                 );
+
+VERDICT: ____
+
+======================================================================
+## lib-q-fn-dsa 0.0.8  --  classifier category: **unconditional**
+
+--- examples/hardware_rng_example.rs:265  kind=intrinsic detail=_rdrand32_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+    cfg_gates: # [cfg (target_arch = "x86_64")]
+        259         // 1. Use the RDRAND instruction
+        260         // 2. Check the carry flag for success
+        261         // 3. Retry if necessary
+        262         // SAFETY: This is a placeholder for demonstration
+        263         unsafe {
+        264             let mut out = 0u32;
+    >>  265             core::arch::x86_64::_rdrand32_step(&mut out);
+        266             out
+        267         }
+        268     }
+        269 }
+        270 
+        271 #[cfg(target_arch = "x86_64")]
+
+VERDICT: ____
+
+======================================================================
 ## lokacore 0.3.0  --  classifier category: **unconditional**
 
 --- src/arch/rdrand.rs:18  kind=intrinsic detail=_rdrand16_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
@@ -876,6 +1234,76 @@ VERDICT: ____
 VERDICT: ____
 
 ======================================================================
+## mbedtls 0.13.5  --  classifier category: **unconditional**
+
+--- src/rng/rdrand.rs:47  kind=intrinsic detail=alias:_rdrand_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+         41         }
+         42     }
+         43     None
+         44 }
+         45 
+         46 fn rdrand() -> Option<usize> {
+    >>   47     call_cpu_rng(RDRAND_READ_ATTEMPTS, _rdrand_step, |x| x as usize)
+         48 }
+         49 
+         50 fn rdseed() -> Option<usize> {
+         51     call_cpu_rng(RDSEED_READ_ATTEMPTS, _rdseed_step, |x| x as usize)
+         52 }
+         53 
+
+--- src/rng/rdrand.rs:51  kind=intrinsic detail=alias:_rdseed_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+         45 
+         46 fn rdrand() -> Option<usize> {
+         47     call_cpu_rng(RDRAND_READ_ATTEMPTS, _rdrand_step, |x| x as usize)
+         48 }
+         49 
+         50 fn rdseed() -> Option<usize> {
+    >>   51     call_cpu_rng(RDSEED_READ_ATTEMPTS, _rdseed_step, |x| x as usize)
+         52 }
+         53 
+         54 fn write_rng_to_slice(outbuf: &mut [u8], rng: fn() -> Option<usize>) -> c_int {
+         55     let stepsize = core::mem::size_of::<usize>();
+         56 
+         57     for chunk in outbuf.chunks_mut(stepsize) {
+
+VERDICT: ____
+
+======================================================================
+## mbedtls-smx 0.13.11  --  classifier category: **unconditional**
+
+--- src/rng/rdrand.rs:47  kind=intrinsic detail=alias:_rdrand_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+         41         }
+         42     }
+         43     None
+         44 }
+         45 
+         46 fn rdrand() -> Option<usize> {
+    >>   47     call_cpu_rng(RDRAND_READ_ATTEMPTS, _rdrand_step, |x| x as usize)
+         48 }
+         49 
+         50 fn rdseed() -> Option<usize> {
+         51     call_cpu_rng(RDSEED_READ_ATTEMPTS, _rdseed_step, |x| x as usize)
+         52 }
+         53 
+
+--- src/rng/rdrand.rs:51  kind=intrinsic detail=alias:_rdseed_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+         45 
+         46 fn rdrand() -> Option<usize> {
+         47     call_cpu_rng(RDRAND_READ_ATTEMPTS, _rdrand_step, |x| x as usize)
+         48 }
+         49 
+         50 fn rdseed() -> Option<usize> {
+    >>   51     call_cpu_rng(RDSEED_READ_ATTEMPTS, _rdseed_step, |x| x as usize)
+         52 }
+         53 
+         54 fn write_rng_to_slice(outbuf: &mut [u8], rng: fn() -> Option<usize>) -> c_int {
+         55     let stepsize = core::mem::size_of::<usize>();
+         56 
+         57     for chunk in outbuf.chunks_mut(stepsize) {
+
+VERDICT: ____
+
+======================================================================
 ## mc-rand 1.1.0  --  classifier category: **unconditional**
 
 --- src/rdrandrng/retry.rs:21  kind=intrinsic detail=_rdrand32_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
@@ -912,39 +1340,400 @@ VERDICT: ____
 VERDICT: ____
 
 ======================================================================
-## rdrand 0.8.3  --  classifier category: **unconditional**
+## nanorand 0.8.0  --  classifier category: **unconditional**
 
---- src/lib.rs:115  kind=intrinsic detail=_rdrand32_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
-    cfg_gates: # [cfg (target_arch = "x86")]
-        109     pub use core::arch::x86_64::*;
-        110 
-        111     #[cfg(target_arch = "x86")]
-        112     pub(crate) unsafe fn _rdrand64_step(dest: &mut u64) -> i32 {
-        113         let mut ret1: u32 = 0;
-        114         let mut ret2: u32 = 0;
-    >>  115         let ok = _rdrand32_step(&mut ret1) & _rdrand32_step(&mut ret2);
-        116         *dest = (ret1 as u64) << 32 | (ret2 as u64);
-        117         ok
-        118     }
-        119 
-        120     #[cfg(target_arch = "x86")]
-        121     pub(crate) unsafe fn _rdseed64_step(dest: &mut u64) -> i32 {
+--- src/entropy.rs:77  kind=intrinsic detail=alias:rdseed site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+    cfg_gates: # [cfg (feature = "rdseed")];# [cfg (any (target_arch = "x86" , target_arch = "x86_64"))]
+         71 	#[cfg(target_arch = "x86")]
+         72 	use core::arch::x86::_rdseed64_step as rdseed;
+         73 	#[cfg(target_arch = "x86_64")]
+         74 	use core::arch::x86_64::_rdseed64_step as rdseed;
+         75 	let mut x = 0;
+         76 	for _ in 0..10 {
+    >>   77 		if 0 != unsafe { rdseed(&mut x) } {
+         78 			return Some(x);
+         79 		}
+         80 	}
+         81 	None
+         82 }
+         83 
 
---- src/lib.rs:124  kind=intrinsic detail=_rdseed32_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+--- src/entropy.rs:130  kind=intrinsic detail=alias:rdseed site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+    cfg_gates: # [cfg (feature = "std")]
+        124 /// using system time-based entropy generation.
+        125 ///
+        126 /// # Panics
+        127 ///
+        128 /// This function panics if sufficient entropy could not be obtained.
+        129 pub fn backup(out: &mut [u8]) {
+    >>  130 	if let Some(amt) = rdseed(out) {
+        131 		if amt >= out.len() {
+        132 			return;
+        133 		}
+        134 	};
+        135 
+        136 	panic!("Failed to source sufficient entropy!")
+
+VERDICT: ____
+
+======================================================================
+## ort-openrouter-cli 0.4.7  --  classifier category: **unconditional**
+
+--- src/syscall.rs:166  kind=inline_asm detail=rdrand site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+        160         "getrandom buffer len must be multiple of 8"
+        161     );
+        162     let mut r: u64;
+        163     let mut i = 0;
+        164     while i < buf.len() {
+        165         unsafe {
+    >>  166             asm!("RDRAND rax", out("rax") r);
+        167             buf[i..i + 8].copy_from_slice(&r.to_be_bytes());
+        168         }
+        169         i += 8;
+        170     }
+        171 }
+        172 
+
+VERDICT: ____
+
+======================================================================
+## rdrand 0.9.0  --  classifier category: **unconditional**
+
+--- src/lib.rs:110  kind=intrinsic detail=_rdrand32_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
     cfg_gates: # [cfg (target_arch = "x86")]
-        118     }
-        119 
-        120     #[cfg(target_arch = "x86")]
-        121     pub(crate) unsafe fn _rdseed64_step(dest: &mut u64) -> i32 {
-        122         let mut ret1: u32 = 0;
-        123         let mut ret2: u32 = 0;
-    >>  124         let ok = _rdseed32_step(&mut ret1) & _rdseed32_step(&mut ret2);
-        125         *dest = (ret1 as u64) << 32 | (ret2 as u64);
-        126         ok
-        127     }
-        128 }
-        129 
-        130 // See the following documentation for usage (in particular wrt retries) recommendations:
+        104     pub use core::arch::x86_64::*;
+        105 
+        106     #[cfg(target_arch = "x86")]
+        107     pub(crate) unsafe fn _rdrand64_step(dest: &mut u64) -> i32 {
+        108         let mut ret1: u32 = 0;
+        109         let mut ret2: u32 = 0;
+    >>  110         let ok = _rdrand32_step(&mut ret1) & _rdrand32_step(&mut ret2);
+        111         *dest = (ret1 as u64) << 32 | (ret2 as u64);
+        112         ok
+        113     }
+        114 
+        115     #[cfg(target_arch = "x86")]
+        116     pub(crate) unsafe fn _rdseed64_step(dest: &mut u64) -> i32 {
+
+--- src/lib.rs:119  kind=intrinsic detail=_rdseed32_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+    cfg_gates: # [cfg (target_arch = "x86")]
+        113     }
+        114 
+        115     #[cfg(target_arch = "x86")]
+        116     pub(crate) unsafe fn _rdseed64_step(dest: &mut u64) -> i32 {
+        117         let mut ret1: u32 = 0;
+        118         let mut ret2: u32 = 0;
+    >>  119         let ok = _rdseed32_step(&mut ret1) & _rdseed32_step(&mut ret2);
+        120         *dest = (ret1 as u64) << 32 | (ret2 as u64);
+        121         ok
+        122     }
+        123 
+        124     #[cfg(target_arch = "aarch64")]
+        125     pub(crate) unsafe fn rand(out: &mut u64) -> i32 {
+
+--- src/lib.rs:559  kind=intrinsic detail=_rdrand32_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+        553 
+        554 #[cfg(target_arch = "x86_64")]
+        555 impl_rand!(
+        556     RdRand,
+        557     "rdrand",
+        558     "rdrand",
+    >>  559     arch::_rdrand32_step,
+        560     arch::_rdrand64_step,
+        561     maxstep = arch::_rdrand64_step,
+        562     maxty = u64
+        563 );
+        564 #[cfg(target_arch = "x86_64")]
+        565 impl_rand!(
+
+--- src/lib.rs:560  kind=intrinsic detail=_rdrand64_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+        554 #[cfg(target_arch = "x86_64")]
+        555 impl_rand!(
+        556     RdRand,
+        557     "rdrand",
+        558     "rdrand",
+        559     arch::_rdrand32_step,
+    >>  560     arch::_rdrand64_step,
+        561     maxstep = arch::_rdrand64_step,
+        562     maxty = u64
+        563 );
+        564 #[cfg(target_arch = "x86_64")]
+        565 impl_rand!(
+        566     RdSeed,
+
+--- src/lib.rs:561  kind=intrinsic detail=_rdrand64_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+        555 impl_rand!(
+        556     RdRand,
+        557     "rdrand",
+        558     "rdrand",
+        559     arch::_rdrand32_step,
+        560     arch::_rdrand64_step,
+    >>  561     maxstep = arch::_rdrand64_step,
+        562     maxty = u64
+        563 );
+        564 #[cfg(target_arch = "x86_64")]
+        565 impl_rand!(
+        566     RdSeed,
+        567     "rdseed",
+
+--- src/lib.rs:569  kind=intrinsic detail=_rdseed32_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+        563 );
+        564 #[cfg(target_arch = "x86_64")]
+        565 impl_rand!(
+        566     RdSeed,
+        567     "rdseed",
+        568     "rdseed",
+    >>  569     arch::_rdseed32_step,
+        570     arch::_rdseed64_step,
+        571     maxstep = arch::_rdseed64_step,
+        572     maxty = u64
+        573 );
+        574 #[cfg(target_arch = "x86")]
+        575 impl_rand!(
+
+--- src/lib.rs:570  kind=intrinsic detail=_rdseed64_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+        564 #[cfg(target_arch = "x86_64")]
+        565 impl_rand!(
+        566     RdSeed,
+        567     "rdseed",
+        568     "rdseed",
+        569     arch::_rdseed32_step,
+    >>  570     arch::_rdseed64_step,
+        571     maxstep = arch::_rdseed64_step,
+        572     maxty = u64
+        573 );
+        574 #[cfg(target_arch = "x86")]
+        575 impl_rand!(
+        576     RdRand,
+
+--- src/lib.rs:571  kind=intrinsic detail=_rdseed64_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+        565 impl_rand!(
+        566     RdSeed,
+        567     "rdseed",
+        568     "rdseed",
+        569     arch::_rdseed32_step,
+        570     arch::_rdseed64_step,
+    >>  571     maxstep = arch::_rdseed64_step,
+        572     maxty = u64
+        573 );
+        574 #[cfg(target_arch = "x86")]
+        575 impl_rand!(
+        576     RdRand,
+        577     "rdrand",
+
+--- src/lib.rs:579  kind=intrinsic detail=_rdrand32_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+        573 );
+        574 #[cfg(target_arch = "x86")]
+        575 impl_rand!(
+        576     RdRand,
+        577     "rdrand",
+        578     "rdrand",
+    >>  579     arch::_rdrand32_step,
+        580     arch::_rdrand64_step,
+        581     maxstep = arch::_rdrand32_step,
+        582     maxty = u32
+        583 );
+        584 #[cfg(target_arch = "x86")]
+        585 impl_rand!(
+
+--- src/lib.rs:580  kind=intrinsic detail=_rdrand64_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+        574 #[cfg(target_arch = "x86")]
+        575 impl_rand!(
+        576     RdRand,
+        577     "rdrand",
+        578     "rdrand",
+        579     arch::_rdrand32_step,
+    >>  580     arch::_rdrand64_step,
+        581     maxstep = arch::_rdrand32_step,
+        582     maxty = u32
+        583 );
+        584 #[cfg(target_arch = "x86")]
+        585 impl_rand!(
+        586     RdSeed,
+
+--- src/lib.rs:581  kind=intrinsic detail=_rdrand32_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+        575 impl_rand!(
+        576     RdRand,
+        577     "rdrand",
+        578     "rdrand",
+        579     arch::_rdrand32_step,
+        580     arch::_rdrand64_step,
+    >>  581     maxstep = arch::_rdrand32_step,
+        582     maxty = u32
+        583 );
+        584 #[cfg(target_arch = "x86")]
+        585 impl_rand!(
+        586     RdSeed,
+        587     "rdseed",
+
+--- src/lib.rs:589  kind=intrinsic detail=_rdseed32_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+        583 );
+        584 #[cfg(target_arch = "x86")]
+        585 impl_rand!(
+        586     RdSeed,
+        587     "rdseed",
+        588     "rdseed",
+    >>  589     arch::_rdseed32_step,
+        590     arch::_rdseed64_step,
+        591     maxstep = arch::_rdseed32_step,
+        592     maxty = u32
+        593 );
+        594 #[cfg(target_arch = "aarch64")]
+        595 impl_rand!(
+
+--- src/lib.rs:590  kind=intrinsic detail=_rdseed64_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+        584 #[cfg(target_arch = "x86")]
+        585 impl_rand!(
+        586     RdSeed,
+        587     "rdseed",
+        588     "rdseed",
+        589     arch::_rdseed32_step,
+    >>  590     arch::_rdseed64_step,
+        591     maxstep = arch::_rdseed32_step,
+        592     maxty = u32
+        593 );
+        594 #[cfg(target_arch = "aarch64")]
+        595 impl_rand!(
+        596     RdRand,
+
+--- src/lib.rs:591  kind=intrinsic detail=_rdseed32_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+        585 impl_rand!(
+        586     RdSeed,
+        587     "rdseed",
+        588     "rdseed",
+        589     arch::_rdseed32_step,
+        590     arch::_rdseed64_step,
+    >>  591     maxstep = arch::_rdseed32_step,
+        592     maxty = u32
+        593 );
+        594 #[cfg(target_arch = "aarch64")]
+        595 impl_rand!(
+        596     RdRand,
+        597     "rand",
+
+VERDICT: ____
+
+======================================================================
+## safe_arch 1.0.0  --  classifier category: **unconditional**
+
+--- src/x86_x64/rdrand.rs:13  kind=intrinsic detail=_rdrand16_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+          7 /// * **Intrinsic:** [`_rdrand16_step`]
+          8 /// * **Assembly:** `rdrand r16`
+          9 #[must_use]
+         10 #[inline(always)]
+         11 #[cfg_attr(docsrs, doc(cfg(target_feature = "rdrand")))]
+         12 pub fn rdrand_u16(out: &mut u16) -> i32 {
+    >>   13   unsafe { _rdrand16_step(out) }
+         14 }
+         15 
+         16 /// Try to obtain a random `u32` from the hardware RNG.
+         17 ///
+         18 /// * **Intrinsic:** [`_rdrand32_step`]
+         19 /// * **Assembly:** `rdrand r32`
+
+--- src/x86_x64/rdrand.rs:24  kind=intrinsic detail=_rdrand32_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+         18 /// * **Intrinsic:** [`_rdrand32_step`]
+         19 /// * **Assembly:** `rdrand r32`
+         20 #[must_use]
+         21 #[inline(always)]
+         22 #[cfg_attr(docsrs, doc(cfg(target_feature = "rdrand")))]
+         23 pub fn rdrand_u32(out: &mut u32) -> i32 {
+    >>   24   unsafe { _rdrand32_step(out) }
+         25 }
+         26 
+         27 /// Try to obtain a random `u64` from the hardware RNG.
+         28 ///
+         29 /// * **Intrinsic:** [`_rdrand64_step`]
+         30 /// * **Assembly:** `rdrand r64`
+
+--- src/x86_x64/rdrand.rs:36  kind=intrinsic detail=_rdrand64_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+    cfg_gates: # [cfg (target_arch = "x86_64")]
+         30 /// * **Assembly:** `rdrand r64`
+         31 #[must_use]
+         32 #[inline(always)]
+         33 #[cfg(target_arch = "x86_64")]
+         34 #[cfg_attr(docsrs, doc(cfg(target_feature = "rdrand")))]
+         35 pub fn rdrand_u64(out: &mut u64) -> i32 {
+    >>   36   unsafe { _rdrand64_step(out) }
+         37 }
+         38 
+
+--- src/x86_x64/rdseed.rs:13  kind=intrinsic detail=_rdseed16_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+          7 /// * **Intrinsic:** [`_rdseed16_step`]
+          8 /// * **Assembly:** `rdseed r16`
+          9 #[must_use]
+         10 #[inline(always)]
+         11 #[cfg_attr(docsrs, doc(cfg(target_feature = "rdseed")))]
+         12 pub fn rdseed_u16(out: &mut u16) -> i32 {
+    >>   13   unsafe { _rdseed16_step(out) }
+         14 }
+         15 
+         16 /// Try to obtain a random `u32` from the hardware RNG.
+         17 ///
+         18 /// * **Intrinsic:** [`_rdseed32_step`]
+         19 /// * **Assembly:** `rdseed r32`
+
+--- src/x86_x64/rdseed.rs:24  kind=intrinsic detail=_rdseed32_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+         18 /// * **Intrinsic:** [`_rdseed32_step`]
+         19 /// * **Assembly:** `rdseed r32`
+         20 #[must_use]
+         21 #[inline(always)]
+         22 #[cfg_attr(docsrs, doc(cfg(target_feature = "rdseed")))]
+         23 pub fn rdseed_u32(out: &mut u32) -> i32 {
+    >>   24   unsafe { _rdseed32_step(out) }
+         25 }
+         26 
+         27 /// Try to obtain a random `u64` from the hardware RNG.
+         28 ///
+         29 /// * **Intrinsic:** [`_rdseed64_step`]
+         30 /// * **Assembly:** `rdseed r64`
+
+--- src/x86_x64/rdseed.rs:36  kind=intrinsic detail=_rdseed64_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+    cfg_gates: # [cfg (target_arch = "x86_64")]
+         30 /// * **Assembly:** `rdseed r64`
+         31 #[must_use]
+         32 #[inline(always)]
+         33 #[cfg(target_arch = "x86_64")]
+         34 #[cfg_attr(docsrs, doc(cfg(target_feature = "rdseed")))]
+         35 pub fn rdseed_u64(out: &mut u64) -> i32 {
+    >>   36   unsafe { _rdseed64_step(out) }
+         37 }
+         38 
+
+VERDICT: ____
+
+======================================================================
+## sec-mem 0.1.1  --  classifier category: **unconditional**
+
+--- src/secret_box.rs:28  kind=intrinsic detail=_rdrand64_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+         22         }
+         23 
+         24         #[cfg(target_arch = "x86_64")]
+         25         {
+         26             let mut canary = 0u64;
+         27             unsafe {
+    >>   28                 if core::arch::x86_64::_rdrand64_step(&mut canary) == 1 {
+         29                     return canary as usize;
+         30                 }
+         31             }
+         32         }
+         33 
+         34         #[cfg(target_arch = "x86")]
+
+--- src/secret_box.rs:38  kind=intrinsic detail=_rdrand32_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+         32         }
+         33 
+         34         #[cfg(target_arch = "x86")]
+         35         {
+         36             let mut canary = 0u32;
+         37             unsafe {
+    >>   38                 if core::arch::x86::_rdrand32_step(&mut canary) == 1 {
+         39                     return canary as usize;
+         40                 }
+         41             }
+         42         }
+         43 
+         44         // Fallback: ASLR pointer mixed with timestamp
 
 VERDICT: ____
 
@@ -1063,7 +1852,7 @@ VERDICT: ____
 VERDICT: ____
 
 ======================================================================
-## urng 0.4.6  --  classifier category: **unconditional**
+## urng 0.8.0  --  classifier category: **unconditional**
 
 --- src/seedgen.rs:238  kind=intrinsic detail=_rdseed32_step site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
     cfg_gates: # [cfg (any (target_arch = "x86" , target_arch = "x86_64"))]
@@ -1127,6 +1916,25 @@ VERDICT: ____
         274     }
         275     None
         276 }
+
+VERDICT: ____
+
+======================================================================
+## virtfw-libhw 0.5.0  --  classifier category: **unconditional**
+
+--- src/x86cpuid.rs:69  kind=inline_asm detail=rdrand site_cat=unconditional in_test=false rt_gated=false cg_present=false tf_attr=false
+         63 }
+         64 
+         65 // not really a good fit, but hey, you need the cpuid check anyway ...
+         66 pub fn rdrand() -> u64 {
+         67     let rax: u64;
+         68     unsafe {
+    >>   69         asm!("rdrand %rax",
+         70              out("rax") rax,
+         71              options(att_syntax));
+         72     }
+         73     rax
+         74 }
 
 VERDICT: ____
 

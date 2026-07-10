@@ -4,19 +4,19 @@ Default-linked closure (`kind=normal`, `optional=false`, dependent
 resolved to each crate's default version). Seeds excluded from their
 own closure. See `pipeline/revdep` and PLAN.md section 5.
 
-Corpus: 266128 crates, 301453258010 total downloads.
+Corpus: 295947 crates, 356393391514 total downloads.
 
 ## Compile-time RDRAND closure (headline)
 
-Seeds (7): typed_arch, getrandom, vektor, rmath, concrete-csprng, tfhe-csprng, hyper-thread-random
+Seeds (10): concrete-csprng, foundation_compact, getrandom, hardware-rust-crypto, hyper-thread-random, lib-q-random, rmath, tfhe-csprng, typed_arch, vektor
 
 | Metric | Value |
 |---|---:|
-| Crates transitively pulling a compile_time source | 34014 |
-| Crate-count share of corpus | 12.781% |
-| Direct dependents (depth 1) | 2123 |
-| Downloads-weighted share | 1.84% |
-| Closure downloads | 5538608908 |
+| Crates transitively pulling a compile_time source | 39075 |
+| Crate-count share of corpus | 13.203% |
+| Direct dependents (depth 1) | 2633 |
+| Downloads-weighted share | 1.80% |
+| Closure downloads | 6419245369 |
 
 ## Wrapper-library closure (reported separately)
 
@@ -24,12 +24,12 @@ Seeds (6): rdrand, x86, x86_64, x64, lokacore, mc-rand
 
 | Metric | Value |
 |---|---:|
-| Crates transitively pulling a wrapper | 281 |
-| Crate-count share of corpus | 0.106% |
-| Direct dependents (depth 1) | 105 |
-| Downloads-weighted share | 0.00% |
-| Closure downloads | 14513856 |
-| Crates in both closures | 64 |
+| Crates transitively pulling a wrapper | 287 |
+| Crate-count share of corpus | 0.097% |
+| Direct dependents (depth 1) | 110 |
+| Downloads-weighted share | 0.01% |
+| Closure downloads | 20603888 |
+| Crates in both closures | 71 |
 
 ## Special-case direct dependents
 
@@ -37,29 +37,29 @@ Direct (depth-1) dependent counts for the crates PLAN section 5 tracks.
 
 | Crate | In corpus | Direct dependents |
 |---|---|---:|
-| getrandom | yes | 2117 |
-| ring | yes | 1052 |
-| rand | yes | 19716 |
-| rand_core | yes | 1509 |
-| aws-lc-rs | yes | 116 |
+| getrandom | yes | 2622 |
+| ring | yes | 1103 |
+| rand | yes | 21303 |
+| rand_core | yes | 1713 |
+| aws-lc-rs | yes | 143 |
 
 ## Top compile_time-closure crates by downloads
 
 | Crate | Downloads | Depth |
 |---|---:|---:|
-| ring | 518332225 | 1 |
-| jobserver | 372242970 | 1 |
-| sct | 271876079 | 2 |
-| dirs-sys | 229347900 | 2 |
-| dirs | 223346200 | 3 |
-| quinn-proto | 174816637 | 1 |
-| quinn | 170407279 | 2 |
-| dirs-sys-next | 151193667 | 2 |
-| redox_users | 150041559 | 1 |
-| dirs-next | 136475506 | 3 |
-| const-random | 125879444 | 2 |
-| jsonwebtoken | 125679255 | 1 |
-| const-random-macro | 124940590 | 1 |
-| webpki | 120466994 | 2 |
-| backoff | 82470393 | 1 |
+| ring | 607343115 | 1 |
+| jobserver | 437548701 | 1 |
+| sct | 300347217 | 2 |
+| dirs-sys | 272817717 | 2 |
+| dirs | 264184809 | 3 |
+| quinn-proto | 224616817 | 1 |
+| quinn | 219191826 | 2 |
+| redox_users | 180275712 | 1 |
+| dirs-sys-next | 169354034 | 2 |
+| dirs-next | 151856341 | 3 |
+| jsonwebtoken | 148986694 | 1 |
+| const-random | 145969217 | 2 |
+| const-random-macro | 144925028 | 1 |
+| webpki | 127226036 | 2 |
+| backoff | 91059276 | 1 |
 

@@ -23,7 +23,7 @@ Every step below invokes an actual tool committed in this repository
 (`pipeline/crawler`, `pipeline/classifier`, `pipeline/revdep`,
 `pipeline/verify/*.sh`) or does a byte-for-byte comparison against
 reference files also committed in this repository
-(`results_rerun_2026-07-08/`). No step requires writing new code or
+(`results/`). No step requires writing new code or
 improvising an analysis.
 
 ## Required inputs
@@ -244,10 +244,10 @@ sorts both sides first):
 ```
 export REPO=<actual path>
 cd "$REPO"
-diff <(tail -n +2 verify_out/crates.csv | sort) <(tail -n +2 results_rerun_2026-07-08/crates.csv | sort)
-diff <(tail -n +2 verify_out/callsites.csv | sort) <(tail -n +2 results_rerun_2026-07-08/callsites.csv | sort)
-diff <(tail -n +2 verify_out/arm_crates.csv | sort) <(tail -n +2 results_rerun_2026-07-08/arm_crates.csv | sort)
-diff <(tail -n +2 verify_out/arm_callsites.csv | sort) <(tail -n +2 results_rerun_2026-07-08/arm_callsites.csv | sort)
+diff <(tail -n +2 verify_out/crates.csv | sort) <(tail -n +2 results/crates.csv | sort)
+diff <(tail -n +2 verify_out/callsites.csv | sort) <(tail -n +2 results/callsites.csv | sort)
+diff <(tail -n +2 verify_out/arm_crates.csv | sort) <(tail -n +2 results/arm_crates.csv | sort)
+diff <(tail -n +2 verify_out/arm_callsites.csv | sort) <(tail -n +2 results/arm_callsites.csv | sort)
 ```
 Expected for each: no output, exit 0. Record each as PASS. If any
 command prints output, record that comparison as FAIL and include the
@@ -279,7 +279,7 @@ export REPO=<actual path>
 cd "$REPO"
 for f in closure.csv closure_maxbound.csv arm_closure.csv arm_closure_maxbound.csv bc_closure.csv arm_bc_closure.csv; do
   echo "=== $f ==="
-  diff <(tail -n +2 "verify_out/$f" | sort) <(tail -n +2 "results_rerun_2026-07-08/$f" | sort)
+  diff <(tail -n +2 "verify_out/$f" | sort) <(tail -n +2 "results/$f" | sort)
 done
 ```
 
@@ -289,7 +289,7 @@ export REPO=<actual path>
 cd "$REPO"
 for f in closure_summary.md closure_summary_maxbound.md arm_closure_summary.md arm_closure_summary_maxbound.md bc_closure_summary.md arm_bc_closure_summary.md; do
   echo "=== $f ==="
-  diff "verify_out/$f" "results_rerun_2026-07-08/$f"
+  diff "verify_out/$f" "results/$f"
 done
 ```
 Expected for all twelve comparisons: no output, exit 0. Same PASS/FAIL
@@ -328,7 +328,7 @@ Expected: exits 0, output ends with `ALL DONE`.
 export REPO=<actual path>
 export BASE=<path from step 5.0>
 cd "$REPO"
-diff <(tail -n +2 "$BASE/verify_results.csv" | sort) <(tail -n +2 results_rerun_2026-07-08/verify_results.csv | sort)
+diff <(tail -n +2 "$BASE/verify_results.csv" | sort) <(tail -n +2 results/verify_results.csv | sort)
 ```
 Expected: no output. Record PASS/FAIL accordingly.
 
@@ -342,7 +342,7 @@ cp pipeline/verify/refine_candidates_2026-07-08.csv "$BASE/"
 CRATES_SCRATCH_DIR="$CRATES_SCRATCH_DIR" BASE="$BASE" \
   CAND="$BASE/refine_candidates_2026-07-08.csv" OUT="$BASE/verify_refine.csv" \
   bash pipeline/verify/refine.sh
-diff <(tail -n +2 "$BASE/verify_refine.csv" | sort) <(tail -n +2 results_rerun_2026-07-08/verify_refine.csv | sort)
+diff <(tail -n +2 "$BASE/verify_refine.csv" | sort) <(tail -n +2 results/verify_refine.csv | sort)
 ```
 Expected: no output. Record PASS/FAIL accordingly.
 
@@ -363,7 +363,7 @@ Expected: exits 0, output ends with `ARM VERIFY DONE`.
 export REPO=<actual path>
 export BASE=<path from step 5.0>
 cd "$REPO"
-diff <(tail -n +2 "$BASE/arm_verify_results.csv" | sort) <(tail -n +2 results_rerun_2026-07-08/arm_verify_results.csv | sort)
+diff <(tail -n +2 "$BASE/arm_verify_results.csv" | sort) <(tail -n +2 results/arm_verify_results.csv | sort)
 ```
 Expected: no output. Record PASS/FAIL accordingly.
 

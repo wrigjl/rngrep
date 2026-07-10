@@ -5,9 +5,9 @@ The Rust crate corpus underlying the RDRAND prevalence study.
 ## Snapshot
 
 - **Source.** `https://static.crates.io/db-dump.tar.gz`
-- **Snapshot date.** 2026-05-13 (db-dump directory `2026-05-13-020017`)
+- **Snapshot date.** 2026-07-08 (db-dump directory `2026-07-08-020028`)
 - **db-dump sha256.**
-  `db6bf2ac1b1217d627bcae1594d0f78e32ded593eb128a6fbf174efb2e71e974`
+  `af2a04c11d6fbed99307167d44d28c3360090c8eae186f5bc818cf42f8b0bf36`
 - **Crate selection rule.** For each crate, the most recently created
   non-yanked, non-prerelease (no `-` in the semver string) version whose
   declared license permits unmodified redistribution (see "License-based
@@ -22,22 +22,23 @@ The Rust crate corpus underlying the RDRAND prevalence study.
 
 | Metric | Value |
 |---|---|
-| Crates in db-dump | 266,128 |
-| Crates with at least one non-yanked stable version (targets) | 252,211 |
-| Crate-versions successfully fetched | **252,202** |
-| Total `.crate` tarball size on disk | 34 GB |
-| Manifest rows (excluding header) | 252,202 |
+| Crates in db-dump | 295,947 |
+| Redistributably-licensed targets (post license filter) | 270,771 |
+| License-excluded targets (see "License-based target filtering") | 9,729 |
+| Crate-versions successfully fetched | **270,761** |
+| Total `.crate` tarball size on disk | 37 GB |
+| Manifest rows (excluding header) | 270,761 |
 
-These figures describe the corpus as it was fetched for the paper
-(2026-05-13), which **predates** the license-based target filter added
-below. That corpus was not license-filtered: it includes crate-versions
-under any declared license, including ones that would now be excluded
-at fetch time. The paper's analysis numbers (classifier/revdep) are
-computed over this full, unfiltered 252,202-crate corpus and are
-unaffected by the later filter. Any future re-fetch against a new
-snapshot pin will apply the license filter during target selection
-(see below) and so will differ from the figures in this table by
-however many crates that snapshot's `versions.csv` excludes.
+These figures describe the canonical corpus fetched for the paper
+(snapshot 2026-07-08). Unlike the earlier 2026-05-13 pass (retained,
+superseded, under `results_2026-05-13/`), this corpus **is**
+license-filtered: the license-based target filter (see below) runs
+*during* target selection, so a crate-version whose declared license
+does not permit unmodified redistribution is never fetched. The
+population is therefore "crates.io crates with a redistributable
+license," and the corpus is redistributable by construction. All of the
+paper's analysis numbers (classifier/revdep) are computed over this
+270,761-crate corpus.
 
 The corpus, manifest, and snapshot pin live under
 `$CRATES_SCRATCH_DIR` (default `~/scratch/crates-io/`) and are not
@@ -46,48 +47,53 @@ pin (`snapshot.toml`) plus the per-crate sha256s in `manifest.csv`.
 
 ## Limitations and exclusions
 
-### Withdrawn crates (9, unrecoverable)
+### Withdrawn crates (10, unrecoverable)
 
-Nine crates appear in the db-dump metadata but their tarballs return
+Ten crates appear in the db-dump metadata but their tarballs return
 HTTP 403 from `static.crates.io`. These are crates.io tombstones — the
 metadata persists but the source has been pulled (typically DMCA, owner
 request, or policy enforcement). They are excluded from the corpus and
 must be excluded from any per-crate-version classification:
 
 ```
-go-updater                       0.1.0
-merge-code                       0.1.0
-psy_american                     0.2.7
-psyfi-serum-dex-permissioned     0.5.11
-psyoptions                       0.0.5
-qemu-debugcon                    0.1.0
-realistic_blas                   0.3.3
-uconsole                         0.0.0
-yue                              0.1.0
+carbono                          0.1.1
+encryption                       0.1.0
+fleischwolf                      0.16.0
+fleischwolf-asr                  0.16.0
+fleischwolf-cli                  0.16.0
+fleischwolf-core                 0.16.0
+fleischwolf-pdf                  0.16.0
+njoy-outram-park-fork            0.0.1
+oauth-certs                      0.6.0
+voice-stream                     0.4.0
 ```
 
-This is an irreducible 0.0036% measurement gap. None of the withdrawn
+This is an irreducible 0.0037% measurement gap. None of the withdrawn
 crates appear in the top-N-downloaded lists relevant to the study.
 
-### Corpus reproduction drift (observed 2026-07-08)
+### Corpus reproduction drift (illustrative, measured on the 2026-05-13 corpus)
 
-The list above is accurate for the corpus as fetched and shipped with
-the paper's dataset (snapshot date 2026-05-13). It is **not** a stable
-prediction of what a later reproduction attempt will see.
+The withdrawn-crate list above is the count *at pin time*. It is **not**
+a stable prediction of what a later reproduction attempt will see: the
+unrecoverable fraction grows with elapsed time since the pin. The
+canonical 2026-07-08 corpus was fetched ~1 day after its pin, so its own
+drift is currently negligible (the 10 tombstones above) — but the effect
+is real and the following measurement, from the earlier 2026-05-13 pass,
+quantifies it and applies equally to this pin going forward.
 
-A full re-fetch performed 2026-07-08 — about 8 weeks after the pin —
-recovered 251,209 of the 252,202 manifest rows, each verified
-byte-identical (name, version, and SHA-256 all match) against the
-shipped `results/manifest.csv.gz`. The remaining 993 rows (0.39%, vs.
-the 9/0.0036% above) could not be reproduced:
+A full re-fetch of the 2026-05-13 corpus performed 8 weeks after that
+pin recovered 251,209 of the 252,202 manifest rows, each verified
+byte-identical (name, version, and SHA-256 all match) against
+`results_2026-05-13/manifest.csv.gz`. The remaining 993 rows (0.39%, vs.
+the 9/0.0036% at that snapshot's pin time) could not be reproduced:
 
-- **988** now return HTTP 403. Only 8 of the 9 crates listed above are
-  among these; the other ~980 are newly withdrawn since the pin —
+- **988** now return HTTP 403. Only 8 of that snapshot's 9 tombstones
+  are among these; the other ~980 are newly withdrawn since the pin —
   crates.io's tombstone/policy-enforcement population keeps growing
   after a snapshot is taken, it is not fixed at pin time.
 - **14** return HTTP 200 but with content whose SHA-256 no longer
   matches the pinned checksum, including `qemu-debugcon 0.1.0` — one
-  of the 9 crates listed above as a 403 tombstone, which has since
+  of that snapshot's 9 tombstones, which has since
   started serving different (still-mismatched, still non-403) content.
   This shows even an already-tombstoned entry's served bytes are not
   guaranteed stable over time.
@@ -96,16 +102,17 @@ the 9/0.0036% above) could not be reproduced:
   were transient network faults rather than genuine unavailability.
 
 Practical implication for reproducers: expect the unrecoverable/
-mismatched fraction to be larger than the 9 documented above, and to
-grow with elapsed time since 2026-05-13. A gap in that range should be
-treated as expected drift, not a broken pipeline. Whether any of the
+mismatched fraction to be larger than the tombstone count at pin time,
+and to grow with elapsed time since the snapshot. A gap in that range
+should be treated as expected drift, not a broken pipeline. Whether any
+of the
 993 affected crate/version pairs would have altered the paper's
 RDRAND/RNDR classification counts is checked separately once the
 classifier has run on the reproduced corpus.
 
-### License-based target filtering (added after the 2026-05-13 snapshot)
+### License-based target filtering
 
-As of this commit, `crawler fetch`'s target selection
+`crawler fetch`'s target selection
 (`pipeline/crawler/src/fetch.rs::pick_latest`) only selects a
 crate-version whose declared `license` string (from the pinned
 db-dump's `versions.csv`) permits unmodified redistribution. A crate
@@ -133,26 +140,27 @@ of an SPDX string -- there is no string to parse), a bare
 `LicenseRef-*` term with no open fallback (e.g. `"LicenseRef-
 Proprietary"`), or any other unparseable string.
 
-Measured against the 2026-05-13 snapshot's `versions.csv` (252,211
-targets, before the withdrawn-crate/checksum-drift exclusions above),
-this excludes about 3.6% of targets: roughly 8,700 `"non-standard"`
-placeholders, a couple hundred blank, and a few hundred more --
-including on the order of 100 crates declared as bare
-`LicenseRef-Proprietary` with no open-source fallback at all. None of
-the paper's 43 named result crates (the x86/ARM in-source detections)
-are affected; every one of them has a clean, resolvable SPDX license.
-Excluded crate-versions and their reasons are written to
-`license_exclusions.csv` in the scratch directory alongside
-`manifest.csv` for every fetch run, so the exclusion is auditable
-rather than silent.
+Measured against the 2026-07-08 snapshot's `versions.csv`, this filter
+excludes **9,729** crate-versions (about 3.5% of the pre-filter target
+population of 280,500), leaving the 270,771 redistributable targets in
+the table above. The excluded set breaks down as 9,005 `"non-standard"`
+placeholders, 502 bare `LicenseRef-*` terms with no open fallback (e.g.
+`"LicenseRef-Proprietary"`), 213 blank, and 9 otherwise-unparseable SPDX
+strings. None of the paper's 49 named result crates (the x86/ARM
+in-source detections) are affected; every one of them has a clean,
+resolvable SPDX license. Excluded crate-versions and their reasons are
+written to `license_exclusions.csv` in the scratch directory alongside
+`manifest.csv` for every fetch run, so the exclusion is auditable rather
+than silent.
 
-**This filter did not exist when the 2026-05-13 corpus (252,202
-crates) was fetched for the paper**, so the shipped `manifest.csv`/
-`crates.csv`/etc. include crate-versions that a fresh fetch today would
-now skip. It only affects future re-fetches against a new snapshot
-pin, at which point it becomes part of the analysis corpus's
-definition, not just an archival-mirror convenience -- see the note
-under "What is in the corpus" above.
+**This filter is part of the canonical corpus's definition** — it runs
+during target selection, so the paper's 270,761-crate corpus is exactly
+the redistributably-licensed population, and the archived source can be
+mirrored without a rights problem. The earlier, superseded 2026-05-13
+pass (`results_2026-05-13/`) predates the filter and was **not**
+license-filtered; that is one reason its source corpus is not
+redistributable and is retained only as derived results (see
+`results_2026-05-13/README.md`).
 
 ### Yanked-only crates
 
@@ -226,12 +234,13 @@ To rebuild the corpus from scratch:
 3. Confirm `manifest.csv` row count and the per-crate sha256s match
    the archived manifest.
 
-The 9 withdrawn crates listed above are a permanent exclusion as of
+The 10 withdrawn crates listed above are a permanent exclusion as of
 this snapshot date, but they are a floor, not a ceiling: additional
 crates can become unavailable, and previously-tombstoned crates can
 have their served content change, between the snapshot date and a
 later reproduction attempt. See "Corpus reproduction drift" above for
-an empirical measurement (993 affected crates 8 weeks after the pin).
-Diff `manifest.csv` against the shipped `results/manifest.csv.gz` on
-`name,version,sha256` to confirm the rows you *do* have match
-byte-for-byte; do not expect an exact 252,202-row count.
+an empirical measurement (993 affected crates 8 weeks after the earlier
+2026-05-13 pin). Diff `manifest.csv` against the shipped
+`results/manifest.csv.gz` on `name,version,sha256` to confirm the rows
+you *do* have match byte-for-byte; do not expect an exact 270,761-row
+count.

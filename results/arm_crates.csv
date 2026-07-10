@@ -1,394 +1,390 @@
 name,version,num_callsites,num_intrinsic,num_inline_asm,n_runtime,n_compile_gate,n_unconditional,n_out_of_scope,n_in_test,category,build_config_exposure,build_config_detail,is_out_of_scope,out_of_scope_reason,out_of_scope_signals,parse_failures
-mdkb,2.2.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-mdlite,0.2.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-redstone-ml,0.0.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-pic-scale,0.7.6,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-feature=+rvv -Ctarget-cpu=native,false,,,0
-pic-scale-safe,0.1.10,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-rs_poker,4.1.0,0,0,0,0,0,0,0,0,none,true,".cargo/config.toml::-C target-cpu=native | .cargo/config.toml::-C target-cpu=native -C link-args=-Wl,-zstack-size=47185920",false,,,0
-nox-mixnet,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-rs_tfhe,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-neighborlist-rs,0.1.9,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-saltine-gromark,0.3.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-neonwhite_seed_finder,0.1.2,0,0,0,0,0,0,0,0,none,true,Cargo.toml::-Ctarget-cpu=native -Clink-arg=-L/usr/local/lib -Zthreads=8,false,,,0
-regit-blackscholes,1.0.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-RustedSciThe,0.3.35,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-tinyget,1.1.4,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-reindeer2,1.1.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-tjdistler-iqa,1.2.0,0,0,0,0,0,0,0,0,none,true,".cargo/config.toml::-C target-cpu=native -C target-feature=+neon | .cargo/config.toml::-C target-cpu=native -C target-feature=+sse4.2,+avx,+avx2",false,,,0
-aarch64-cpu,11.2.0,2,0,2,0,0,2,0,0,unconditional,false,,false,,,0
-multhreadown,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-piscem,0.20.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-repa,0.1.5,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-tmi,0.10.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-nucgen,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-pixeldike,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::--cfg tokio_unstable -C target-cpu=native,false,,,0
 merkurio,1.0.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native -Zon-broken-pipe=kill,false,,,0
+pixeldike,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::--cfg tokio_unstable -C target-cpu=native,false,,,0
+repa,0.1.5,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+ember-graph,0.3.0,0,0,0,0,0,0,0,0,none,true,Cargo.toml::-C target-cpu=native,false,,,0
 pkboost,2.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-numeris,0.5.11,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-sassy,0.2.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 metallic,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-mv-norm,0.1.7,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-tokio-websockets,0.13.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native | .cargo/config.toml::-C target-cpu=native -C target-feature=-crt-static,false,,,0
-neuralib,0.0.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-mysql_inserter,0.4.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native -Cpanic=abort | .cargo/config.toml::-Ctarget-cpu=native -Cpanic=abort -C link-arg=--ld-path=/usr/bin/mold,false,,,0
+cargo-exam,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+aarch64-cpu,11.2.0,2,0,2,0,0,2,0,0,unconditional,false,,false,,,0
+sassy,0.2.6,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 obcore,0.1.6,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+cargo-updater,0.21.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
+engram,2.2.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+enigma-cipher,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+enigma-cracker,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+enigma-simulator,1.3.5,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+ensure_simd,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 scanr,0.1.17,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-pmcp,2.6.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-aegis-cli,1.3.98,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-feature=+crt-static -Ctarget-cpu=native,false,,,0
-aegisvault,0.4.15,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-feature=+crt-static -Ctarget-cpu=native,false,,,0
-aether-art,0.0.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-nano_clock,1.0.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -C opt-level=3,false,,,0
-nanocount,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+caustic,0.0.12,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+i0,0.2.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+caydence,0.2.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+iapws95,0.2.5,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -C opt-level=3,false,,,0
+envcheck,1.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 ode_integrate,0.0.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-natsuki,3.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-ncbi-vdb-sys,0.1.7,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+erydanos,0.2.18,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+cd-pls,0.1.11,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+aether-art,0.0.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 polyfit-residuals,0.6.6,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-ncount,0.7.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native -Clink-arg=-fuse-ld=lld,false,,,0
-omendb,0.0.37,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-rust_client,0.2.3,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
-akaze,0.7.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
+essence,0.7.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 portablegl,0.9.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native | .cargo/config.toml::-L lib -C target-cpu=native,false,,,0
-rustedbytes-counterlines,0.2.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-oohid,0.5.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-risinglight,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native --cfg tokio_unstable,false,,,0
-pq-mayo,0.2.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-treed_gpu,0.1.4,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+cf1-rs,0.5.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+cf_speedtest,0.8.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+cfg-cli,0.1.6,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+icefast,2.0.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+aggrs,0.4.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+mini-film,15.4.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 mini_myers,0.1.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-ambers,0.4.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-tremor-kv,0.7.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-seekstorm,3.1.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-rlnc,0.8.7,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-aminograph,0.0.1,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
-andlock,0.3.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+scx_cake,1.1.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+pq-mayo,0.5.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+risinglight,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native --cfg tokio_unstable,false,,,0
+chalamet_pir,0.6.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 minivault,1.0.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-seqpls,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-rmsafe,4.0.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native -Clink-arg=-fuse-ld=lld -Zthreads=22,false,,,0
-rssn,0.2.9,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-rssn-advanced,0.0.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-seqwish,0.1.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+rlnc,0.8.7,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+akaze,0.7.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
+chela,0.0.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+chess_perft,3.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
 primerpincer,0.8.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-annatar,0.6.19,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Clink-arg=-fuse-ld=lld -Ctarget-cpu=native,false,,,0
+rmsafe,4.0.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native -Clink-arg=-fuse-ld=lld -Zthreads=22,false,,,0
+exact-clustering,0.5.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 probemap,0.1.10,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-procx,0.1.11,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-rusty_neat,0.2.4,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-rustytime-server,0.23.5,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-trypema,1.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-apexbase,1.17.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-rwkv-tts-rs,0.2.5,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-rpn-c,0.2.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+seq-hash,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+seqpls,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+seqwish,0.1.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+extract-frames,0.3.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+ambers,0.4.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+fabbula,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+aminograph,0.0.1,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
+fahtsex,0.3.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+falcon512_rs,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+andlock,0.4.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+annatar,0.6.19,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Clink-arg=-fuse-ld=lld -Ctarget-cpu=native,false,,,0
+fast-grep,0.3.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+fast_fp,0.1.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Clinker-plugin-lto -Clinker=clang-13 -Clink-arg=-fuse-ld=lld-13 -Ctarget-cpu=native,false,,,0
+claude-token-monitor,0.2.6,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -C overflow-checks=on -C force-frame-pointers=yes,false,,,0
+fastdu,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+fastcsv,0.2.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+fasterp,0.2.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+fastmaths,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+fastwebsockets,0.8.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+fastwebsockets-monoio,0.10.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+fath,0.2.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+ikill,1.5.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native -C link-arg=-s,false,,,0
+image-dwt,0.4.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+image-hdr,0.6.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+fcwt,0.1.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
 ordag,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-ordent,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+ordent,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+fdf,0.9.5,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 ore-private-pool-cli,1.0.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 ore-private-pool-srv,1.0.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-shin-hentai,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
-turboquant-rs,0.4.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 ort-openrouter-cli,0.4.7,0,0,0,0,0,0,0,0,none,true,"Cargo.toml::-Ctarget-cpu=native -Clink-args=-nostartfiles -Crelocation-model=static -Clink-args=-Wl,--no-dynamic-linker,--build-id=none,--no-eh-frame-hdr -Cforce-frame-pointers=yes -Clink-arg=-fuse-ld=lld",false,,,0
+inari,2.0.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+apexbase,1.20.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+shin-hentai,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
+ferromark,0.1.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+inferno-ai,0.10.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+rpn-c,0.2.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+infotheory,1.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native | .cargo/config.toml::-C target-cpu=native -C link-arg=-fuse-ld=lld,false,,,0
+initium-cli,2.0.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 owens-t,0.1.5,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-runegate,0.3.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-runfile,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-aprender-db,0.31.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-aprender-graph,0.32.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-node2text,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
-rush-build,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-noest,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-oxide-rs,0.1.16,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-qft,0.7.44,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-feature=+crt-static -Ctarget-cpu=native,false,,,0
-spel-right,0.5.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Cdebuginfo=0 -C target-cpu=native -Zlocation-detail=none -Zfmt-debug=none -Zunstable-options,false,,,0
-patterns,0.3.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-quadrank,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+bammap2,0.1.7,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 mmr,0.1.7,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-aprender-rag,0.32.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-quickheap,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-oxits,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-oxiwhisper,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-qvnt-i,0.4.4,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -C llvm-args=-ffast-math,false,,,0
-qvnt,0.4.4,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -C llvm-args=-ffast-math,false,,,0
+barbell,0.3.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+ffsvm,0.12.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+fiat-lux,0.3.14,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Clink-arg=-fuse-ld=lld -Ctarget-cpu=native,false,,,0
+aprender-db,0.60.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+modlin,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+interatomic,0.6.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+aprender-graph,0.60.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+oxide-rs,0.1.16,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+quadrank,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+bebelm,0.3.6,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 simd-json-derive,0.18.0,0,0,0,0,0,0,0,0,none,true,".cargo/config.toml::-C link-arg=-fuse-ld=lld -C link-arg=-Wl,--no-rosegment -C target-cpu=native -C force-frame-pointers=yes | .cargo/config.toml::-C target-cpu=native",false,,,0
-simd-minimizers,2.3.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 simd-lookup,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+simd-minimizers,3.0.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+simd-rs63,0.1.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 simd-sketch,0.3.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 simd_rand,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 simdphrase,0.1.1,0,0,0,0,0,0,0,0,none,true,Cargo.toml::-C target-cpu=native -Z tune-cpu=native -C llvm-args=-align-all-functions=6,false,,,0
 monoio-tungstenite,0.3.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 monolithium,1.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-moobi,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native -Cpanic=abort,false,,,0
 simple-sds-sbwt,0.3.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 simple-sds,0.4.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-packed-seq,4.4.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-rt-graph,0.3.4,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
+moobi,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native -Cpanic=abort,false,,,0
+cobs-simd,0.2.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+quickheap,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 simul,0.5.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-motedb,0.1.6,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-pfv-rs,0.2.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+filerefine,0.1.9,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+qvnt-i,0.4.4,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -C llvm-args=-ffast-math,false,,,0
+bempp,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 motif-rs,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-pggname,0.2.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-pgm_index,0.3.2,0,0,0,0,0,0,0,0,none,true,".cargo/config.toml::-C target-cpu=native -C target-feature=+avx2,+fma,+bmi2,+popcnt,+lzcnt | .cargo/config.toml::-C target-cpu=native -C target-feature=+avx2,+fma,+bmi2,+popcnt,+lzcnt,+sse4.2 | .cargo/config.toml::-C target-cpu=native -C target-feature=+avx2,+fma,+bmi2,+popcnt,+lzcnt,+sse4.2 -C link-arg=-Wl,--gc-sections",false,,,0
+motedb,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+qvnt,0.4.4,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -C llvm-args=-ffast-math,false,,,0
 sizr,0.1.5,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-pgv_rs,0.1.10,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-underthesea_core,3.3.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+ipset_lookup,0.4.8,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+flacenc,0.5.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+aprender-rag,0.60.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 rabitq-rs,0.9.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -C llvm-args=--ffast-math,false,,,0
-aprender-viz,0.31.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-aprender-zram,0.31.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-paraseq,0.4.10,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-utpm,0.3.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-ark-feanor,0.7.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-ark-spartan-golden,0.5.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
-smooth-numbers,0.4.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-snakedown,0.3.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Clink-arg=-fuse-ld=lld -Ctarget-cpu=native,false,,,0
+oxits,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+aprender-viz,0.60.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+oxiwhisper,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+aprender-zram,0.60.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+multhreadown,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+packed-seq,5.0.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+fluor,0.0.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+mv-norm,0.1.7,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+codebase-to-markdown,0.1.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+codebase-to-xml,0.1.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+fmtsize,0.1.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Clink-arg=-fuse-ld=lld -Ctarget-cpu=native,false,,,0
+mysql_inserter,0.4.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native -Cpanic=abort | .cargo/config.toml::-Ctarget-cpu=native -Cpanic=abort -C link-arg=--ld-path=/usr/bin/mold,false,,,0
 rawgrep,0.1.5,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-splik,0.2.6,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
 raycrypt,0.3.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-sntrup761,0.4.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-wreck,0.3.5,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-valar-spiral-rs,0.5.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-walky,1.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-valar-ypir,0.1.5,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-sockudo-ws,1.7.4,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-wty,0.8.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native -Cforce-frame-pointers=yes,false,,,0
+arctic-map,0.1.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+nano_clock,1.0.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -C opt-level=3,false,,,0
+paraseq,0.4.13,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+rconvolve,0.1.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+nanocount,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+ark-feanor,0.7.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+foundation_compact,0.2.0,1,0,1,0,1,0,0,0,compile_time,false,,false,,,0
+natsuki,3.1.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+rssn,0.2.11,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+rssn-advanced,0.1.5,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+rdrand,0.9.0,2,0,2,0,0,2,0,0,unconditional,false,,false,,,0
+skope,0.3.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+frawk,0.4.8,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native -A unused_attributes,false,,,0
 armory_wallet_checksum_searcher,0.5.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 armv8,0.0.1,2,0,2,0,0,2,0,0,unconditional,false,,false,,,0
-arq,0.1.4,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-feature=+aes -C target-cpu=native,false,,,0
-varint-simd,0.4.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-rconvolve,0.1.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-x3,0.3.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-vbinseq,0.1.7,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-vector-rust-library,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-sonic-rs,0.5.8,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-g -C target-cpu=native,false,,,0
-asmcrypto,0.1.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-asmjson,0.2.6,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-wave_func_collapse,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -C link-arg=-fuse-ld=lld,false,,,0
-wd2sql,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-xn,0.1.11,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-spartan,0.9.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
-spatial_alg,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-skope,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-wham,1.1.4,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
-stabilizer-stream,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-yadf,1.3.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-wideword,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-stalkr,0.1.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-stardetect,0.3.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+ncbi-vdb-sys,0.1.7,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+ncount,0.7.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native -Clink-arg=-fuse-ld=lld,false,,,0
 reader-sync,0.3.4,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native -Clink-arg=-fuse-ld=mold,false,,,0
-yatch,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-statsrelay,3.0.1,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
-stealth,0.0.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-yuv,0.8.14,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-yuvutils-rs,0.8.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-zackstrap,1.7.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-winit-gfx-hal,0.0.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
-zawk,0.5.25,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -A unused_attributes,false,,,0
-vertx-rust,0.8.6,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native --emit=llvm-ir --cfg tokio_unstable,false,,,0
-yom,0.0.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-htscodecs-wrapper,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-autodiff_rs,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-sunny,1.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native -C link-arg=-s,false,,,0
-superbloom,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-ember-graph,0.3.0,0,0,0,0,0,0,0,0,none,true,Cargo.toml::-C target-cpu=native,false,,,0
-sux,0.12.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-swarm-bot,0.4.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-syncable-cli,0.37.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-strix,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-gbwt,0.3.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+arq,0.1.4,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-feature=+aes -C target-cpu=native,false,,,0
+patterns,0.3.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+neighborlist-rs,0.1.9,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+neonwhite_seed_finder,0.1.2,0,0,0,0,0,0,0,0,none,true,Cargo.toml::-Ctarget-cpu=native -Clink-arg=-L/usr/local/lib -Zthreads=8,false,,,0
+asm_tl,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+asmjson,0.2.6,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+redstone-ml,0.0.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+funcperm,0.2.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+asmcrypto,0.1.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+pdg-rs,0.1.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+regit-blackscholes,1.0.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+tinyget,1.1.4,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+neuralib,0.0.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+neuralrs,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+tjdistler-iqa,1.2.0,0,0,0,0,0,0,0,0,none,true,".cargo/config.toml::-C target-cpu=native -C target-feature=+neon | .cargo/config.toml::-C target-cpu=native -C target-feature=+sse4.2,+avx,+avx2",false,,,0
 gbz,0.6.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-gbz-base,0.5.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-t1ha,0.1.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-engram,2.2.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-fdf,0.9.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-tachyon_json,1.0.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -C opt-level=3,false,,,0
-enigma-cipher,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-enigma-cracker,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-enigma-simulator,1.3.5,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-enk,0.3.19,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-feature=+crt-static -Ctarget-cpu=native,false,,,0
-ensure_simd,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-envcheck,1.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-gencrypt,0.10.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-eqr,1.9.66,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-feature=+crt-static -Ctarget-cpu=native,false,,,0
-ferromark,0.1.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-cargo-exam,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-erydanos,0.2.18,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-esed,1.1.33,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-feature=+crt-static -Ctarget-cpu=native,false,,,0
-cargo-rclean,1.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-ffsvm,0.12.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-getrandom,0.4.2,1,0,1,0,1,0,0,0,compile_time,false,,false,,,0
-cargo-updater,0.21.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
+gbwt,0.3.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+tmi,0.10.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+gbz-base,0.5.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+pfv-rs,0.2.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+smooth-numbers,0.4.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+pggname,0.2.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+pgm_index,0.3.2,0,0,0,0,0,0,0,0,none,true,".cargo/config.toml::-C target-cpu=native -C target-feature=+avx2,+fma,+bmi2,+popcnt,+lzcnt | .cargo/config.toml::-C target-cpu=native -C target-feature=+avx2,+fma,+bmi2,+popcnt,+lzcnt,+sse4.2 | .cargo/config.toml::-C target-cpu=native -C target-feature=+avx2,+fma,+bmi2,+popcnt,+lzcnt,+sse4.2 -C link-arg=-Wl,--gc-sections",false,,,0
+snakedown,0.3.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Clink-arg=-fuse-ld=lld -Ctarget-cpu=native,false,,,0
+tokio-websockets,0.13.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native | .cargo/config.toml::-C target-cpu=native -C target-feature=-crt-static,false,,,0
+pgv_rs,0.1.10,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+sntrup761,0.4.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+gencrypt,0.11.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+sockudo-ws,1.7.4,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+getrandom,0.4.3,1,0,1,0,1,0,0,0,compile_time,false,,false,,,0
 ggblas,0.1.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-crypto2,0.1.2,0,0,0,0,0,0,0,0,none,true,".cargo/config.toml::-C target-cpu=native | .cargo/config.toml::-C target-cpu=native -C target-feature=+aes,+crypto,+neon | .cargo/config.toml::-C target-cpu=native -C target-feature=+aes,+pclmul,+sse,+sse2,+sse3,+ssse3,+sse4.1,+sse4.2,+avx,+avx2,+fma,+adx | .cargo/config.toml::-C target-cpu=native -C target-feature=+aes,+pclmul,+sse,+sse2,+sse3,+ssse3,+sse4.1,+sse4.2,+avx,adx",false,,,0
-caustic,0.0.12,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-essence,0.7.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-caydence,0.2.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-fiat-lux,0.3.13,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Clink-arg=-fuse-ld=lld -Ctarget-cpu=native,false,,,0
-gprofile,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native -C link-arg=-s,false,,,0
-exact-clustering,0.5.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-cd-pls,0.1.11,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+sonic-rs,0.5.8,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-g -C target-cpu=native,false,,,0
+audio_samples_qoe,0.1.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+rt-graph,0.3.4,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
+pic-scale-safe,0.1.10,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+pic-scale,0.7.10,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-feature=+rvv -Ctarget-cpu=native,false,,,0
+itoa-benchmark,0.0.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+autodiff_rs,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+autoeq,0.4.46,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -C target-feature=+neon -C link-arg=-mmacosx-version-min=15.0 -C link-arg=-framework -C link-arg=Accelerate -C link-arg=-L /Applications/Xcode.app/Contents/Frameworks -C link-arg=-L /opt/homebrew/Cellar/llvm/21.1.7/lib | .cargo/config.toml::-Ctarget-cpu=native,false,,,0
+spatial_alg,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+jdb_pgm,0.3.16,0,0,0,0,0,0,0,0,none,true,".cargo/config.toml::-C target-cpu=native -C target-feature=+avx2,+fma,+bmi2,+popcnt,+lzcnt | .cargo/config.toml::-C target-cpu=native -C target-feature=+avx2,+fma,+bmi2,+popcnt,+lzcnt,+sse4.2 | .cargo/config.toml::-C target-cpu=native -C target-feature=+avx2,+fma,+bmi2,+popcnt,+lzcnt,+sse4.2 -C link-arg=-Wl,--gc-sections",false,,,0
+jedit,0.1.4,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-g -C target-cpu=native,false,,,0
+larz,0.3.1,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C link-arg=-lpsapi -C link-arg=-lbcrypt -C target-cpu=native -Z tune-cpu=native -Z strip=symbols -Z unstable-options | .cargo/config::-C target-cpu=native -Z tune-cpu=native -Z strip=symbols -Z unstable-options,false,,,0
 gl-env,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native -Clink-arg=-fuse-ld=lld,false,,,0
-fabbula,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-filerefine,0.1.9,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-icefast,2.0.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-fahtsex,0.3.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-green-kernels,0.2.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-csv_lib,1.0.7,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native | src/.cargo/config.toml::-C target-cpu=native,false,,,0
-grepox,0.2.19,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-cf1-rs,0.4.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-cf_speedtest,0.8.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-cfg-cli,0.1.6,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-fast-grep,0.3.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-ctry,1.1.10,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-feature=+crt-static -Ctarget-cpu=native,false,,,0
-fast_fp,0.1.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Clinker-plugin-lto -Clinker=clang-13 -Clink-arg=-fuse-ld=lld-13 -Ctarget-cpu=native,false,,,0
-cube3d,0.7.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-fastdu,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-fastcsv,0.2.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-fasterp,0.2.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-go-brrr,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-fastmaths,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-flacenc,0.5.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-fastwebsockets,0.8.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-fastwebsockets-monoio,0.10.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-fath,0.2.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-fcwt,0.1.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-chalamet_pir,0.6.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-binseq,0.9.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-bintext,0.1.3,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
-bio_utils_rs,0.0.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+piscem,0.21.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+binseq,0.9.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 bit_ops,0.2.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 bitarena,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 bitarray,0.10.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
 bitcode,0.6.9,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-gxhash,3.5.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-chela,0.0.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+laye,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+lccc-siphash,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 bitnuc,0.4.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-chess_perft,3.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
+jmap-backup-rs,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+lcpfs,2026.1.102,3,0,3,0,0,3,0,0,unconditional,false,,false,,,0
 bitslice,0.1.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-fmtcnv,2.3.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-feature=+crt-static -Ctarget-cpu=native,false,,,0
-fmtsize,0.1.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Clink-arg=-fuse-ld=lld -Ctarget-cpu=native,false,,,0
-hackatime-heatmap,0.3.7,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-darling-installer,0.1.4,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-darling-binary,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-darling_packages,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-dat,2.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-claude-token-monitor,0.2.6,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -C overflow-checks=on -C force-frame-pointers=yes,false,,,0
-dcat,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-ikill,1.5.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native -C link-arg=-s,false,,,0
-bammap2,0.1.7,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-barbell,0.3.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-image-dwt,0.4.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-deacon,0.15.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-image-hdr,0.6.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-image-find,0.1.5,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+treed_gpu,0.1.4,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+tremor-kv,0.7.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+go-brrr,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+legato,0.0.36,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+js-json-query,0.4.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native -C link-arg=-s,false,,,0
+json-eval-rs,0.0.96,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+trypema,1.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+bintext,0.1.3,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
 board-game,0.8.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-frawk,0.4.8,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native -A unused_attributes,false,,,0
-bonbon,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+bio_utils_rs,0.0.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+kansei,0.0.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+kapacitor-udf,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -C opt-level=3,false,,,0
+bonbon,0.4.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 bonsai-pot,0.300.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native | .cargo/config.toml::-Zunstable-options -Clinker-flavor=gnu-lld-cc -Ctarget-cpu=native,false,,,0
-batlimit,0.11.23,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-feature=+crt-static -Ctarget-cpu=native,false,,,0
-inari,2.0.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-inferno-ai,0.10.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-infotheory,1.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native | .cargo/config.toml::-C target-cpu=native -C link-arg=-fuse-ld=lld,false,,,0
-boxmux,0.190.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native | .cargo/config.toml::-C target-cpu=native -C link-arg=-s,false,,,0
-bqtools,0.5.6,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-demine,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-interatomic,0.5.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-funcperm,0.2.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-bempp,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+kiddo,5.3.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+kira-autolys,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+kira-energetics,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+kira-mitoqc,0.3.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+kira-mmcif,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -C opt-level=3 -C codegen-units=1 | .cargo/config.toml::-C target-feature=+avx2 -C target-feature=+fma -C target-cpu=native -C opt-level=3 -C codegen-units=1,false,,,0
+kira-nuclearqc,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+kira-organelle,0.3.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+kira-proteoqc,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+kira-secretion,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+kira-riboqc,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+kira-spliceqc,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+node2text,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
+keeprompt,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+keepass-diff,1.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+boxmux,0.240.3373,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native | .cargo/config.toml::-C target-cpu=native -C link-arg=-s,false,,,0
+kentro,0.2.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+libbladerf-rs,0.4.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+libbruteforce,4.0.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+bqtools,0.5.9,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+lokacore,0.3.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
+turboquant-rs,0.4.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+bramble-rs,0.1.5,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+splik,0.2.6,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
 bred,0.4.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+coinlive,0.2.5,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::target-cpu=native,false,,,0
+coll-birth,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+collectivity,3.2.2,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
 bridgitte,0.1.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+nox-mixnet,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+color-ssh,0.9.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+colorkit,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+libgrammstein,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 bropages,1.5.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
-depi,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C link-arg=-lpsapi -C link-arg=-lbcrypt -C target-cpu=native -Z tune-cpu=native -Z strip=symbols -Z unstable-options | .cargo/config::-C target-cpu=native -Z tune-cpu=native -Z strip=symbols -Z unstable-options,false,,,0
-ipset_lookup,0.4.8,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-taylorator,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-hamming-dict,0.5.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
-hamming-lsh,0.3.2,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
-tantivy-remote,0.3.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-cobs-simd,0.2.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-tenebris,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -C opt-level=3 -C codegen-units=1,false,,,0
-burn_depth,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-hibernia,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-ticky,1.0.2,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C link-arg=-lpsapi -C link-arg=-lbcrypt -C target-cpu=native -Z tune-cpu=native -C strip=symbols -Z unstable-options | .cargo/config::-C target-cpu=native -Z tune-cpu=native -C strip=symbols -Z unstable-options,false,,,0
-cabac,0.15.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-cabin-language,0.0.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-hist-rs,0.1.8,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-hitomi,0.8.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Clink-arg=-fuse-ld=lld -Ctarget-cpu=native,false,,,0
-hive-gpu,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-hdbscan-rs,0.6.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-configman,0.4.1,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native -C link-arg=-s,false,,,0
-helioxide,0.4.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-coolfindpattern,0.1.7,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-diffusionx,0.11.5,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-coopr,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
-copc_converter,0.9.12,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-copp,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-cortex-a,8.1.1,2,0,2,0,0,2,0,0,unconditional,false,,false,,,0
-cortex_rust,0.6.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-dissect,0.7.5,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-dither-qr,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native -Clink-arg=-fuse-ld=lld,false,,,0
+colorutils-rs,0.8.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+libm-ext,0.0.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+liblevenshtein,0.9.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+kowito-json,0.2.19,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+lowestbins,1.4.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+nucgen,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+libnoise,1.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -C opt-level=3,false,,,0
+libote-codes,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+crypto2,0.1.2,0,0,0,0,0,0,0,0,none,true,".cargo/config.toml::-C target-cpu=native | .cargo/config.toml::-C target-cpu=native -C target-feature=+aes,+crypto,+neon | .cargo/config.toml::-C target-cpu=native -C target-feature=+aes,+pclmul,+sse,+sse2,+sse3,+ssse3,+sse4.1,+sse4.2,+avx,+avx2,+fma,+adx | .cargo/config.toml::-C target-cpu=native -C target-feature=+aes,+pclmul,+sse,+sse2,+sse3,+ssse3,+sse4.1,+sse4.2,+avx,adx",false,,,0
 compactrs,2025.12.25,0,0,0,0,0,0,0,0,none,true,".cargo/config.toml::-Z mir-opt-level=4 -Z location-detail=none -Z fmt-debug=none -Z share-generics=y -Z inline-mir-threshold=0 -Z cross-crate-inline-threshold=0 -C symbol-mangling-version=v0 -C target-cpu=native -C code-model=small -C link-arg=/MERGE:.rdata=.text -C link-arg=/MERGE:.pdata=.text -C link-arg=/OPT:REF,ICF -C link-arg=/INCREMENTAL:NO",false,,,0
 compensated-summation,0.3.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 compressed_vec,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native -C target-feature=+avx2,false,,,0
-ksw2rs,0.1.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-coinlive,0.2.5,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::target-cpu=native,false,,,0
-dokkoo,0.5.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C link-arg=-lpsapi -C target-cpu=native -Z tune-cpu=native -C strip=symbols -Z unstable-options | .cargo/config::-C target-cpu=native -Z tune-cpu=native -C strip=symbols -Z unstable-options,false,,,0
-codebase-to-markdown,0.1.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-collectivity,3.2.2,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
-ktstr,0.4.23,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-D warnings -C target-cpu=native,false,,,0
-domaincheck,0.4.125,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-feature=+crt-static -Ctarget-cpu=native,false,,,0
-color-ssh,0.8.4,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-colorkit,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-colorutils-rs,0.8.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-dpf,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -C link-arg=-fuse-ld=lld,false,,,0
-dqr,0.14.100,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-feature=+crt-static -Ctarget-cpu=native,false,,,0
+ksw2rs,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+ktstr,0.25.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-D warnings -C target-cpu=native,false,,,0
+gprofile,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native -C link-arg=-s,false,,,0
+configman,0.4.1,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native -C link-arg=-s,false,,,0
+cabac,0.15.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+cabin-language,0.0.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+coopr,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
+copc_converter,0.11.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+copia,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+copp,0.2.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+green-kernels,0.2.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+stabilizer-stream,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 lake,0.2.0,0,0,0,0,0,0,0,0,none,true,".cargo/config.toml::-C target-cpu=native -C opt-level=3 -C target-feature=+avx2,+bmi2",false,,,0
+langr,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+csv_lib,1.0.7,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native | src/.cargo/config.toml::-C target-cpu=native,false,,,0
+stalkr,0.1.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+grepox,0.2.19,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+stardetect,0.3.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+underthesea_core,3.3.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+ctry,1.1.10,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-feature=+crt-static -Ctarget-cpu=native,false,,,0
 major-pickems-sim,0.3.0,0,0,0,0,0,0,0,0,none,true,"Cargo.toml::-C target-cpu=native | Cargo.toml::-C target-cpu=native -C link-arg=-Wl,--no-rosegment -C force-frame-pointers=yes -C symbol-mangling-version=v0 -C llvm-args=--inline-threshold=0 -Z inline-mir=no",false,,,0
-dsi-bitstream,0.9.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-hoox,0.3.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-feature=+crt-static -Ctarget-cpu=native,false,,,0
-dtact,0.1.6,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+cortex-a,8.1.1,2,0,2,0,0,2,0,0,unconditional,false,,false,,,0
+runegate,0.3.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+runfile,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+cortex_rust,0.6.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+cube3d,0.7.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+rush-build,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 makigami,0.1.0,0,0,0,0,0,0,0,0,none,true,".cargo/config.toml::-C target-cpu=native -C target-feature=+avx,+avx2,+fma,+aes,+sse2,+popcnt,+f16c -C llvm-args=-unroll-threshold=1000 -C llvm-args=-vectorize-slp=true",false,,,0
-dtoa-benchmark,0.0.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-hnsw,0.11.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
-hot-loop,0.5.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-map2fig,0.7.6,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -C link-arg=-fuse-ld=lld,false,,,0
-dxgi-capture-rs,1.2.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-dylex,1.0.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-larz,0.3.1,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C link-arg=-lpsapi -C link-arg=-lbcrypt -C target-cpu=native -Z tune-cpu=native -Z strip=symbols -Z unstable-options | .cargo/config::-C target-cpu=native -Z tune-cpu=native -Z strip=symbols -Z unstable-options,false,,,0
-lmutils,0.2.92,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-localsnd,0.5.27,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-feature=+crt-static -Ctarget-cpu=native,false,,,0
+statsrelay,3.0.1,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
+stealth,0.0.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+hibernia,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+rustedbytes-counterlines,0.2.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+cpu6502,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -Cllvm-args=--inline-threshold=1000,false,,,0
+hist-rs,0.1.8,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+gxhash,3.5.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+hitomi,0.8.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Clink-arg=-fuse-ld=lld -Ctarget-cpu=native,false,,,0
+hive-gpu,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 marsupial,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-lockpick,0.5.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-libbladerf-rs,0.3.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-libbruteforce,4.0.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-lccc-siphash,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-lokacore,0.3.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
-lcpfs,2026.1.102,3,0,3,0,0,3,0,0,unconditional,false,,false,,,0
+hnsw,0.11.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
+map2fig,0.7.8,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -C link-arg=-fuse-ld=lld,false,,,0
+darling-binary,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+darling-installer,0.1.4,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+darling_packages,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+rustvani,0.3.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+hot-loop,0.5.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+hackatime-heatmap,0.3.9,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+hamming-dict,0.5.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
+hamming-lsh,0.3.2,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
+dcat,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+rustytime-server,0.23.5,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+deacon,0.15.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+mdkb,2.2.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+mdlite,0.2.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+rwkv-tts-rs,0.2.5,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+hpx-fastwebsockets,2.4.17,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+htscodecs-wrapper,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+demine,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+walky,1.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+utpm,0.3.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 hp2,4.0.8,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-libdeflate,26.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-hpx-fastwebsockets,2.4.11,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-lowestbins,1.4.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-legato,0.0.32,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+lling-llang,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+depi,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C link-arg=-lpsapi -C link-arg=-lbcrypt -C target-cpu=native -Z tune-cpu=native -Z strip=symbols -Z unstable-options | .cargo/config::-C target-cpu=native -Z tune-cpu=native -Z strip=symbols -Z unstable-options,false,,,0
+strix,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+saltine-gromark,0.3.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+valar-spiral-rs,0.5.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+valar-ypir,0.1.5,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+vbinseq,0.1.7,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+vector-rust-library,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+wd2sql,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+varint-simd,0.4.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+wreck,0.4.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+hardware-rust-crypto,1.0.1,1,0,1,0,1,0,0,0,compile_time,false,,false,,,0
+wideword,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+hoox,0.3.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-feature=+crt-static -Ctarget-cpu=native,false,,,0
+wty,0.8.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native -Cforce-frame-pointers=yes,false,,,0
+sunny,1.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native -C link-arg=-s,false,,,0
+superline,0.6.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+vein-recall,0.1.0,0,0,0,0,0,0,0,0,none,true,".cargo/config.toml::-C target-cpu=native | .cargo/config.toml::-C target-cpu=native -C target-feature=+aes,+sha2,+fp16,+i8mm | .cargo/config.toml::-C target-cpu=native -C target-feature=-avx,-avx2",false,,,0
+wham,1.1.4,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
+x3,0.3.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+lmutils,0.2.92,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+whisper-macos-cli,0.1.2,0,0,0,0,0,0,0,0,none,true,".cargo/config.toml::-C link-arg=-Wl,--build-id=sha256 -C target-cpu=native | .cargo/config.toml::-C target-cpu=native",false,,,0
+hdbscan-rs,0.6.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+lockpick,0.7.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+sux,0.12.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+tenebris,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -C opt-level=3 -C codegen-units=1,false,,,0
+winit-gfx-hal,0.0.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native,false,,,0
+helioxide,0.6.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+swarm-bot,0.4.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+diffusionx,0.12.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+syncable-cli,0.37.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+t1ha,0.1.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+tachyon_json,1.0.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -C opt-level=3,false,,,0
+xn,0.1.17,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+ticky,1.0.2,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C link-arg=-lpsapi -C link-arg=-lbcrypt -C target-cpu=native -Z tune-cpu=native -C strip=symbols -Z unstable-options | .cargo/config::-C target-cpu=native -Z tune-cpu=native -C strip=symbols -Z unstable-options,false,,,0
+dissect,0.7.5,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
 edgevec,0.9.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -C opt-level=3 -C llvm-args=-enable-no-infs-fp-math -C llvm-args=-enable-no-nans-fp-math,false,,,0
 ef_rs,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-liblevenshtein,0.8.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-libm-ext,0.0.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-libnoise,1.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -C opt-level=3,false,,,0
-itoa-benchmark,0.0.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-libote-codes,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-kansei,0.0.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-kapacitor-udf,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -C opt-level=3,false,,,0
-jdb_pgm,0.3.16,0,0,0,0,0,0,0,0,none,true,".cargo/config.toml::-C target-cpu=native -C target-feature=+avx2,+fma,+bmi2,+popcnt,+lzcnt | .cargo/config.toml::-C target-cpu=native -C target-feature=+avx2,+fma,+bmi2,+popcnt,+lzcnt,+sse4.2 | .cargo/config.toml::-C target-cpu=native -C target-feature=+avx2,+fma,+bmi2,+popcnt,+lzcnt,+sse4.2 -C link-arg=-Wl,--gc-sections",false,,,0
-jedit,0.1.4,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-g -C target-cpu=native,false,,,0
-js-json-query,0.4.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C target-cpu=native -C link-arg=-s,false,,,0
-json-eval-rs,0.0.96,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-jsontoml,0.2.35,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-feature=+crt-static -Ctarget-cpu=native,false,,,0
-keeprompt,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-keepass-diff,1.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-kentro,0.2.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+yadf,1.3.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+taylorator,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+dxgi-capture-rs,1.2.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+dylex,1.0.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+dokkoo,0.5.0,0,0,0,0,0,0,0,0,none,true,.cargo/config::-C link-arg=-lpsapi -C target-cpu=native -Z tune-cpu=native -C strip=symbols -Z unstable-options | .cargo/config::-C target-cpu=native -Z tune-cpu=native -C strip=symbols -Z unstable-options,false,,,0
+dynamic_learned_index,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+yatch,0.1.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+dpf,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -C link-arg=-fuse-ld=lld,false,,,0
+yuv,0.8.16,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+yuvutils-rs,0.8.3,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
 eiche,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
-kk-crypto,0.1.5,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-kowito-json,0.2.19,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-kira-autolys,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-kira-energetics,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-kira-mitoqc,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-kira-mmcif,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -C opt-level=3 -C codegen-units=1 | .cargo/config.toml::-C target-feature=+avx2 -C target-feature=+fma -C target-cpu=native -C opt-level=3 -C codegen-units=1,false,,,0
-kira-organelle,0.2.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-kira-nuclearqc,0.1.5,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-kira-proteoqc,0.1.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-kira-riboqc,0.1.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-kira-secretion,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-kira-spliceqc,0.1.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
-listsend,0.4.118,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-feature=+crt-static -Ctarget-cpu=native,false,,,0
-kiddo,5.3.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+zackstrap,1.9.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+zawk,0.5.25,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native -A unused_attributes,false,,,0
+dsi-bitstream,0.9.2,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+dtoa-benchmark,0.0.1,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-Ctarget-cpu=native,false,,,0
+dtact,0.2.6,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0
+tantivy-remote,0.6.0,0,0,0,0,0,0,0,0,none,true,.cargo/config.toml::-C target-cpu=native,false,,,0

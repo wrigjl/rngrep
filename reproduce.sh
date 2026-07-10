@@ -3,7 +3,7 @@
 # End-to-end reproduction driver for rngrep.
 #
 # Stages are ordered and mostly independent. The corpus fetch (stage 1) is
-# heavy (~34 GB of .crate tarballs + ~5 GB db-dump, ~40 GB total) and is
+# heavy (~37 GB of .crate tarballs + ~5 GB db-dump, ~40 GB total) and is
 # pinned by snapshot.toml + results/manifest.csv.gz. Tarballs are streamed
 # through a gzip decoder in memory by the classifier and never extracted to
 # disk, so there is no large decompressed working set (see REPRODUCE.md).
@@ -67,7 +67,8 @@ Run on a native host per ISA (disassembly only; no privileged hardware needed):
   aarch64 : bash pipeline/verify/arm_verify.sh
 Outputs: results/verify_results.csv, results/verify_refine.csv,
          results/arm_verify_results.csv
-See results/verify_summary.md and results/arm_verify_summary.md.
+Emit/no-emit soundness for this snapshot is narrated in results/audit_results.md
+(the verify_summary.md prose rollups exist only for results_2026-05-13/).
 NOTE
 
 echo "== done: see results/ and docs/SCHEMA.md =="

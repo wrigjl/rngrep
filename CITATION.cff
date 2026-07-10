@@ -31,3 +31,14 @@ keywords:
   - static analysis
   - record and replay
 license: MIT
+# Code is MIT (LICENSE); the derived dataset is CC-BY-4.0 (LICENSE-DATA).
+#
+# PUBLISH SLOT: once the Zenodo deposit (id 21270033, the 2026-07-08 corpus)
+# is published, uncomment and fill the concept DOI (the one that always
+# resolves to the latest version), then also set version + date-released:
+# identifiers:
+#   - type: doi
+#     value: 10.5281/zenodo.XXXXXXXX
+#     description: Concept DOI (all versions) of the archived rngrep artifact
+# version: "2026-07-08"        # the pinned crates.io snapshot
+# date-released: "2026-07-10"

@@ -11,9 +11,9 @@ x86_64,0.15.4,unconditional,nightly,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0
 swiss-army-knife,0.0.37,unconditional,nightly,default,host,fail-lib,0,0,0,error: cannot specialize on trait `Copy`
 swiss-army-knife,0.0.37,unconditional,nightly,rdrand,host,fail-lib,0,0,0,error: cannot specialize on trait `Copy`
 swiss-army-knife,0.0.37,unconditional,nightly,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error: cannot specialize on trait `Copy`
-ostd,0.17.2,out_of_scope,nightly,default,host,fail-lib,0,0,0,error[E0433]: cannot find module or crate `acpi` in this scope
-ostd,0.17.2,out_of_scope,nightly,rdrand,host,fail-lib,0,0,0,error[E0433]: cannot find module or crate `acpi` in this scope
-ostd,0.17.2,out_of_scope,nightly,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error[E0433]: cannot find module or crate `acpi` in this scope
+ostd,0.18.0,out_of_scope,nightly,default,host,fail-lib,0,0,0,error[E0433]: cannot find module or crate `acpi` in this scope
+ostd,0.18.0,out_of_scope,nightly,rdrand,host,fail-lib,0,0,0,error[E0433]: cannot find module or crate `acpi` in this scope
+ostd,0.18.0,out_of_scope,nightly,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error[E0433]: cannot find module or crate `acpi` in this scope
 sallyport,0.6.3,out_of_scope,nightly,default,host,ok,0,0,1,
 sallyport,0.6.3,out_of_scope,nightly,rdrand,host,ok,0,0,2,
 sallyport,0.6.3,out_of_scope,nightly,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error[E0463]: can't find crate for `core`
@@ -32,12 +32,18 @@ mc-rand,1.1.0,unconditional,allfeat,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,
 virtfw-libhw,0.5.0,unconditional,allfeat,default,host,ok,0,0,0,
 virtfw-libhw,0.5.0,unconditional,allfeat,rdrand,host,ok,0,0,0,
 virtfw-libhw,0.5.0,unconditional,allfeat,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,
-concrete-csprng,0.4.1,compile_time,allfeat,default,host,fail-lib,0,0,0,error: failed to run custom build command for `concrete-csprng v0.4.1 (/home/jas
-concrete-csprng,0.4.1,compile_time,allfeat,rdrand,host,fail-lib,0,0,0,error: failed to run custom build command for `concrete-csprng v0.4.1 (/home/jas
-concrete-csprng,0.4.1,compile_time,allfeat,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error: failed to run custom build command for `concrete-csprng v0.4.1 (/home/jas
+concrete-csprng,0.4.1,compile_time,allfeat,default,host,fail-lib,0,0,0,error: failed to run custom build command for `concrete-csprng v0.4.1 (<BASE>/w2
+concrete-csprng,0.4.1,compile_time,allfeat,rdrand,host,fail-lib,0,0,0,error: failed to run custom build command for `concrete-csprng v0.4.1 (<BASE>/w2
+concrete-csprng,0.4.1,compile_time,allfeat,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error: failed to run custom build command for `concrete-csprng v0.4.1 (<BASE>/w2
 hyper-thread-random,0.4.2,compile_time,allfeat,default,host,ok,0,0,0,
 hyper-thread-random,0.4.2,compile_time,allfeat,rdrand,host,ok,0,0,0,
 hyper-thread-random,0.4.2,compile_time,allfeat,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,
 winit-gfx-hal,0.0.0,unconditional,allfeat,default,host,ok,0,0,0,
 winit-gfx-hal,0.0.0,unconditional,allfeat,rdrand,host,ok,0,0,0,
 winit-gfx-hal,0.0.0,unconditional,allfeat,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,
+sec-mem,0.1.1,unconditional,allfeat,default,host,ok,0,0,0,
+sec-mem,0.1.1,unconditional,allfeat,rdrand,host,ok,0,0,0,
+sec-mem,0.1.1,unconditional,allfeat,sgx,x86_64-fortanix-unknown-sgx,fail-lib,0,0,0,error[E0432]: unresolved import `sec_mem`
+urng,0.8.0,unconditional,allfeat,default,host,ok,0,0,10,
+urng,0.8.0,unconditional,allfeat,rdrand,host,ok,0,0,10,
+urng,0.8.0,unconditional,allfeat,sgx,x86_64-fortanix-unknown-sgx,ok,0,0,0,
