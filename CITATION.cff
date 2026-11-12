@@ -38,6 +38,12 @@ identifiers:
     description: Concept DOI (all versions) of the archived rngrep artifact
   - type: doi
     value: 10.5281/zenodo.21270033
-    description: DOI of this version (msr-submission)
+    description: DOI of the corpus + db-dump deposit (msr-submission, 2026-07-09)
+  - type: doi
+    value: 10.5281/zenodo.24173384
+    description: >-
+      DOI of the version that adds rngrep-msr-submission.tar.gz, a git archive
+      of the msr-submission tag with the pipeline, results/, and docs/
+      (msr-submission-2, 2026-11-12)
 version: msr-submission
 date-released: "2026-07-10"
